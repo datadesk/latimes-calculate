@@ -1,4 +1,4 @@
-def get_persqmi(value, square_miles):
+def get_per_sqmi(value, square_miles):
 	try:
 		rate = float(value) / square_miles
 		return rate
