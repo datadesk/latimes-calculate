@@ -1,0 +1,3 @@
+h1. python-math
+
+A collection of snippets I use to do a little math. Nothing fancy.
