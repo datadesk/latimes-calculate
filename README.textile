@@ -12,3 +12,9 @@ h3. Calculates
 * Percent change
 * Percentage
 
+h3. Dependencies
+
+* django
+* math
+* numpy
+* scipy
