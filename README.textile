@@ -1,3 +1,13 @@
 h1. python-math
 
 A collection of snippets I use to do a little math. Nothing fancy.
+
+h3. Calculates
+
+* ELFI (Ethnolinguistic Fractionalization Index)
+* Percent change
+* Per Square Mile
+* Per Capita
+* Ordinal Rank
+* Decile rankings
+* Percentage
