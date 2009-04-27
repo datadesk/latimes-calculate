@@ -8,9 +8,9 @@ def mean_center(geoqueryset, point_attribute_name='point'):
 	
 	The mean center is the average x and y of all those points. 
 	
-	By default, it expects the Point field to be called 'point'.
+	By default, the function expects the Point field on your model to be called 'point'.
 	
-	If it's called something else, change the kwarg 'point_attribute_name'
+	If the point field is called something else, change the kwarg 'point_attribute_name'
 	to whatever your field might be called.
 		
 	h3. Example usage
@@ -18,7 +18,12 @@ def mean_center(geoqueryset, point_attribute_name='point'):
 		>> import calculate
 		>> calculate.mean_center(qs)
 		<Point object at 0x77a1694>
-		
+
+	h3. Dependencies
+	
+		* "django":http://www.djangoproject.com/
+		* "geodjango":http://www.geodjango.org/
+
 	h3. Documentation
 		
 		* "mean center":http://en.wikipedia.org/wiki/Geostatistics#Descriptive_spatial_statistics
