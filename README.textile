@@ -6,15 +6,18 @@ h3. Calculates
 
 * Decile rankings
 * ELFI (Ethnolinguistic Fractionalization Index)
+* Mean center
 * Ordinal rank
 * Per capita rate
 * Per square mile rate
 * Percentage change
 * Percentage
+* Standard deviation distance
 
 h3. Dependencies
 
-* django
-* math
-* numpy
-* scipy
+* "django":http://www.djangoproject.com/
+* "geodjango":http://www.geodjango.org/
+* "math":http://docs.python.org/library/math.html
+* "numpy":http://numpy.scipy.org/
+* "scipy":http://www.scipy.org/SciPy
