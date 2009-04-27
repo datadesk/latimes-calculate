@@ -20,4 +20,5 @@ h3. Dependencies
 * "geodjango":http://www.geodjango.org/
 * "math":http://docs.python.org/library/math.html
 * "numpy":http://numpy.scipy.org/
+* "psql ellipse() function":http://postgis.refractions.net/support/wiki/index.php?plpgsqlfunctions
 * "scipy":http://www.scipy.org/SciPy
