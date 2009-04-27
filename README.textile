@@ -6,10 +6,10 @@ h3. Calculates
 
 * Decile rankings
 * ELFI (Ethnolinguistic Fractionalization Index)
-* Ordinal Rank
-* Per Capita
-* Per Square Mile
-* Percent change
+* Ordinal rank
+* Per capita rate
+* Per square mile rate
+* Percentage change
 * Percentage
 
 h3. Dependencies
