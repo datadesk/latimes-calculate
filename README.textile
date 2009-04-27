@@ -13,6 +13,7 @@ h3. Calculates
 * Percentage change
 * Percentage
 * Standard deviation distance
+* Standard deviation ellipses
 
 h3. Dependencies
 
