@@ -12,6 +12,7 @@ h3. Contains functions that calculate:
 * Per square mile rate
 * Percentage change
 * Percentage
+* Standard competition rank
 * Standard deviation distance
 * Standard deviation ellipses
 
