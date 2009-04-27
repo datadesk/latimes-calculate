@@ -40,7 +40,6 @@ def standard_deviation_ellipses(geoqueryset, point_attribute_name='point', num_o
 
 		* "standard deviation ellipse":http://www.spatialanalysisonline.com/output/html/Directionalanalysisofpointdatasets.html
 		* "This code is translated from SQL by Francis Dupont":http://postgis.refractions.net/pipermail/postgis-users/2008-June/020354.html
-		* "The mathematical principles are drawn from CrimeStat's documentation":http://www.spatialanalysisonline.com/output/html/Directionalanalysisofpointdatasets.html
 		
 	"""
 	if not isinstance(geoqueryset, GeoQuerySet):
