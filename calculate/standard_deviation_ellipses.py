@@ -6,13 +6,13 @@ from django.contrib.gis.db.models.query import GeoQuerySet
 
 def standard_deviation_ellipses(geoqueryset, point_attribute_name='point', num_of_std=1, fix_points=True):
 	"""
-	Accepts a list of points and generates one or more standard deviation ellipses
-	demonstrating the geospatial distribution of where the points occur.
+	Accepts a GeoQuerySet and generates one or more standard deviation ellipses
+	demonstrating the geospatial distribution of where its points occur.
 	
-	Returns a one-to-many list of the hex representation of ellipses. 
+	Returns a one-to-many list of the ellipses as Polygon objects. 
 	
-	The standard deviation ellipse illustrates is the average variation in 
-	the distance of points, as well as their direction.
+	The standard deviation ellipse illustrates the average variation in 
+	the distance of points from the mean center, as well as their direction.
 	
 	By default, the function expects the Point field on your model to be called 'point'.
 	
