@@ -7,9 +7,10 @@ def ordinal_rank(queryset, obj):
 	
 	h3. Example usage
 	
+		>> import calculate
 		>> qs = Player.objects.all().order_by("-career_home_runs")
 		>> barry = Player.objects.get(first_name__iexact='Barry', last_name__iexact='Bonds')
-		>> get_ordinal_rank(qs, barry)
+		>> calculate.ordinal_rank(qs, barry)
 		1
 	
 	h3. Dependencies

@@ -12,7 +12,8 @@ def decile(array, score, kind='weak'):
 	
 	h3. Example usage
 	
-		>>> get_decile([1, 2, 3, 3, 4], 3)
+		>>> import calculate
+		>>> calculate.decile([1, 2, 3, 3, 4], 3)
 		9
 	
 	h3. Dependencies
