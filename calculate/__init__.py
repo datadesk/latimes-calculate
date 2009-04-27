@@ -1,3 +1,4 @@
+from competition_rank import competition_rank
 from decile import decile
 from elfi import elfi
 from mean_center import mean_center
