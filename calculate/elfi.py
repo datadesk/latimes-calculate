@@ -1,16 +1,17 @@
 import math
 
-def elfi(array):
+def elfi(array, strict=True):
 	"""
-	Accepts a list of decimal percentages, which are used 
-	to calculate the Ethnolinguistic Fractionalization Index (ELFI).
-	
-	The list must add up to one.
-
 	The ELFI is a simplified method for calculating the 
 	Ethnic Diversity Index. 
 	
+	Accepts a list of decimal percentages, which are used 
+	to calculate the Ethnolinguistic Fractionalization Index (ELFI).
+	
 	Returns a decimal value as a floating point number.
+	
+	By default, the list must add up to one. If you don't want to enforce
+	that check, set the kwarg strict to False.
 	
 	h3. Example usage
 	
@@ -29,7 +30,7 @@ def elfi(array):
 	"""
 	if not isinstance(array, list):
 		raise TypeError('input must be a list')
-	if sum(array) != 1.0:
-		raise ValueError('values of submitted array must add up to one. your list adds up to %s' % sum(array))
+	if strict and sum(array) != 1.0:
+			raise ValueError('values of submitted array must add up to one. your list adds up to %s' % sum(array))
 	elfi = 1 - sum([math.pow(i, 2) for i in array])
 	return elfi
