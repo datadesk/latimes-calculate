@@ -2,6 +2,7 @@ from competition_rank import competition_rank
 from decile import decile
 from elfi import elfi
 from mean_center import mean_center
+from median import median
 from nudge_points import nudge_points
 from ordinal_rank import ordinal_rank
 from per_capita import per_capita
