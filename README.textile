@@ -22,6 +22,7 @@ h3. Contains functions that calculate:
 * Percentage
 * Percentile
 * Standard competition rank
+* Standard deviation
 * Standard deviation distance
 * Standard deviation ellipses
 
@@ -35,6 +36,5 @@ h3. Dependencies
 * "django":http://www.djangoproject.com/
 * "geodjango":http://www.geodjango.org/
 * "math":http://docs.python.org/library/math.html
-* "numpy":http://numpy.scipy.org/
 * "psql ellipse() function":http://postgis.refractions.net/support/wiki/index.php?plpgsqlfunctions
 * "random":http://docs.python.org/library/random.html

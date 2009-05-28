@@ -1,5 +1,4 @@
-import numpy
-from calculate import mean_center
+import calculate
 from django.contrib.gis.geos import MultiPoint
 from django.contrib.gis.db.models.query import GeoQuerySet
 
@@ -37,6 +36,6 @@ def standard_deviation_distance(geoqueryset, point_attribute_name='point'):
 	"""
 	if not isinstance(geoqueryset, GeoQuerySet):
 		raise TypeError('First parameter must be a Django GeoQuerySet. You submitted a %s object' % type(geoqueryset))
-	mean = mean_center(geoqueryset, point_attribute_name=point_attribute_name)
+	mean = calculate.mean_center(geoqueryset, point_attribute_name=point_attribute_name)
 	distances = [getattr(p, point_attribute_name).distance(mean) for p in geoqueryset]
-	return numpy.std(distances)
+	return calculate.standard_deviation(distances)

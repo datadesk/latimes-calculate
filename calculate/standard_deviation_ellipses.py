@@ -1,5 +1,4 @@
-import numpy
-from calculate import nudge_points
+import calculate
 from django.contrib.gis.geos import fromstr
 from django.contrib.gis.geos import MultiPoint
 from django.contrib.gis.db.models.query import GeoQuerySet
@@ -33,7 +32,6 @@ def standard_deviation_ellipses(geoqueryset, point_attribute_name='point', num_o
 	
 		* "django":http://www.djangoproject.com/
 		* "geodjango":http://www.geodjango.org/
-		* "numpy":http://numpy.scipy.org/
 		* "psql ellipse() function":http://postgis.refractions.net/support/wiki/index.php?plpgsqlfunctions
 	
 	h3. Documentation
@@ -51,25 +49,25 @@ def standard_deviation_ellipses(geoqueryset, point_attribute_name='point', num_o
 		return [None]
 	
 	if fix_points:
-		nudge_points(geoqueryset, point_attribute_name=point_attribute_name)
+		calculate.nudge_points(geoqueryset, point_attribute_name=point_attribute_name)
 		
-	avg_x = numpy.average([abs(getattr(p, point_attribute_name).x) for p in geoqueryset])
-	avg_y = numpy.average([abs(getattr(p, point_attribute_name).y) for p in geoqueryset])
-	center_x = numpy.average([getattr(p, point_attribute_name).x for p in geoqueryset])
-	center_y = numpy.average([getattr(p, point_attribute_name).y for p in geoqueryset])
+	avg_x = calculate.mean([abs(getattr(p, point_attribute_name).x) for p in geoqueryset])
+	avg_y = calculate.mean([abs(getattr(p, point_attribute_name).y) for p in geoqueryset])
+	center_x = calculate.mean([getattr(p, point_attribute_name).x for p in geoqueryset])
+	center_y = calculate.mean([getattr(p, point_attribute_name).y for p in geoqueryset])
 	
-	sum_square_diff_avg_x = sum([numpy.power((abs(getattr(p, point_attribute_name).x) - avg_x), 2) for p in geoqueryset])
-	sum_square_diff_avg_y = sum([numpy.power((abs(getattr(p, point_attribute_name).y) - avg_y), 2) for p in geoqueryset])
+	sum_square_diff_avg_x = sum([math.pow((abs(getattr(p, point_attribute_name).x) - avg_x), 2) for p in geoqueryset])
+	sum_square_diff_avg_y = sum([math.pow((abs(getattr(p, point_attribute_name).y) - avg_y), 2) for p in geoqueryset])
 	sum_diff_avg_x_y = sum([(abs(getattr(p, point_attribute_name).x) - avg_x) * (abs(getattr(p, point_attribute_name).y) - avg_y) for p in geoqueryset])
-	sum_square_diff_avg_x_y = sum([numpy.power((abs(getattr(p, point_attribute_name).x) - avg_x) * (abs(getattr(p, point_attribute_name).y) - avg_y), 2) for p in geoqueryset])
-	constant = numpy.sqrt(numpy.power((sum_square_diff_avg_x - sum_square_diff_avg_y), 2) + (4 * sum_square_diff_avg_x_y))
-	theta = numpy.arctan((sum_square_diff_avg_x - sum_square_diff_avg_y + constant) / (2 * sum_diff_avg_x_y))
+	sum_square_diff_avg_x_y = sum([math.pow((abs(getattr(p, point_attribute_name).x) - avg_x) * (abs(getattr(p, point_attribute_name).y) - avg_y), 2) for p in geoqueryset])
+	constant = math.sqrt(math.pow((sum_square_diff_avg_x - sum_square_diff_avg_y), 2) + (4 * sum_square_diff_avg_x_y))
+	theta = math.atan((sum_square_diff_avg_x - sum_square_diff_avg_y + constant) / (2 * sum_diff_avg_x_y))
 	
-	stdx_sum_x_y_cos_sin_theta = sum([numpy.power((((getattr(p, point_attribute_name).x - center_x) * numpy.cos(theta)) - ((getattr(p, point_attribute_name).y - center_y) * numpy.sin(theta))), 2) for p in geoqueryset])
-	stdy_sum_x_y_sin_cos_theta = sum([numpy.power((((getattr(p, point_attribute_name).x - center_x) * numpy.sin(theta)) - ((getattr(p, point_attribute_name).y - center_y) * numpy.cos(theta))), 2) for p in geoqueryset])
+	stdx_sum_x_y_cos_sin_theta = sum([math.pow((((getattr(p, point_attribute_name).x - center_x) * math.cos(theta)) - ((getattr(p, point_attribute_name).y - center_y) * math.sin(theta))), 2) for p in geoqueryset])
+	stdy_sum_x_y_sin_cos_theta = sum([math.pow((((getattr(p, point_attribute_name).x - center_x) * math.sin(theta)) - ((getattr(p, point_attribute_name).y - center_y) * math.cos(theta))), 2) for p in geoqueryset])
 	
-	stdx = numpy.sqrt((2 * stdx_sum_x_y_cos_sin_theta) / (n - 2))
-	stdy = numpy.sqrt((2 * stdy_sum_x_y_sin_cos_theta) / (n - 2))
+	stdx = math.sqrt((2 * stdx_sum_x_y_cos_sin_theta) / (n - 2))
+	stdy = math.sqrt((2 * stdy_sum_x_y_sin_cos_theta) / (n - 2))
 	
 	results = []
 	from django.db import connection
