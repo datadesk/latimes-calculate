@@ -2,11 +2,19 @@ h1. python-math
 
 A collection of snippets I use to do a little math. Nothing fancy.
 
+h3. The mission
+
+Make a single basket for all the math functions I use to do journalism
+and, as it expends, try to translate everything out of numpy so I don't
+have to deploy its entire module to my production server.
+
 h3. Contains functions that calculate:
 
 * Decile rankings
 * ELFI (Ethnolinguistic Fractionalization Index)
+* Mean
 * Mean center
+* Median
 * Ordinal rank
 * Per capita rate
 * Per square mile rate
