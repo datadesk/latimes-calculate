@@ -1,4 +1,5 @@
-import numpy
+import math
+import random
 from django.contrib.gis.db.models.query import GeoQuerySet
 
 def nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001):
@@ -42,9 +43,9 @@ def nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001):
 	r = radius 
 	for point in geoqueryset:
 		if getattr(point, point_attribute_name).x == previous_x and getattr(point, point_attribute_name).y == previous_y and previous_x and previous_y:
-			theta = numpy.random.rand() * 2 * numpy.pi # angle value in radian between 0 and 2pi
-			getattr(point, point_attribute_name).x = getattr(point, point_attribute_name).x + (numpy.cos(theta)*r)
-			getattr(point, point_attribute_name).y = getattr(point, point_attribute_name).y + (numpy.sin(theta)*r)
+			theta = random.random() * 2 * math.pi # angle value in radian between 0 and 2pi
+			getattr(point, point_attribute_name).x = getattr(point, point_attribute_name).x + (math.cos(theta)*r)
+			getattr(point, point_attribute_name).y = getattr(point, point_attribute_name).y + (math.sin(theta)*r)
 		else:
 			previous_x = getattr(point, point_attribute_name).x
 			previous_y = getattr(point, point_attribute_name).y
