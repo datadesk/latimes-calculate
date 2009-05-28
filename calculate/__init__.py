@@ -8,6 +8,7 @@ from per_capita import per_capita
 from per_sqmi import per_sqmi
 from percentage_change import percentage_change
 from percentage import percentage
+from percentile import percentile
 from random_point import random_point
 from standard_deviation_distance import standard_deviation_distance
 from standard_deviation_ellipses import standard_deviation_ellipses

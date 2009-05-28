@@ -12,6 +12,7 @@ h3. Contains functions that calculate:
 * Per square mile rate
 * Percentage change
 * Percentage
+* Percentile
 * Standard competition rank
 * Standard deviation distance
 * Standard deviation ellipses
@@ -29,4 +30,3 @@ h3. Dependencies
 * "numpy":http://numpy.scipy.org/
 * "psql ellipse() function":http://postgis.refractions.net/support/wiki/index.php?plpgsqlfunctions
 * "random":http://docs.python.org/library/random.html
-* "scipy":http://www.scipy.org/SciPy

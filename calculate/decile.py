@@ -1,5 +1,3 @@
-from scipy.stats import percentileofscore
-
 def decile(array, score, kind='weak'):
 	"""
 	Accepts an array of values and a singleton score.
@@ -18,20 +16,21 @@ def decile(array, score, kind='weak'):
 	
 	h3. Dependencies
 	
-	* "scipy":http://www.scipy.org/SciPy
+		* "scipy":http://www.scipy.org/SciPy
 	
 	h3. Documentation
 	
-	* "scipy.stats.percentileofscore":http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.percentileofscore.html#scipy.stats.percentileofscore
-	* "percentile rank":http://en.wikipedia.org/wiki/Percentile_rank
-	* "decile":http://en.wikipedia.org/wiki/Decile
+		* "percentile rank":http://en.wikipedia.org/wiki/Percentile_rank
+		* "decile":http://en.wikipedia.org/wiki/Decile
 	
 	"""
+	from calculate import percentile
+	
 	if not isinstance(array, list):
 		raise TypeError('first value input must be a list')
-	percentile = percentileofscore(array, score, kind=kind)
-	if percentile == 100.0:
+	percentile_score = percentile(array, score, kind=kind)
+	if percentile_score == 100.0:
 		return 10
 	else:
-		decile = int(percentile * 0.1) + 1
+		decile = int(percentile_score * 0.1) + 1
 		return decile
