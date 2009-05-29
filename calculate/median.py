@@ -13,10 +13,7 @@ def median(data_list):
 		return data_list[index]
 	else:
 		# If the n is even, average the two values at the center
-		print "EVEN!"
 		low_index = n / 2 - 1
-		print low_index
 		high_index = n / 2
-		print high_index
 		average = (data_list[low_index] + data_list[high_index]) / 2
 		return average
