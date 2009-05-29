@@ -5,7 +5,6 @@ def median(data_list):
 	data_list = map(float, data_list)
 	n = len(data_list)
 	data_list.sort()
-	print data_list
 	# Test whether the n is odd
 	if n & 1:
 		# If is is, get the index simply by dividing it in half
