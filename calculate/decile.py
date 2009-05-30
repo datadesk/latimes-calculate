@@ -2,7 +2,7 @@ import calculate
 
 def decile(data_list, score, kind='weak'):
 	"""
-	Accepts a range of values and a single number to add to it
+	Accepts a sample of values and a single number to add to it
 	and determine the decile equivilent of its percentile rank.
 		
 	By default, the method used to negotiate gaps and ties
@@ -13,8 +13,8 @@ def decile(data_list, score, kind='weak'):
 	
 	h3. Example usage
 	
-		>>> import calculate
-		>>> calculate.decile([1, 2, 3, 3, 4], 3)
+		>> import calculate
+		>> calculate.decile([1, 2, 3, 3, 4], 3)
 		9
 	
 	h3. Documentation

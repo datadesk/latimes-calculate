@@ -1,78 +1,92 @@
-def percentile(data_list, score, kind='weak'):
-	"""
-	The percentile rank of a score relative to a list of scores.
+import calculate
 
+def percentile(data_list, value, kind='weak'):
+	"""
+	Accepts a sample of values and a single number to add to it
+	and determine its percentile rank.
+	
 	A percentile of, for example, 80 percent means that 80 percent of the
-	scores in the data_list are below the given score. 
+	scores in the range are below the given score. 
 	
 	In the case of gaps or ties, the exact definition depends on the type
-	of the calculation stipulated by the kind keyword argument.
+	of the calculation stipulated by the "kind" keyword argument.
 	
-	This function is a modification of scipy.stats.percentileofscore. The 
-	only major difference is that I eliminated the numpy dependency, and
-	omitted the rank kwarg option until I can get more time to translate
-	the numpy parts out.
-
-	h3. Parameters
+	There are three kinds of percentile calculations provided here. The
+	default is "weak".
 	
-		* data_list: list
-			
-			* A list of scores to which the score argument is compared.
+		1. "weak"
 	
-		* score: int or float
-			
-			* Value that is compared to the elements in the data_list.
-			
-		* kind: {'rank', 'weak', 'strict', 'mean'}, optional
+			Corresponds to the definition of a cumulative
+			distribution function, with the result generated
+			by returning the percentage of values at or equal
+			to the the provided value.
+	
+		2. "strict"
 		
-			* This optional parameter specifies the interpretation of the resulting score:
-
-				* "weak": This kind corresponds to the definition of a cumulative
-						  distribution function.  A percentileofscore of 80%
-						  means that 80% of values are less than or equal
-						  to the provided score.
-				
-				* "strict": Similar to "weak", except that only values that are
-							strictly less than the given score are counted.
-				
-				* "mean": The average of the "weak" and "strict" scores, often used in
-						  testing.	See
+			Similar to "weak", except that only values that are
+			less than the given score are counted. This can often
+			produce a result much lower than "weak" when the provided
+			score is occurs many times in the sample.
+			
+		3. "mean"
+		
+			The average of the "weak" and "strict" scores.
+			
+	h3. Example usage
 	
+		>> import calculate
+		>> calculate.percentile([1, 2, 3, 4], 3)
+		75.0
+		>> calculate.percentile([1, 2, 3, 3, 4], 3, kind='strict')
+		40.0
+		>> calculate.percentile([1, 2, 3, 3, 4], 3, kind='weak')
+		80.0
+		>> calculate.percentile([1, 2, 3, 3, 4], 3, kind='mean')
+		60.0
+
 	h3. Documentation
 	
 		* "Percentile rank":http://en.wikipedia.org/wiki/Percentile_rank
-		* "scipy.stats":http://www.scipy.org/SciPyPackages/Stats
 
-	Example usage::
-
-		Three-quarters of the given values lie below a given score:
-
-			>>> percentileofscore([1, 2, 3, 4], 3)
-			75.0
-
-		Only 2/5 values are strictly less than 3:
-
-			>>> percentile([1, 2, 3, 3, 4], 3, kind='strict')
-			40.0
-
-		But 4/5 values are less than or equal to 3:
-
-			>>> percentile([1, 2, 3, 3, 4], 3, kind='weak')
-			80.0
-
-		The average between the weak and the strict scores is
-
-			>>> percentile([1, 2, 3, 3, 4], 3, kind='mean')
-			60.0
+	h3. Credits
+	
+		This function is a modification of scipy.stats.percentileofscore. The 
+		only major difference is that I eliminated the numpy dependency, and
+		omitted the rank kwarg option until I can find time to translate
+		the numpy parts out.
 
 	"""
-	n = len(data_list)
+	# Test to make sure the input is a list or tuple
+	if not isinstance(data_list, (list, tuple)):
+		raise TypeError('First input must be a list or tuple. You passed in a %s' % type(data_list))
+	
+	# Convert all the values to floats and test to make sure there aren't any strings in there
+	try:
+		data_list = map(float, data_list)
+	except ValueError:
+		ValueError('Input values should contain numbers, your first input contains something else')
+		
+	if not isinstance(value, (int,long,float)):
+		return ValueError('Input values should contain numbers, your second input is a %s' % type(value))
+	
+	# Find the number of values in the sample
+	n = float(len(data_list))
 
 	if kind == 'strict':
-		return len([i for i in data_list if i < score]) / float(n) * 100
+		# If the selected method is strict, count the number of values 
+		# below the provided one and then divide it into the n
+		return len([i for i in data_list if i < value]) / n * 100
+	
 	elif kind == 'weak':
-		return len([i for i in data_list if i <= score]) / float(n) * 100
+		# If the selected method is weak, count the number of values
+		# equal to or below the provided on and then divide it into n
+		return len([i for i in data_list if i <= value]) / n * 100
+
 	elif kind == 'mean':
-		return (len([i for i in data_list if i < score]) + len([i for i in data_list if i <= score])) * 50 / float(n)
+		# If the selected method is mean, take the weak and strong
+		# methods and average them.
+		strict = len([i for i in data_list if i < value]) / n * 100
+		weak = len([i for i in data_list if i <= value]) / n * 100
+		return calculate.mean([strict, weak])
 	else:
 		raise ValueError("The kind kwarg must be 'strict', 'weak' or 'mean'. You can also opt to leave it out and rely on the default method.")

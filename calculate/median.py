@@ -28,8 +28,12 @@ def median(data_list):
 	if not isinstance(data_list, (list, tuple)):
 		raise TypeError('First input must be a list or tuple. You input a %s' % type(data_list))
 		
-	# Convert all the values to floats
-	data_list = map(float, data_list)
+	# Convert all the values to floats and test to make sure there aren't any strings in there
+	try:
+		data_list = map(float, data_list)
+	except ValueError:
+		ValueError('Input values should be a number, your first input contains something else')
+		
 	
 	# Fetch the total number of values
 	n = len(data_list)
