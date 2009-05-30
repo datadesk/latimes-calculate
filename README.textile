@@ -15,12 +15,14 @@ h3. Contains functions that calculate:
 * Mean
 * Mean center
 * Median
+* Mode
 * Ordinal rank
 * Per capita rate
 * Per square mile rate
 * Percentage change
 * Percentage
 * Percentile
+* Range
 * Standard competition rank
 * Standard deviation
 * Standard deviation distance
@@ -28,6 +30,7 @@ h3. Contains functions that calculate:
 
 h3. Other utilities to:
 
+* Print out a set of basic summary statistics
 * Get a random point
 * Nudge identical points slightly apart
 
