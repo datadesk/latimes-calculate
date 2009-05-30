@@ -32,9 +32,8 @@ def median(data_list):
 	try:
 		data_list = map(float, data_list)
 	except ValueError:
-		ValueError('Input values should be a number, your first input contains something else')
+		raise ValueError('Input values should be a number, your first input contains something else')
 		
-	
 	# Fetch the total number of values
 	n = len(data_list)
 	

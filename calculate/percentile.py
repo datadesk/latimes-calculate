@@ -64,7 +64,7 @@ def percentile(data_list, value, kind='weak'):
 	try:
 		data_list = map(float, data_list)
 	except ValueError:
-		ValueError('Input values should contain numbers, your first input contains something else')
+		raise ValueError('Input values should contain numbers, your first input contains something else')
 		
 	if not isinstance(value, (int,long,float)):
 		return ValueError('Input values should contain numbers, your second input is a %s' % type(value))
