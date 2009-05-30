@@ -67,7 +67,7 @@ def percentile(data_list, value, kind='weak'):
 		raise ValueError('Input values should contain numbers, your first input contains something else')
 		
 	if not isinstance(value, (int,long,float)):
-		return ValueError('Input values should contain numbers, your second input is a %s' % type(value))
+		raise ValueError('Input values should contain numbers, your second input is a %s' % type(value))
 	
 	# Find the number of values in the sample
 	n = float(len(data_list))
