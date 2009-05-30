@@ -6,7 +6,7 @@ def percentile(data_list, value, kind='weak'):
 	and determine its percentile rank.
 	
 	A percentile of, for example, 80 percent means that 80 percent of the
-	scores in the range are below the given score. 
+	scores in the sequence are below the given score. 
 	
 	In the case of gaps or ties, the exact definition depends on the type
 	of the calculation stipulated by the "kind" keyword argument.
