@@ -1,6 +1,6 @@
 import math
 
-def elfi(array, strict=True):
+def elfi(data_list):
 	"""
 	The ELFI is a simplified method for calculating the 
 	Ethnic Diversity Index. 
@@ -32,7 +32,11 @@ def elfi(array, strict=True):
 	if not isinstance(data_list, (list, tuple)):
 		raise TypeError('First input must be a list or tuple. You input a %s' % type(data_list))
 
-	if strict and sum(array) != 1.0:
-			raise ValueError('values of submitted array must add up to one. your list adds up to %s' % sum(array))
-	elfi = 1 - sum([math.pow(i, 2) for i in array])
+	# Convert all the values to floats and test to make sure there aren't any strings in there
+	try:
+		data_list = map(float, data_list)
+	except ValueError:
+		raise ValueError('Input values should contain numbers, your first input contains something else')
+
+	elfi = 1 - sum([math.pow(i, 2) for i in data_list])
 	return elfi
