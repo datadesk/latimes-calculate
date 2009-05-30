@@ -28,8 +28,10 @@ def elfi(array, strict=True):
 		* "ethnic diversity index":http://www.ed-data.k12.ca.us/articles/EDITechnical.asp
 	
 	"""
-	if not isinstance(array, list):
-		raise TypeError('input must be a list')
+	# Test to make sure the input is a list or tuple
+	if not isinstance(data_list, (list, tuple)):
+		raise TypeError('First input must be a list or tuple. You input a %s' % type(data_list))
+
 	if strict and sum(array) != 1.0:
 			raise ValueError('values of submitted array must add up to one. your list adds up to %s' % sum(array))
 	elfi = 1 - sum([math.pow(i, 2) for i in array])

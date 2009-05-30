@@ -1,4 +1,4 @@
-def decile(array, score, kind='weak'):
+def decile(data_list, score, kind='weak'):
 	"""
 	Accepts an array of values and a singleton score.
 	
@@ -26,9 +26,11 @@ def decile(array, score, kind='weak'):
 	"""
 	from calculate import percentile
 	
-	if not isinstance(array, list):
-		raise TypeError('first value input must be a list')
-	percentile_score = percentile(array, score, kind=kind)
+	# Test to make sure the input is a list or tuple
+	if not isinstance(data_list, (list, tuple)):
+		raise TypeError('First input must be a list or tuple. You input a %s' % type(data_list))
+		
+	percentile_score = percentile(data_list, score, kind=kind)
 	if percentile_score == 100.0:
 		return 10
 	else:
