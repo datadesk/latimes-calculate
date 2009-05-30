@@ -17,3 +17,4 @@ from range import range
 from standard_deviation import standard_deviation
 from standard_deviation_distance import standard_deviation_distance
 from standard_deviation_ellipses import standard_deviation_ellipses
+from summary_stats import summary_stats
