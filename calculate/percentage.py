@@ -8,9 +8,9 @@ def percentage(value, total, multiply=True, fail_silently=True):
 	If you don't want the number multiplied by 100, set the 'multiply'
 	kwarg to False.
 	
-	If one of the numbers is zero, a null value is returned by default.
-	Should you prefer for an error to be raised, set the kwarg 'fail_silently'
-	to False.
+	If you divide into zero -- an illegal operation -- a null value 
+	is returned by default. If you prefer for an error to be raised, 
+	set the kwarg 'fail_silently' to False.
 	
 	h3. Example usage
 	

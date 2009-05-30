@@ -28,7 +28,7 @@ def nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001):
 	
 		* "django":http://www.djangoproject.com/
 		* "geodjango":http://www.geodjango.org/
-		* "numpy":http://numpy.scipy.org/
+		* "math":http://docs.python.org/library/math.html
 	
 	h3. Documentation
 

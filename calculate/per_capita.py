@@ -1,10 +1,12 @@
-def per_capita(value, population, per=10000):
+def per_capita(value, population, per=10000, fail_silently=True):
 	"""
 	Accepts two numbers, a value and population total, and returns the per capita rate.
 	
 	By default, the result is returned as a per 10,000 person figure.
 	
-	Fails silently in cases of zero division errors.
+	If you divide into zero -- an illegal operation -- a null value 
+	is returned by default. If you prefer for an error to be raised, 
+	set the kwarg 'fail_silently' to False.
 	
 	h3. Example usage
 	
@@ -24,4 +26,9 @@ def per_capita(value, population, per=10000):
 		rate = (float(value) / population) * per
 		return rate
 	except ZeroDivisionError:
-		return None
+		# If there's a zero involved return null if set to fail silent
+		if fail_silently:
+			return None
+		# but otherwise shout it all out
+		else:
+			raise ZeroDivisionError("Sorry. You can't divide into zero.")

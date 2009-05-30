@@ -1,4 +1,4 @@
-def percentage_change(old_value, new_value, multiply=True):
+def percentage_change(old_value, new_value, multiply=True, fail_silently=True):
 	"""
 	Accepts two integers, an old and a new number, 
 	and then measures the percent change between them.
@@ -12,7 +12,10 @@ def percentage_change(old_value, new_value, multiply=True):
 	If you don't want the number multiplied by 100, 
 	set the 'multiply' kwarg to False.
 	
-	If one of the numbers is zero, a null value is returned.
+	If you divide into zero -- an illegal operation -- a null value 
+	is returned by default. If you prefer for an error to be raised, 
+	set the kwarg 'fail_silently' to False.
+
 	
 	h3. Example usage
 	
@@ -36,4 +39,9 @@ def percentage_change(old_value, new_value, multiply=True):
 			percentage_change = percentage_change * 100
 		return percentage_change
 	except ZeroDivisionError:
-		return None
+		# If there's a zero involved return null if set to fail silent
+		if fail_silently:
+			return None
+		# but otherwise shout it all out
+		else:
+			raise ZeroDivisionError("Sorry. You can't divide into zero.")
