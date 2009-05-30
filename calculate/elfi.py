@@ -38,5 +38,6 @@ def elfi(data_list):
 	except ValueError:
 		raise ValueError('Input values should contain numbers, your first input contains something else')
 
+	# Calculate the ELFI
 	elfi = 1 - sum([math.pow(i, 2) for i in data_list])
 	return elfi

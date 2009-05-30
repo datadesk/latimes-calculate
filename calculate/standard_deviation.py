@@ -7,7 +7,7 @@ def standard_deviation(data_list):
 	
 	h3. Documentation
 	
-		http://en.wikipedia.org/wiki/Standard_deviation
+		"standard deviation":http://en.wikipedia.org/wiki/Standard_deviation
 	
 	"""
 	data_list = map(float, data_list)

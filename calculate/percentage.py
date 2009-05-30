@@ -1,4 +1,4 @@
-def percentage(value, total, multiply=True):
+def percentage(value, total, multiply=True, fail_silently=True):
 	"""
 	Accepts two integers, a value and a total. 
 	
@@ -8,13 +8,20 @@ def percentage(value, total, multiply=True):
 	If you don't want the number multiplied by 100, set the 'multiply'
 	kwarg to False.
 	
-	If one of the numbers is zero, a null value is returned.
+	If one of the numbers is zero, a null value is returned by default.
+	Should you prefer for an error to be raised, set the kwarg 'fail_silently'
+	to False.
 	
 	h3. Example usage
 	
 		>> import calculate
 		>> calculate.percentage(2, 10)
 		20.0
+		>> calculate.percentage(2,0, multiply=False)
+		0.20000000000000001
+		>>> calculate.percentage(2,0)
+		>>> calculate.percentage(2,0, fail_silently=False)
+		ZeroDivisionError
 		
 	h3. Documentation
 	
@@ -23,12 +30,21 @@ def percentage(value, total, multiply=True):
 	"""
 	if not isinstance(value, (int,long,float)):
 		return ValueError('Input values should be a number, your first input is a %s' % type(value))
+
 	if not isinstance(total, (int,long,float)):
 		return ValueError('Input values should be a number, your second input is a %s' % type(total))
+	
 	try:
+		# Divide one into the other
 		percent = (value / float(total))
 		if multiply:
+			# If specified, multiply by 100
 			percent = percent * 100
 		return percent
 	except ZeroDivisionError:
-		return None
+		# If there's a zero involved return null if set to fail silent
+		if fail_silently:
+			return None
+		# but otherwise shout it all out
+		else:
+			raise ZeroDivisionError("Sorry. You can't divide into zero.")

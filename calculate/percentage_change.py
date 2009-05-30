@@ -3,7 +3,7 @@ def percentage_change(old_value, new_value, multiply=True):
 	Accepts two integers, an old and a new number, 
 	and then measures the percent change between them.
 	
-	The chane between the two numbers is determined 
+	The change between the two numbers is determined 
 	and then divided into the original figure. 
 	
 	By default, it is then multiplied by 100, and 
