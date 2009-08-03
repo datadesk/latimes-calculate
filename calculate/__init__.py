@@ -1,4 +1,5 @@
 from competition_rank import competition_rank
+from date_range import date_range
 from decile import decile
 from elfi import elfi
 from mean_center import mean_center
