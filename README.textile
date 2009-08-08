@@ -10,6 +10,7 @@ boiling things down as much as possible.
 
 h3. Contains functions that calculate:
 
+* Adjusted monthly value
 * Date ranges
 * Decile rankings
 * ELFI (Ethnolinguistic Fractionalization Index)
