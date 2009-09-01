@@ -29,8 +29,11 @@ def adjusted_monthly_value(value, dt):
 		"calendar module":http://docs.python.org/library/calendar.html
 	
 	"""
+	# Test to make sure the first input is a number
 	if not isinstance(value, (int,long,float)):
 		return ValueError('Input values should be a number, your input is a %s' % type(value))
+	
+	# Test to make sure the second input is a date
 	if not isinstance(dt, (datetime.datetime, datetime.date)):
 		return ValueError('The submitted month should be a date or datetime value, you input a %s' % type(dt))
 	
