@@ -19,9 +19,9 @@ def per_capita(value, population, per=10000, fail_silently=True):
 	
 	"""
 	if not isinstance(value, (int,long,float)):
-		return ValueError('Input values should be a number, your first input is a %s' % type(value))
+		raise ValueError('Input values should be a number, your first input is a %s' % type(value))
 	if not isinstance(population, (int,long,float)):
-		return ValueError('Input values should be a number, your second input is a %s' % type(population))
+		raise ValueError('Input values should be a number, your second input is a %s' % type(population))
 	try:
 		rate = (float(value) / population) * per
 		return rate
