@@ -37,15 +37,31 @@ def nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001):
 	"""
 	if not isinstance(geoqueryset, GeoQuerySet):
 		raise TypeError('First parameter must be a Django GeoQuerySet. You submitted a %s object' % type(geoqueryset))
-
-	previous_x = None
-	previous_y = None
-	r = radius 
+	
+	# Count all of the distinct points in the geoqueryset
+	# by creating a dictionary with the (x, y) coords as 
+	# the keys and the counts as the values.
+	points_with_counts = {}
 	for point in geoqueryset:
-		if getattr(point, point_attribute_name).x == previous_x and getattr(point, point_attribute_name).y == previous_y and previous_x and previous_y:
-			theta = random.random() * 2 * math.pi # angle value in radian between 0 and 2pi
+		t = (getattr(point, point_attribute_name).x, getattr(point, point_attribute_name).y)
+		points_with_counts[t] = points_with_counts.get(t, 0) + 1
+	
+	# Filter that dictionary down to only those records that appear more than once
+	duplicate_points = [point for point, count in points_with_counts.items() if count > 1]
+	
+	# Abbreviate radius for easier use in equations
+	r = radius 
+	
+	# Loop through the geoqueryset
+	for point in geoqueryset:
+		
+		# Grab the coords in the same manner as above
+		t = (getattr(point, point_attribute_name).x, getattr(point, point_attribute_name).y)
+	
+		# If the coords are in the duplicates...
+		if t in duplicate_points:
+			# Randomnly calculate the angle value to the move the point in radians between 0 and 2pi
+			theta = random.random() * 2 * math.pi 
+			# And then shift the point accordingly
 			getattr(point, point_attribute_name).x = getattr(point, point_attribute_name).x + (math.cos(theta)*r)
 			getattr(point, point_attribute_name).y = getattr(point, point_attribute_name).y + (math.sin(theta)*r)
-		else:
-			previous_x = getattr(point, point_attribute_name).x
-			previous_y = getattr(point, point_attribute_name).y
