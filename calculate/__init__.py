@@ -1,4 +1,5 @@
 from adjusted_monthly_value import adjusted_monthly_value
+from benfords_law import benfords_law
 from competition_rank import competition_rank
 from date_range import date_range
 from decile import decile
