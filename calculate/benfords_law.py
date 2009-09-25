@@ -6,16 +6,32 @@ def benfords_law(number_list, method='last_digit'):
 	
 	This function is incomplete.
 	
-	>> import calculate
-	>> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+	h3. Example usage
 	
-	Cribbed from:
+		>> import calculate
+		>> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+		BENFORD'S LAW: LAST_DIGIT
+		| Number | Count | Percentage |
+		-------------------------------
+		| 0      | 1     | 0.1        |
+		| 1      | 1     | 0.1        |
+		| 2      | 1     | 0.1        |
+		| 3      | 1     | 0.1        |
+		| 4      | 1     | 0.1        |
+		| 5      | 1     | 0.1        |
+		| 6      | 1     | 0.1        |
+		| 7      | 1     | 0.1        |
+		| 8      | 1     | 0.1        |
+		| 9      | 1     | 0.1        |
 	
-		http://en.wikipedia.org/wiki/Benford%27s_law
-		http://www.chasedavis.com/2008/sep/28/applying-benfords-law-car/
-		http://pyevolve.sourceforge.net/pybenford.py
-		http://blogs.tampabay.com/buzz/2009/09/nate-silver-pollster-may-be-fraud.html
-		http://www.fivethirtyeight.com/2009/09/strategic-vision-polls-exhibit-unusual.html
+	h3. Sources
+	
+		"Benford's Law":http://en.wikipedia.org/wiki/Benford%27s_law
+		"Applying Benford's Law to CAR":http://www.chasedavis.com/2008/sep/28/applying-benfords-law-car/
+		"Benford's Law meets Python and Apple Stock Prices":http://pyevolve.sourceforge.net/wordpress/?p=457
+		"Strategic Vision Polls Exhibit Unusual Patterns, Possibly Indicating Fraud":http://www.fivethirtyeight.com/2009/09/strategic-vision-polls-exhibit-unusual.html
+		"Nate Silver: pollster may be fraud":http://blogs.tampabay.com/buzz/2009/09/nate-silver-pollster-may-be-fraud.html
+		
 	
 	"""
 	# Select the appropriate retrieval method
