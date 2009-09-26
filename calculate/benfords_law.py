@@ -117,7 +117,7 @@ def benfords_law(number_list, method='first_digit'):
 			expected_percentage = round(typical_distributions[method][number], 2)
 		except KeyError:
 			continue
-		actual_percentage = round(count / float(len(digit_list)) * 100,2)
+		actual_percentage = round(count / float(len(digit_list)) * 100.0,2)
 		results.append(map(str, [number, count, expected_percentage, actual_percentage]))
 	
 	# Print everything out using our pretty table module
