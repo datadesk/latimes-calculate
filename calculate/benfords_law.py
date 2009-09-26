@@ -89,7 +89,7 @@ def benfords_law(number_list, method='first_digit'):
 	method_name = '_get_%s' % method
 	method_obj = locals()[method_name]
 
-	# Typical distributions
+	# Set the typical distributions we expect to find
 	typical_distributions = { 
 		'first_digit': {}, 
 		'last_digit': {} 
@@ -109,6 +109,7 @@ def benfords_law(number_list, method='first_digit'):
 		digit = method_obj(number)
 		digit_list.append(digit)
 	
+	# Loop through the data set and grab all the applicable numbers
 	results = []
 	for number in xrange(0,10):
 		count = digit_list.count(number)
@@ -118,7 +119,8 @@ def benfords_law(number_list, method='first_digit'):
 			continue
 		actual_percentage = round(count / float(len(digit_list)) * 100,2)
 		results.append(map(str, [number, count, expected_percentage, actual_percentage]))
-		
+	
+	# Print everything out using our pretty table module
 	labels = ['Number', 'Count', 'Expected Percentage', 'Actual Percentage']
 	print "BENFORD'S LAW: %s" % method.upper()
 	print ptable.indent(
