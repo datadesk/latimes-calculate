@@ -33,6 +33,7 @@ h3. Contains functions that calculate:
 h3. Other utilities to:
 
 * Print out a set of basic summary statistics
+* Print out how the the data compares to Benford's Law
 * Get a random point
 * Nudge identical points slightly apart
 
