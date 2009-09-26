@@ -1,15 +1,22 @@
 from calculate import ptable
 
-def benfords_law(number_list, method='last_digit'):
+def benfords_law(number_list, method='first_digit'):
 	"""
 	Accepts a list of numbers and applys a quick-and-dirty run against Benford's Law.
 	
-	This function is incomplete.
-		
+	Benford's Law makes statements about the occurance of leading digits in any dataset.
+	It claims that a leading digit of 1 will occur about 30 percent of the time,
+	and each number after it a little bit less, with the number 9 occuring the least.
+	
+	This function also includes a variation on the Benford's analysis popularized by
+	blogger Nate Silver, who conducted an analysis of the final digits of a polling
+	data. To use Silver's variation, provide the keyward argument `method` with the 
+	value 'last_digit'.
+	
 	h3. Example usage
 	
 		>> import calculate
-		>> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+		>> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], method='last_digit')
 		BENFORD'S LAW: LAST_DIGIT
 		| Number | Count | Percentage |
 		-------------------------------
@@ -24,35 +31,35 @@ def benfords_law(number_list, method='last_digit'):
 		| 8      | 1     | 0.1        |
 		| 9      | 1     | 0.1        |
 	
-		h3. A Warning
+	h3. A Warning
 
-		Not all datasets should be expected to conform these rules.
+	Not all datasets should be expected to conform these rules.
 
-		Durtschi, Hillison, and Pacini (2004) said Benford "compliance"
-		should be expected in the following circumstances:
+	Durtschi, Hillison, and Pacini (2004) said Benford "compliance"
+	should be expected in the following circumstances:
 
-			1. Numbers that result from mathematical combination of 
-			numbers (e.g., quantity  × price)
+		1. Numbers that result from mathematical combination of 
+		numbers (e.g., quantity  × price)
 
-			2. Transaction-level data (e.g., disbursements, sales) 
+		2. Transaction-level data (e.g., disbursements, sales) 
 
-			3. Large datasets 
+		3. Large datasets 
 
-			4. Mean is greater than median and skew is positive 
+		4. Mean is greater than median and skew is positive 
 
-		And not to expect Benford distributions when:
+	And not to expect Benford distributions when:
 
-			1. Numbers are assigned (e.g., check numbers, invoice numbers) 
+		1. Numbers are assigned (e.g., check numbers, invoice numbers) 
 
-			2. Numbers inﬂuenced by human thought (e.g., prices set by 
-			psychological thresholds ($1.99)) 
+		2. Numbers inﬂuenced by human thought (e.g., prices set by 
+		psychological thresholds ($1.99)) 
 
-			3. Accounts with a large number of ﬁrm-speciﬁc numbers 
-			(e.g., accounts set up to record $100 refunds) 
+		3. Accounts with a large number of ﬁrm-speciﬁc numbers 
+		(e.g., accounts set up to record $100 refunds) 
 
-			4. Accounts with a built-in minimum or maximum 
+		4. Accounts with a built-in minimum or maximum 
 
-			5. Where no transaction is recorded.
+		5. Where no transaction is recorded.
 	
 	h3. Sources
 	
