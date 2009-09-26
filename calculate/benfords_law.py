@@ -3,7 +3,7 @@ from calculate import ptable
 
 def benfords_law(number_list, method='first_digit'):
 	"""
-	Accepts a list of numbers and applys a quick-and-dirty run against Benford's Law.
+	Accepts a list of numbers and applies a quick-and-dirty run against Benford's Law.
 	
 	Benford's Law makes statements about the occurance of leading digits in a dataset.
 	It claims that a leading digit of 1 will occur about 30 percent of the time,
