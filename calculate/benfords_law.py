@@ -9,7 +9,9 @@ def benfords_law(number_list, method='first_digit'):
 	It claims that a leading digit of 1 will occur about 30 percent of the time,
 	and each number after it a little bit less, with the number 9 occuring the least.
 	
-	This function also includes a variation on the Benford's analysis popularized by
+	Datasets that greatly vary from the law are sometimes suspected of fraud. 
+	
+	This function also includes a variation on the class Benford analysis popularized by
 	blogger Nate Silver, who conducted an analysis of the final digits of a polling
 	data. To use Silver's variation, provide the keyward argument `method` with the 
 	value 'last_digit'.
@@ -20,20 +22,19 @@ def benfords_law(number_list, method='first_digit'):
 	h3. Example usage
 	
 		>> import calculate
-		>> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], method='last_digit')
-		BENFORD'S LAW: LAST_DIGIT
-		| Number | Count | Percentage |
-		-------------------------------
-		| 0      | 1     | 0.1        |
-		| 1      | 1     | 0.1        |
-		| 2      | 1     | 0.1        |
-		| 3      | 1     | 0.1        |
-		| 4      | 1     | 0.1        |
-		| 5      | 1     | 0.1        |
-		| 6      | 1     | 0.1        |
-		| 7      | 1     | 0.1        |
-		| 8      | 1     | 0.1        |
-		| 9      | 1     | 0.1        |
+		>> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+		BENFORD'S LAW: FIRST_DIGIT
+		| Number | Count | Expected Percentage | Actual Percentage |
+		------------------------------------------------------------
+		| 1      | 2     | 30.1                | 20.0              |
+		| 2      | 1     | 17.61               | 10.0              |
+		| 3      | 1     | 12.49               | 10.0              |
+		| 4      | 1     | 9.69                | 10.0              |
+		| 5      | 1     | 7.92                | 10.0              |
+		| 6      | 1     | 6.69                | 10.0              |
+		| 7      | 1     | 5.8                 | 10.0              |
+		| 8      | 1     | 5.12                | 10.0              |
+		| 9      | 1     | 4.58                | 10.0              |
 	
 	h3. A Warning
 
