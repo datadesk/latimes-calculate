@@ -99,8 +99,8 @@ def benfords_law(number_list, method='first_digit'):
 		typical_distributions['first_digit'].update({number: log10})
 	
 	typical_distributions['last_digit'].update({ 
-		0: 0.1, 1: 0.1, 2: 0.1, 3: 0.1, 4: 0.1,
-		5: 0.1, 6: 0.1, 7: 0.1, 8: 0.1, 9: 0.1,
+		0: 10.0, 1: 10.0, 2: 10.0, 3: 10.0, 4: 10.0,
+		5: 10.0, 6: 10.0, 7: 10.0, 8: 10.0, 9: 10.0,
 	})
 
 	# Fetch the digits we want to analyze
