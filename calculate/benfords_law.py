@@ -11,8 +11,8 @@ def benfords_law(number_list, method='first_digit'):
 	
 	Datasets that greatly vary from the law are sometimes suspected of fraud. 
 	
-	This function also includes a variation on the class Benford analysis popularized by
-	blogger Nate Silver, who conducted an analysis of the final digits of a polling
+	This function also includes a variation on the classic Benford analysis popularized 
+	by blogger Nate Silver, who conducted an analysis of the final digits of a polling
 	data. To use Silver's variation, provide the keyward argument `method` with the 
 	value 'last_digit'.
 	
