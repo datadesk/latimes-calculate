@@ -13,6 +13,9 @@ def benfords_law(number_list, method='first_digit'):
 	data. To use Silver's variation, provide the keyward argument `method` with the 
 	value 'last_digit'.
 	
+	This function is based upon code from a variety of sources around the web, but
+	owes a particular debt to the work of Christian S. Perone.
+	
 	h3. Example usage
 	
 		>> import calculate
