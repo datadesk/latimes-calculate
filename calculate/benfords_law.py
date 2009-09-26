@@ -1,3 +1,4 @@
+import math
 from calculate import ptable
 
 def benfords_law(number_list, method='first_digit'):
@@ -41,8 +42,7 @@ def benfords_law(number_list, method='first_digit'):
 	Durtschi, Hillison, and Pacini (2004) said Benford "compliance"
 	should be expected in the following circumstances:
 
-		1. Numbers that result from mathematical combination of 
-		numbers (e.g., quantity  × price)
+		1. Numbers that result from mathematical combination of numbers
 
 		2. Transaction-level data (e.g., disbursements, sales) 
 
@@ -53,12 +53,10 @@ def benfords_law(number_list, method='first_digit'):
 	And not to expect Benford distributions when:
 
 		1. Numbers are assigned (e.g., check numbers, invoice numbers) 
-
-		2. Numbers inﬂuenced by human thought (e.g., prices set by 
-		psychological thresholds ($1.99)) 
-
-		3. Accounts with a large number of ﬁrm-speciﬁc numbers 
-		(e.g., accounts set up to record $100 refunds) 
+		
+		2. Number influence by human thought (e.g. $1.99)
+		
+		3. Accounts with a large number of firm-specific numbers 
 
 		4. Accounts with a built-in minimum or maximum 
 
@@ -88,6 +86,20 @@ def benfords_law(number_list, method='first_digit'):
 	method_name = '_get_%s' % method
 	method_obj = locals()[method_name]
 
+	# Typical distributions
+	typical_distributions = { 
+		'first_digit': {}, 
+		'last_digit': {} 
+	}
+	for number in xrange(1, 10):
+		log10 = math.log10(1+1/float(number))*100.0
+		typical_distributions['first_digit'].update({number: log10})
+	
+	typical_distributions['last_digit'].update({ 
+		0: 0.1, 1: 0.1, 2: 0.1, 3: 0.1, 4: 0.1,
+		5: 0.1, 6: 0.1, 7: 0.1, 8: 0.1, 9: 0.1,
+	})
+
 	# Fetch the digits we want to analyze
 	digit_list = []
 	for number in number_list:
@@ -97,10 +109,14 @@ def benfords_law(number_list, method='first_digit'):
 	results = []
 	for number in xrange(0,10):
 		count = digit_list.count(number)
-		percentage = count / float(len(digit_list))
-		results.append(map(str, [number, count, round(percentage,2)]))
+		try:
+			expected_percentage = round(typical_distributions[method][number], 2)
+		except KeyError:
+			continue
+		actual_percentage = round(count / float(len(digit_list)) * 100,2)
+		results.append(map(str, [number, count, expected_percentage, actual_percentage]))
 		
-	labels = ['Number', 'Count', 'Percentage',]
+	labels = ['Number', 'Count', 'Expected Percentage', 'Actual Percentage']
 	print "BENFORD'S LAW: %s" % method.upper()
 	print ptable.indent(
 		[labels] + results, 
