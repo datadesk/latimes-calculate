@@ -4,7 +4,7 @@ import calculate
 def pearson(list_one, list_two):
 	"""
 	Accepts paired lists and returns a number between -1 and 1, 
-	known as Pearson's r, that indicates of  how closely correlated 
+	known as Pearson's r, that indicates of how closely correlated 
 	the two datasets are.
 	
 	A score of close to one indicates a high positive correlation.
