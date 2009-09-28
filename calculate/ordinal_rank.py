@@ -1,6 +1,4 @@
-from django.db.models.query import QuerySet
-
-def ordinal_rank(queryset, obj):
+def ordinal_rank(sequence, obj):
 	"""
 	Accepts a Django queryset and Django object and
 	returns the object's ordinal rank as an integer.
@@ -22,7 +20,11 @@ def ordinal_rank(queryset, obj):
 		* "ordinal rank":http://en.wikipedia.org/wiki/Ranking#Ordinal_ranking_.28.221234.22_ranking.29
 	
 	"""
-	if not isinstance(queryset, QuerySet):
-		raise TypeError('First parameter must be a Django QuerySet. You submitted a %s object' % type(queryset))
-	index = list(queryset).index(obj)
+	try:
+		sequence_list = list(sequence)
+	except TypeError:
+		raise TypeError('First parameter must be a sequence. You submitted a %s object' % type(sequence))
+	index = sequence_list.index(item)
 	return index + 1
+
+
