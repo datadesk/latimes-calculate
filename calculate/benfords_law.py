@@ -13,7 +13,7 @@ def benfords_law(number_list, method='first_digit', verbose=True):
 	
 	The function returns the Pearson correlation coefficient, also known as Pearson's r, 
 	which reports how closely the two datasets are related. If Benford's Law is in 
-	effect, you should expect a score close to one, which indicates a positive correlation.
+	effect, you should expect a score close to zero.
 	
 	This function also includes a variation on the classic Benford analysis popularized 
 	by blogger Nate Silver, who conducted an analysis of the final digits of polling
