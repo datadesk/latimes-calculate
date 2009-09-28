@@ -135,7 +135,7 @@ def benfords_law(number_list, method='first_digit', verbose=True):
 	# Pearson's correlation coefficient to
 	# see how closely related they are.
 	list_one = [i[2] for i in results]
-	list_two = [i[3] for i in results]
+	list_two = typical_distributions[method]
 	pearsons_r = calculate.pearson(list_one, list_two)
 
 	# If the user has asked for verbosity,

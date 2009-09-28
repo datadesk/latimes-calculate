@@ -19,6 +19,7 @@ h3. Contains functions that calculate:
 * Median
 * Mode
 * Ordinal rank
+* Pearson correlation coefficient 
 * Per capita rate
 * Per square mile rate
 * Percentage change

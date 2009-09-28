@@ -52,11 +52,11 @@ def pearson(list_one, list_two):
 	# Add up the total for each
 	sum_one = sum(list_one)
 	sum_two = sum(list_two)
-
+	
 	# Sum the squares of each
 	sum_of_squares_one = sum([pow(i, 2) for i in list_one])
 	sum_of_squares_two = sum([pow(i, 2) for i in list_two])
-
+	
 	# Sum up the product of each element multiplied against its pair
 	product_sum = sum([item_one * item_two for item_one, item_two in zip(list_one, list_two)])
 	
