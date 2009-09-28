@@ -16,6 +16,9 @@ def pearson(list_one, list_two):
 	A score close to zero indicates little correlation between the two
 	datasets.
 	
+	This script is cobbled together from a variety of sources, linked
+	in the sources section below.
+	
 	h3. Example usage
 	
 		>> import calculate
