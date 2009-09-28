@@ -150,7 +150,7 @@ def benfords_law(number_list, method='first_digit', verbose=True):
 		labels = ['Number', 'Count', 'Expected Percentage', 'Actual Percentage']
 		print "BENFORD'S LAW: %s" % method.upper()
 		print ""
-		print "Pearson's R: %s" % (pearsons_r)
+		print "Pearson's r: %s" % (pearsons_r)
 		print ""
 		print ptable.indent(
 			[labels] + results, 
