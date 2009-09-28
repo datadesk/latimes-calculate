@@ -148,7 +148,7 @@ def benfords_law(number_list, method='first_digit', verbose=True):
 		results = [map(str, i) for i in results]
 		# Print everything out using our pretty table module
 		labels = ['Number', 'Count', 'Expected Percentage', 'Actual Percentage']
-		print "BENFORD'S LAW: %s" % method.upper()
+		print "BENFORD'S LAW: %s" % method.upper().replace('_', ' ')
 		print ""
 		print "Pearson's r: %s" % (pearsons_r)
 		print ""
