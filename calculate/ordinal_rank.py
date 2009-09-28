@@ -1,4 +1,4 @@
-def ordinal_rank(sequence, obj):
+def ordinal_rank(sequence, item):
 	"""
 	Accepts a Django queryset and Django object and
 	returns the object's ordinal rank as an integer.
