@@ -43,11 +43,11 @@ def median(data_list):
 	# Test whether the n is odd
 	if n & 1:
 		# If is is, get the index simply by dividing it in half
-		index = n / 2.0 
+		index = n / 2
 		median = data_list[index]
 	else:
 		# If the n is even, average the two values at the center
-		low_index = n / 2 - 1
+		low_index = (n / 2) - 1
 		high_index = n / 2
 		median = (data_list[low_index] + data_list[high_index]) / 2.0
 	
