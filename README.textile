@@ -1,4 +1,4 @@
-h1. python-math
+h1. latimes-calculate
 
 A collection of snippets I use to do a little math. Nothing fancy.
 
