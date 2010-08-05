@@ -6,10 +6,6 @@ h3. The mission
 
 Fill a basket for all the math I use to do journalism and prevent myself from having to install numpy on my production server by boiling things down as much as possible.
 
-h3. Install
-
-<pre><code>pip install calculate</code></pre>
-
 h3. Contains functions that calculate:
 
 * Adjusted monthly value
@@ -40,9 +36,12 @@ h3. Other utilities to:
 * Get a random point
 * Nudge identical points slightly apart
 
+h3. How to install
+
+<pre><code>pip install calculate</code></pre>
+
 h3. Dependencies
 
-* "django":http://www.djangoproject.com/
 * "geodjango":http://www.geodjango.org/
 * "math":http://docs.python.org/library/math.html
 * "psql ellipse() function":http://postgis.refractions.net/support/wiki/index.php?plpgsqlfunctions
