@@ -21,15 +21,15 @@ from summary_stats import summary_stats
 # Test whether Django is installed
 from django.conf import settings
 if settings.configured:
-	HAS_DJANGO = True
+    HAS_DJANGO = True
 else:
-	HAS_DJANGO = False
+    HAS_DJANGO = False
 
 # If it is, import all the functions that, at least for now, require Django
 if HAS_DJANGO:
-	from competition_rank import competition_rank
-	from random_point import random_point
-	from mean_center import mean_center
-	from nudge_points import nudge_points
-	from standard_deviation_distance import standard_deviation_distance
-	from standard_deviation_ellipses import standard_deviation_ellipses
+    from competition_rank import competition_rank
+    from random_point import random_point
+    from mean_center import mean_center
+    from nudge_points import nudge_points
+    from standard_deviation_distance import standard_deviation_distance
+    from standard_deviation_ellipses import standard_deviation_ellipses
