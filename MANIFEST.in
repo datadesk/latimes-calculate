@@ -1,3 +1,2 @@
 include MANIFEST.in
 include README.textile
-recursive-include calculate *

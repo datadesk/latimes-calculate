@@ -53,7 +53,7 @@ root_dir = os.path.dirname(__file__)
 if root_dir != '':
     os.chdir(root_dir)
 
-django_dir = 'qiklog'
+django_dir = 'calculate'
 
 for dirpath, dirnames, filenames in os.walk(django_dir):
     # Ignore dirnames that start with '.'
@@ -70,8 +70,8 @@ if len(sys.argv) > 1 and sys.argv[1] == 'bdist_wininst':
     for file_info in data_files:
         file_info[0] = '\\PURELIB\\%s' % file_info[0]
 
-setup(name='calculate',
-      version='0.1',
+setup(name='latimes-calculate',
+      version='0.1.3',
       description='A collection of quickie math functions. Nothing too fancy.',
       author='Ben Welsh',
       author_email='ben.welsh@latimes.com',

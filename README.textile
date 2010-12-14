@@ -38,7 +38,7 @@ h3. Other utilities to:
 
 h3. How to install
 
-<pre><code>pip install calculate</code></pre>
+<pre><code>pip install latimes-calculate</code></pre>
 
 h3. Dependencies
 

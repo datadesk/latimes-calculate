@@ -1,0 +1,6 @@
+MANIFEST
+dummy/*
+build/*
+dist/*
+*.egg*
+*.pyc
