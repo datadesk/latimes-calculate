@@ -43,6 +43,6 @@ h3. How to install
 h3. Dependencies
 
 * "geodjango":http://www.geodjango.org/
-* "math":http://docs.python.org/library/math.html
 * "psql ellipse() function":http://postgis.refractions.net/support/wiki/index.php?plpgsqlfunctions
+* "math":http://docs.python.org/library/math.html
 * "random":http://docs.python.org/library/random.html
