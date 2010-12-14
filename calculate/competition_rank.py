@@ -49,5 +49,5 @@ def competition_rank(queryset, obj, order_by, direction='desc'):
         else:
             rank = rank + tie_count
             tie_count = 1
-         if obj == x:
+        if obj == x:
             return rank

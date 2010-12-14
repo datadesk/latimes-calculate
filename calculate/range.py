@@ -25,7 +25,8 @@ def range(data_list):
     
     # Make sure the sample has more than one entry
     if len(data_list) < 2:
-        raise ValueError('Input must contain at least two values. You provided a list with %s values' % len(data_list))
+        raise ValueError('Input must contain at least two values. \
+            You provided a list with %s values' % len(data_list))
         
     # Find the maximum value in the list
     max_ = max(data_list)

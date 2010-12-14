@@ -13,20 +13,26 @@ from per_sqmi import per_sqmi
 from percentage_change import percentage_change
 from percentage import percentage
 from percentile import percentile
-from random_point import random_point
 from range import range
 from standard_deviation import standard_deviation
 from summary_stats import summary_stats
 
 # Test whether Django is installed
-from django.conf import settings
-if settings.configured:
-    HAS_DJANGO = True
-else:
-    HAS_DJANGO = False
+try:
+    from django.conf import settings
+    if settings.configured:
+        HAS_DJANGO = True
+        if 'django.contrib.gis' in settings.INSTALLED_APPS:
+            HAS_GEODJANGO = True
+        else:
+            HAS_GEODJANGO = False
+    else:
+        HAS_DJANGO, HAS_GEODJANGO = False, False
+except ImportError:
+    HAS_DJANGO, HAS_GEODJANGO = False, False
 
-# If it is, import all the functions that, at least for now, require Django
-if HAS_DJANGO:
+# If it is, import all the functions that, at least for now, require GeoDjango
+if HAS_DJANGO and HAS_GEODJANGO:
     from competition_rank import competition_rank
     from random_point import random_point
     from mean_center import mean_center
