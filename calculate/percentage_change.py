@@ -21,7 +21,7 @@ def percentage_change(old_value, new_value, multiply=True, fail_silently=True):
     
         >> import calculate
         >> calculate.percentage_change(2, 10)
-        200.0
+        400.0
         
     h3. Documentation
     
