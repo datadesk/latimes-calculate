@@ -29,11 +29,11 @@ def adjusted_monthly_value(value, dt):
     """
     # Test to make sure the first input is a number
     if not isinstance(value, (int,long,float)):
-        raise ValueError('Input values should be a number, your input is a %s' % type(value))
+        raise TypeError('Input values should be a number, your input is a %s' % type(value))
     
     # Test to make sure the second input is a date
     if not isinstance(dt, (datetime.datetime, datetime.date)):
-        raise ValueError('The submitted month should be a date or datetime value, you input a %s' % type(dt))
+        raise TypeError('The submitted month should be a date or datetime value, you input a %s' % type(dt))
     
     # Get the length of the month
     length_of_month = calendar.monthrange(dt.year, dt.month)[1]

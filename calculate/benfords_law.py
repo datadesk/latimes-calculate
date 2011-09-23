@@ -45,11 +45,11 @@ def benfords_law(number_list, method='first_digit', verbose=True):
         | 9      | 1     | 4.57574905607       | 10.0              |
         
         >> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], verbose=False)
-        0.86412304648973992
+        -0.863801937698704
     
     h3. A Warning
 
-    Not all datasets should be expected to conform Benford's rules. 
+    Not all datasets should be expected to conform to Benford's rules. 
     I lifted the following guidance from an academic paper linked 
     below.
 
@@ -68,7 +68,7 @@ def benfords_law(number_list, method='first_digit', verbose=True):
 
         1. Numbers are assigned (e.g., check numbers, invoice numbers) 
         
-        2. Number influence by human thought (e.g. $1.99)
+        2. Numbers influence by human thought (e.g. $1.99)
         
         3. Accounts with a large number of firm-specific numbers 
 
@@ -99,7 +99,7 @@ def benfords_law(number_list, method='first_digit', verbose=True):
     
     method_name = '_get_%s' % method
     method_obj = locals()[method_name]
-
+    
     # Set the typical distributions we expect to find
     typical_distributions = { 
         'first_digit': {}, 
@@ -130,14 +130,14 @@ def benfords_law(number_list, method='first_digit', verbose=True):
             continue
         actual_percentage = count / float(len(digit_list)) * 100.0
         results.append([number, count, expected_percentage, actual_percentage])
-
+    
     # Run the two percentage figures through
     # Pearson's correlation coefficient to
     # see how closely related they are.
     list_one = [i[2] for i in results]
     list_two = typical_distributions[method]
     pearsons_r = calculate.pearson(list_one, list_two)
-
+    
     # If the user has asked for verbosity,
     # print out this cutsey table with all
     # of the data.

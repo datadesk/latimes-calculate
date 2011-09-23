@@ -24,12 +24,27 @@ class CalculateTest(BaseTest):
             calculate.adjusted_monthly_value(10, date(2009, 12, 31)),
             9.67741935483871
         )
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             calculate.adjusted_monthly_value('a', date(2009, 12, 31))
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             calculate.adjusted_monthly_value(10, '2010-01-01')
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             calculate.adjusted_monthly_value(10, 2)
+    
+    def test_benfords_law(self):
+        self.assertEqual(
+            calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], verbose=False),
+            -0.863801937698704
+        )
+        self.assertEqual(
+            calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], method="last_digit", verbose=False),
+            0
+        )
+        with self.assertRaises(ValueError):
+            calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], method='magic')
+        with self.assertRaises(TypeError):
+            calculate.benfords_law(10.0)
+
 
 if __name__ == '__main__':
     unittest.main()
