@@ -44,6 +44,18 @@ class CalculateTest(BaseTest):
             calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], method='magic')
         with self.assertRaises(TypeError):
             calculate.benfords_law(10.0)
+    
+    def test_competition_rank(self):
+        dict_list = [
+            {'name': 'Joan', 'value': 1},
+            {'name': 'Jane', 'value': 2},
+            {'name': 'Mary', 'value': 2},
+            {'name': 'Josh', 'value': 3},
+        ]
+        self.assertEqual(
+            calculate.competition_rank(dict_list, dict_list[0], 'value', 'desc'),
+            4
+        )
 
 
 if __name__ == '__main__':

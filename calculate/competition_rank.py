@@ -1,13 +1,14 @@
-from django.db.models.query import QuerySet
 
 
-def competition_rank(queryset, obj, order_by, direction='desc'):
+def competition_rank(obj_list, obj, order_by, direction='desc'):
     """
-    Accepts a Django queryset and a Django object, the value and direction
-    to order by, returns the object's competition rank as an integer.
+    Accepts a list, an item plus the value and direction
+    to order by. Then returns the supplied object's competition rank as an integer.
     
     In competition ranking equal numbers receive the same ranking and a gap
     is left before the next value (i.e. "1224").
+    
+    You can submit a Django queryset, objects, or just dictionaries.
     
     h3. Example usage
     
@@ -32,22 +33,37 @@ def competition_rank(queryset, obj, order_by, direction='desc'):
         * "standard competition rank":http://en.wikipedia.org/wiki/Ranking#Standard_competition_ranking_.28.221224.22_ranking.29
     
     """
-    if not isinstance(queryset, QuerySet):
-        raise TypeError('First parameter must be a Django QuerySet. You submitted a %s object' % type(queryset))
-    if direction == 'desc':
-        order_value = '-' + order_by
-    elif direction == 'asc':
-        order_value = order_by
-    else:
+    # Convert the object list to a list type, in case it's a Django queryset
+    obj_list = list(obj_list)
+    
+    # Validate the direction
+    if direction not in ['desc', 'asc']:
         raise ValueError('Direction kwarg should be either asc or desc. You submitted %s' % direction)
-    queryset = queryset.order_by(order_value)
+    
+    def getkey(obj, key):
+        return obj.get(key)
+    
+    # Figure out what type of objects we're dealing with
+    if type(obj_list[0]) == type({}):
+        gettr = getkey
+    else:
+        gettr = getattr
+    
+    # Reorder list
+    if direction == 'desc':
+        obj_list.sort(key=lambda x:gettr(x, order_by), reverse=True)
+    elif direction == 'asc':
+        obj_list.sort(key=lambda x: gettr(x, order_by))
     rank = 0
     tie_count = 1
-    for i, x in enumerate(queryset):
-        if i != 0 and getattr(queryset[i], order_by) == getattr(queryset[i-1], order_by):
+    for i, x in enumerate(obj_list):
+        if i != 0 and gettr(obj_list[i], order_by) == gettr(obj_list[i-1], order_by):
             tie_count += 1
         else:
             rank = rank + tie_count
             tie_count = 1
         if obj == x:
             return rank
+            
+            
+            

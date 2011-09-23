@@ -1,5 +1,6 @@
 from adjusted_monthly_value import adjusted_monthly_value
 from benfords_law import benfords_law
+from competition_rank import competition_rank
 from date_range import date_range
 from decile import decile
 from elfi import elfi
@@ -33,7 +34,6 @@ except ImportError:
 
 # If it is, import all the functions that, at least for now, require GeoDjango
 if HAS_DJANGO and HAS_GEODJANGO:
-    from competition_rank import competition_rank
     from random_point import random_point
     from mean_center import mean_center
     from nudge_points import nudge_points
