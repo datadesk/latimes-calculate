@@ -3,16 +3,14 @@ import datetime
 
 def adjusted_monthly_value(value, dt):
     """
-    Accepts a value and a datetime object, and
-    then prorates the value to a 30-day figure
-    depending on how many days are in the month.
+    Accepts a value and a datetime object, and then prorates the value to a 
+    30-day figure depending on how many days are in the month.
     
-    This can be useful for month-to-month comparisons
-    in circumstances where fluctuations in the number
-    of days per month may skew the analysis. 
+    This can be useful for month-to-month comparisons in circumstances where 
+    fluctuations in the number of days per month may skew the analysis. 
     
-    For instance, February typically has only 28 days, in 
-    comparison to March, which has 31.
+    For instance, February typically has only 28 days, in comparison to March, 
+    which has 31.
     
     h3. Example usage
     
@@ -31,18 +29,17 @@ def adjusted_monthly_value(value, dt):
     """
     # Test to make sure the first input is a number
     if not isinstance(value, (int,long,float)):
-        return ValueError('Input values should be a number, your input is a %s' % type(value))
+        raise ValueError('Input values should be a number, your input is a %s' % type(value))
     
     # Test to make sure the second input is a date
     if not isinstance(dt, (datetime.datetime, datetime.date)):
-        return ValueError('The submitted month should be a date or datetime value, you input a %s' % type(dt))
+        raise ValueError('The submitted month should be a date or datetime value, you input a %s' % type(dt))
     
     # Get the length of the month
     length_of_month = calendar.monthrange(dt.year, dt.month)[1]
     
     # Determine the adjustment necessary to pro-rate the value to 30 days.
-    adjustment = 30.0/length_of_month
+    adjustment = 30.0 / length_of_month
     
     # Multiply the value against the adjustment and return the result
     return value * adjustment
-    
