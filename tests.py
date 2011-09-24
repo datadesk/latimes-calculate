@@ -94,8 +94,11 @@ class CalculateTest(BaseTest):
         dr = calculate.date_range(datetime(2009,1,1, 12, 31, 00), date(2009,1,3))
         self.assertEqual(list(dr), [date(2009, 1, 1), date(2009, 1, 2),
             date(2009, 1, 3)])
-
-
+        with self.assertRaises(ValueError):
+            calculate.date_range(date(2011,1,1), date(2010,12,31))
+    
+    def test_decile(self):
+        pass
 
 
 
