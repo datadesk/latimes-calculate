@@ -17,16 +17,12 @@ def competition_rank(obj_list, obj, order_by, direction='desc'):
         >> ernie = Player.objects.get(first_name__iexact='Ernie', last_name__iexact='Banks')
         >> eddie = Player.objects.get(first_name__iexact='Eddie', last_name__iexact='Matthews')
         >> mel = Player.objects.get(first_name__iexact='Mel', last_name__iexact='Ott')
-        >> calculate.competition_rank(qs, ernie, order_by='career_home_runs', direction='desc')
+        >> calculate.competition_rank(qs, ernie, career_home_runs', direction='desc')
         21
-        >> calculate.competition_rank(qs, eddie, order_by='career_home_runs', direction='desc')
+        >> calculate.competition_rank(qs, eddie, 'career_home_runs', direction='desc')
         21
-        >> calculate.competition_rank(qs, mel, order_by='career_home_runs', direction='desc')
+        >> calculate.competition_rank(qs, mel, 'career_home_runs', direction='desc')
         23
-    
-    h3. Dependencies
-    
-        * "django":http://www.djangoproject.com/
     
     h3. Documentation
     
