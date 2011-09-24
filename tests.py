@@ -77,6 +77,43 @@ class CalculateTest(BaseTest):
             calculate.competition_rank(obj_list, obj_list[3], 'value', 'asc'),
             4
         )
+    
+    def test_date_range(self):
+        dr = calculate.date_range(datetime(2009,1,1, 12, 31, 00), date(2009,1,3))
+        self.assertEqual(list(dr), [date(2009, 1, 1), date(2009, 1, 2),
+            date(2009, 1, 3)])
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
