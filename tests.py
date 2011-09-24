@@ -57,6 +57,18 @@ class CalculateTest(BaseTest):
             calculate.competition_rank(dict_list, dict_list[0], 'value', 'desc'),
             4
         )
+        self.assertEqual(
+            calculate.competition_rank(dict_list, dict_list[1], 'value', 'desc'),
+            2
+        )
+        self.assertEqual(
+            calculate.competition_rank(dict_list, dict_list[2], 'value', 'desc'),
+            2
+        )
+        self.assertEqual(
+            calculate.competition_rank(dict_list, dict_list[3], 'value', 'desc'),
+            1
+        )
         class Dummy:
             def __init__(self, **entries): 
                 self.__dict__.update(entries)
