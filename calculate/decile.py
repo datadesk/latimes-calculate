@@ -24,11 +24,6 @@ def decile(data_list, score, kind='weak'):
         * "decile":http://en.wikipedia.org/wiki/Decile
     
     """
-    
-    # Test to make sure the input is a list or tuple
-    if not isinstance(data_list, (list, tuple)):
-        raise TypeError('First input must be a list or tuple. You input a %s' % type(data_list))
-    
     # Use calculate.percentile to fetch the precise percentile ranking of the desired value
     percentile_score = calculate.percentile(data_list, score, kind=kind)
     

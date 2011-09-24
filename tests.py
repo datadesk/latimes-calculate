@@ -98,8 +98,18 @@ class CalculateTest(BaseTest):
             calculate.date_range(date(2011,1,1), date(2010,12,31))
     
     def test_decile(self):
+        # Waiting on the percentile test to do this one
         pass
-
+    
+    def test_elfi(self):
+        self.assertEqual(
+            calculate.elfi([0.2, 0.5, 0.05, 0.25]),
+            0.64500000000000002
+        )
+        self.assertEqual(calculate.elfi([1]), 0)
+        self.assertEqual(calculate.elfi([0.5, 0.5]), 0.5)
+        with self.assertRaises(ValueError):
+            calculate.elfi(['a', 0.2, 3])
 
 
 if __name__ == '__main__':
