@@ -9,6 +9,7 @@ class BaseTest(unittest.TestCase):
     def setUp(self):
         pass
 
+
 class CalculateTest(BaseTest):
     
     def test_adjusted_monthly_value(self):
@@ -56,7 +57,26 @@ class CalculateTest(BaseTest):
             calculate.competition_rank(dict_list, dict_list[0], 'value', 'desc'),
             4
         )
-
+        class Dummy:
+            def __init__(self, **entries): 
+                self.__dict__.update(entries)
+        obj_list = [Dummy(**d) for d in dict_list]
+        self.assertEqual(
+            calculate.competition_rank(obj_list, obj_list[0], 'value', 'asc'),
+            1
+        )
+        self.assertEqual(
+            calculate.competition_rank(obj_list, obj_list[1], 'value', 'asc'),
+            2
+        )
+        self.assertEqual(
+            calculate.competition_rank(obj_list, obj_list[2], 'value', 'asc'),
+            2
+        )
+        self.assertEqual(
+            calculate.competition_rank(obj_list, obj_list[3], 'value', 'asc'),
+            4
+        )
 
 if __name__ == '__main__':
     unittest.main()
