@@ -110,7 +110,13 @@ class CalculateTest(BaseTest):
         self.assertEqual(calculate.elfi([0.5, 0.5]), 0.5)
         with self.assertRaises(ValueError):
             calculate.elfi(['a', 0.2, 3])
-
+    
+    def test_mean(self):
+        self.assertEqual(calculate.mean([1,2,3]), 2.0)
+        self.assertEqual(calculate.mean([1, 99]), 50.0)
+        self.assertEqual(calculate.mean([2,3,3]), 2.6666666666666665)
+        with self.assertRaises(ValueError):
+            calculate.elfi(['a', 0.2, 3])
 
 if __name__ == '__main__':
     unittest.main()
