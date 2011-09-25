@@ -268,6 +268,29 @@ class CalculateTest(BaseTest):
             1
         )
     
+    def test_pearson(self):
+        students = [
+            dict(sat=1200,gpa=3.6,drinks_per_day=0.3),
+            dict(sat=1400,gpa=3.9,drinks_per_day=0.1),
+            dict(sat=1100,gpa=3.0,drinks_per_day=0.5),
+            dict(sat=800,gpa=2.5, drinks_per_day=2.0),
+        ]
+        self.assertEqual(
+            calculate.pearson(
+                [i.get("sat") for i in students],
+                [i.get("gpa") for i in students],
+            ),
+            0.9714441330841945
+        )
+        self.assertEqual(
+            calculate.pearson(
+                [i.get("sat") for i in students],
+                [i.get("drinks_per_day") for i in students],
+            ),
+            -0.9435297685685435
+        )
+        with self.assertRaises(ValueError):
+            calculate.pearson([1], [1,2,3])
     
 if __name__ == '__main__':
     unittest.main()

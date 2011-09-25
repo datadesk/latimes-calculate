@@ -1,5 +1,5 @@
 import math
-import calculate
+
 
 def pearson(list_one, list_two):
     """
@@ -70,5 +70,4 @@ def pearson(list_one, list_two):
         return 0
     
     # Divide the equation to return the r value
-    r = pearson_numerator / pearson_denominator
-    return r
+    return pearson_numerator / pearson_denominator
