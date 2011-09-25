@@ -212,25 +212,13 @@ class CalculateTest(BaseTest):
         dict_list = [
             {'name': 'Joan', 'value': 1},
             {'name': 'Jane', 'value': 2},
-            {'name': 'Mary', 'value': 2},
-            {'name': 'Josh', 'value': 3},
+            {'name': 'Mary', 'value': 3},
+            {'name': 'Josh', 'value': 4},
         ]
-        self.assertEqual(
-            calculate.ordinal_rank(dict_list, dict_list[0], 'value', 'desc'),
-            4
-        )
-        self.assertEqual(
-            calculate.ordinal_rank(dict_list, dict_list[1], 'value', 'desc'),
-            2
-        )
-        self.assertEqual(
-            calculate.ordinal_rank(dict_list, dict_list[2], 'value', 'desc'),
-            3
-        )
-        self.assertEqual(
-            calculate.ordinal_rank(dict_list, dict_list[3], 'value', 'desc'),
-            1
-        )
+        self.assertEqual(calculate.ordinal_rank(dict_list, dict_list[0]), 1)
+        self.assertEqual(calculate.ordinal_rank(dict_list, dict_list[1]), 2)
+        self.assertEqual(calculate.ordinal_rank(dict_list, dict_list[2]), 3)
+        self.assertEqual(calculate.ordinal_rank(dict_list, dict_list[3]), 4)
         
         class DummyObj():
             def __init__(self, **entries): 
@@ -264,20 +252,20 @@ class CalculateTest(BaseTest):
         
         obj_list = [DummyDjangoObj(fake_id=i+1, **d) for i, d in enumerate(dict_list)]
         self.assertEqual(
-            calculate.ordinal_rank(obj_list, obj_list[0], 'value', 'asc'),
-            1
+            calculate.ordinal_rank(obj_list, obj_list[0], 'value'),
+            4
         )
         self.assertEqual(
-            calculate.ordinal_rank(obj_list, obj_list[1], 'value', 'asc'),
-            2
-        )
-        self.assertEqual(
-            calculate.ordinal_rank(obj_list, obj_list[2], 'value', 'asc'),
+            calculate.ordinal_rank(obj_list, obj_list[1], 'value'),
             3
         )
         self.assertEqual(
-            calculate.ordinal_rank(obj_list, obj_list[3], 'value', 'asc'),
-            4
+            calculate.ordinal_rank(obj_list, obj_list[2], 'value'),
+            2
+        )
+        self.assertEqual(
+            calculate.ordinal_rank(obj_list, obj_list[3], 'value'),
+            1
         )
     
     
