@@ -203,7 +203,84 @@ class CalculateTest(BaseTest):
         with self.assertRaises(TypeError):
             calculate.median([None, 1, 2])
             calculate.median(['a', 1, 2])
-
+    
+    def test_nudge_points(self):
+        # Not sure how to test this one yet
+        pass
+    
+    def test_ordinal_rank(self):
+        dict_list = [
+            {'name': 'Joan', 'value': 1},
+            {'name': 'Jane', 'value': 2},
+            {'name': 'Mary', 'value': 2},
+            {'name': 'Josh', 'value': 3},
+        ]
+        self.assertEqual(
+            calculate.ordinal_rank(dict_list, dict_list[0], 'value', 'desc'),
+            4
+        )
+        self.assertEqual(
+            calculate.ordinal_rank(dict_list, dict_list[1], 'value', 'desc'),
+            2
+        )
+        self.assertEqual(
+            calculate.ordinal_rank(dict_list, dict_list[2], 'value', 'desc'),
+            3
+        )
+        self.assertEqual(
+            calculate.ordinal_rank(dict_list, dict_list[3], 'value', 'desc'),
+            1
+        )
+        
+        class DummyObj():
+            def __init__(self, **entries): 
+                self.__dict__.update(entries)
+        
+        obj_list = [DummyObj(**d) for d in dict_list]
+        self.assertEqual(
+            calculate.ordinal_rank(obj_list, obj_list[0], 'value', 'asc'),
+            1
+        )
+        self.assertEqual(
+            calculate.ordinal_rank(obj_list, obj_list[1], 'value', 'asc'),
+            2
+        )
+        self.assertEqual(
+            calculate.ordinal_rank(obj_list, obj_list[2], 'value', 'asc'),
+            3
+        )
+        self.assertEqual(
+            calculate.ordinal_rank(obj_list, obj_list[3], 'value', 'asc'),
+            4
+        )
+        
+        class DummyDjangoObj(models.Model):
+            fake_id = models.IntegerField(primary_key=True)
+            name = models.TextField()
+            value = models.IntegerField()
+            
+            def __unicode__(self):
+                return '%s (%s)' % (self.name, self.value)
+        
+        obj_list = [DummyDjangoObj(fake_id=i+1, **d) for i, d in enumerate(dict_list)]
+        self.assertEqual(
+            calculate.ordinal_rank(obj_list, obj_list[0], 'value', 'asc'),
+            1
+        )
+        self.assertEqual(
+            calculate.ordinal_rank(obj_list, obj_list[1], 'value', 'asc'),
+            2
+        )
+        self.assertEqual(
+            calculate.ordinal_rank(obj_list, obj_list[2], 'value', 'asc'),
+            3
+        )
+        self.assertEqual(
+            calculate.ordinal_rank(obj_list, obj_list[3], 'value', 'asc'),
+            4
+        )
+    
+    
 if __name__ == '__main__':
     unittest.main()
     
