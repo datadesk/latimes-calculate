@@ -11,20 +11,16 @@ def per_capita(value, population, per=10000, fail_silently=True):
     h3. Example usage
     
         >> import calculate
-        >> calculate.per_capita()
+        >> calculate.per_capita(12, 100000)
+        1.2
     
     h3. Documentation
     
         * "per capita":http://en.wikipedia.org/wiki/Per_capita
     
     """
-    if not isinstance(value, (int,long,float)):
-        raise ValueError('Input values should be a number, your first input is a %s' % type(value))
-    if not isinstance(population, (int,long,float)):
-        raise ValueError('Input values should be a number, your second input is a %s' % type(population))
     try:
-        rate = (float(value) / population) * per
-        return rate
+        return (float(value) / population) * per
     except ZeroDivisionError:
         # If there's a zero involved return null if set to fail silent
         if fail_silently:

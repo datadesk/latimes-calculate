@@ -292,6 +292,12 @@ class CalculateTest(BaseTest):
         with self.assertRaises(ValueError):
             calculate.pearson([1], [1,2,3])
     
+    def test_percapita(self):
+        self.assertEqual(calculate.per_capita(12, 100000), 1.2)
+        self.assertEqual(calculate.per_capita(12, 0), None)
+        with self.assertRaises(ZeroDivisionError):
+            calculate.per_capita(12, 0, fail_silently=False)
+    
 if __name__ == '__main__':
     unittest.main()
     
