@@ -71,10 +71,12 @@ class CalculateTest(BaseTest):
             calculate.competition_rank(dict_list, dict_list[3], 'value', 'desc'),
             1
         )
-        class Dummy:
+        
+        class DummyObj():
             def __init__(self, **entries): 
                 self.__dict__.update(entries)
-        obj_list = [Dummy(**d) for d in dict_list]
+        
+        obj_list = [DummyObj(**d) for d in dict_list]
         self.assertEqual(
             calculate.competition_rank(obj_list, obj_list[0], 'value', 'asc'),
             1
@@ -91,6 +93,33 @@ class CalculateTest(BaseTest):
             calculate.competition_rank(obj_list, obj_list[3], 'value', 'asc'),
             4
         )
+        
+        class DummyDjangoObj(models.Model):
+            fake_id = models.IntegerField(primary_key=True)
+            name = models.TextField()
+            value = models.IntegerField()
+            
+            def __unicode__(self):
+                return '%s (%s)' % (self.name, self.value)
+        
+        obj_list = [DummyDjangoObj(fake_id=i+1, **d) for i, d in enumerate(dict_list)]
+        self.assertEqual(
+            calculate.competition_rank(obj_list, obj_list[0], 'value', 'asc'),
+            1
+        )
+        self.assertEqual(
+            calculate.competition_rank(obj_list, obj_list[1], 'value', 'asc'),
+            2
+        )
+        self.assertEqual(
+            calculate.competition_rank(obj_list, obj_list[2], 'value', 'asc'),
+            2
+        )
+        self.assertEqual(
+            calculate.competition_rank(obj_list, obj_list[3], 'value', 'asc'),
+            4
+        )
+
     
     def test_date_range(self):
         dr = calculate.date_range(datetime(2009,1,1, 12, 31, 00), date(2009,1,3))

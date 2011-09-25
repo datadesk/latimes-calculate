@@ -36,11 +36,10 @@ def competition_rank(obj_list, obj, order_by, direction='desc'):
     if direction not in ['desc', 'asc']:
         raise ValueError('Direction kwarg should be either asc or desc. You submitted %s' % direction)
     
-    def getkey(obj, key):
-        return obj.get(key)
-    
     # Figure out what type of objects we're dealing with
     if type(obj_list[0]) == type({}):
+        def getkey(obj, key):
+            return obj.get(key)
         gettr = getkey
     else:
         gettr = getattr
