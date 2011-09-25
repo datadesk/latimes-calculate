@@ -2,7 +2,7 @@ from __future__ import with_statement
 import unittest
 import calculate
 from datetime import datetime, date
-from django.contrib.gis import models
+from django.contrib.gis.db import models
 from django.contrib.gis.geos import Point
 
 
@@ -135,14 +135,20 @@ class CalculateTest(BaseTest):
                 'point': Point(-118.24301719665527, 34.05357499274671, srid=4326)
             },
         ]
+        self.assertEqual(type(calculate.mean_center(dict_list)), Point)
         self.assertEqual(
-            calculate.mean_center(dict_list),
-            4
+            calculate.mean_center(dict_list).wkt,
+            'POINT (-118.2445164040374692 34.0523693592204282)'
         )
-#        class Dummy:
-#            def __init__(self, **entries): 
-#                self.__dict__.update(entries)
-#        obj_list = [Dummy(**d) for d in dict_list]
+        class FakePoint(models.Model):
+            name = models.TextField()
+            point = models.PointField(srid=4326)
+        obj_list = [FakePoint(**d) for d in dict_list]
+        self.assertEqual(type(calculate.mean_center(obj_list)), Point)
+        self.assertEqual(
+            calculate.mean_center(obj_list).wkt,
+            'POINT (-118.2445164040374692 34.0523693592204282)'
+        )
 
 if __name__ == '__main__':
     unittest.main()

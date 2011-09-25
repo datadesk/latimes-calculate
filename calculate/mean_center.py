@@ -33,6 +33,8 @@ def mean_center(obj_list, point_attribute_name='point'):
     """
     # Figure out what type of objects we're dealing with
     if type(obj_list[0]) == type({}):
+        def getkey(obj, key):
+            return obj.get(key)
         gettr = getkey
     else:
         gettr = getattr
