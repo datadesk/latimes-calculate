@@ -26,8 +26,8 @@ def mode(data_list):
     # Convert all the values to floats and test to make sure there aren't any strings in there
     try:
         data_list = map(float, data_list)
-    except ValueError:
-        raise ValueError('Input values should contain numbers, your first input contains something else')
+    except TypeError:
+        raise TypeError('Input values should contain numbers, your first input contains something else')
     
     # Create a dictionary to store the counts for each value
     counts = {}

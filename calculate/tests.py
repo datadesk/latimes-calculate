@@ -195,6 +195,14 @@ class CalculateTest(BaseTest):
         self.assertEqual(calculate.median([1,2,3,4]), 2.5)
         with self.assertRaises(TypeError):
             calculate.median([None, 1, 2])
+            calculate.median(['a', 1, 2])
+    
+    def test_mode(self):
+        self.assertEqual(calculate.mode([1,2,3,2]), 2.0)
+        self.assertEqual(calculate.mode([1,2,3]), None)
+        with self.assertRaises(TypeError):
+            calculate.median([None, 1, 2])
+            calculate.median(['a', 1, 2])
 
 if __name__ == '__main__':
     unittest.main()
