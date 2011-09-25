@@ -189,6 +189,12 @@ class CalculateTest(BaseTest):
             calculate.mean_center(obj_list).wkt,
             'POINT (-118.2445164040374692 34.0523693592204282)'
         )
+    
+    def test_median(self):
+        self.assertEqual(calculate.median([1,3,2]), 2.0)
+        self.assertEqual(calculate.median([1,2,3,4]), 2.5)
+        with self.assertRaises(TypeError):
+            calculate.median([None, 1, 2])
 
 if __name__ == '__main__':
     unittest.main()
