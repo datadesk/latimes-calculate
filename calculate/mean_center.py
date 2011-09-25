@@ -1,10 +1,12 @@
 from django.contrib.gis.geos import MultiPoint
-from django.contrib.gis.db.models.query import GeoQuerySet
 
-def mean_center(geoqueryset, point_attribute_name='point'):
+
+def mean_center(obj_list, point_attribute_name='point'):
     """
-    Accepts a geoqueryset, expected to contain objects with Point properties,
-    and returns a Point object with the mean center of the provided points. 
+    Accepts a geoqueryset, list of objects or list of dictionaries, expected 
+    to contain GeoDjango Point objects as one of their attributes.
+    
+    Returns a Point object with the mean center of the provided points.
     
     The mean center is the average x and y of all those points. 
     
@@ -26,10 +28,14 @@ def mean_center(geoqueryset, point_attribute_name='point'):
 
     h3. Documentation
         
-        * "mean center":http://en.wikipedia.org/wiki/Geostatistics#Descriptive_spatial_statistics
+        * "mean center":http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#//005p00000018000000.htm
     
     """
-    if not isinstance(geoqueryset, GeoQuerySet):
-        raise TypeError('First parameter must be a Django GeoQuerySet. You submitted a %s object' % type(geoqueryset))
-    multipoint = MultiPoint([getattr(p, point_attribute_name) for p in geoqueryset])
+    # Figure out what type of objects we're dealing with
+    if type(obj_list[0]) == type({}):
+        gettr = getkey
+    else:
+        gettr = getattr
+    # Crunch it
+    multipoint = MultiPoint([gettr(p, point_attribute_name) for p in obj_list])
     return multipoint.centroid
