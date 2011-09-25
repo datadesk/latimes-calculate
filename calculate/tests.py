@@ -169,10 +169,21 @@ class CalculateTest(BaseTest):
             calculate.mean_center(dict_list).wkt,
             'POINT (-118.2445164040374692 34.0523693592204282)'
         )
+        class DummyObj():
+            def __init__(self, **entries): 
+                self.__dict__.update(entries)
+        
+        obj_list = [DummyObj(**d) for d in dict_list]
+        self.assertEqual(type(calculate.mean_center(obj_list)), Point)
+        self.assertEqual(
+            calculate.mean_center(obj_list).wkt,
+            'POINT (-118.2445164040374692 34.0523693592204282)'
+        )
         class FakePoint(models.Model):
+            fake_id = models.IntegerField(primary_key=True)
             name = models.TextField()
             point = models.PointField(srid=4326)
-        obj_list = [FakePoint(**d) for d in dict_list]
+        obj_list = [FakePoint(fake_id=i+1, **d) for i, d in enumerate(dict_list)]
         self.assertEqual(type(calculate.mean_center(obj_list)), Point)
         self.assertEqual(
             calculate.mean_center(obj_list).wkt,
