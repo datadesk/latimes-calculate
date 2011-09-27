@@ -292,9 +292,15 @@ class CalculateTest(BaseTest):
         with self.assertRaises(ValueError):
             calculate.pearson([1], [1,2,3])
     
-    def test_percapita(self):
+    def test_per_capita(self):
         self.assertEqual(calculate.per_capita(12, 100000), 1.2)
         self.assertEqual(calculate.per_capita(12, 0), None)
+        with self.assertRaises(ZeroDivisionError):
+            calculate.per_capita(12, 0, fail_silently=False)
+    
+    def test_per_sqmi(self):
+        self.assertEqual(calculate.per_sqmi(12, 60), .20)
+        self.assertEqual(calculate.per_sqmi(12, 0), None)
         with self.assertRaises(ZeroDivisionError):
             calculate.per_capita(12, 0, fail_silently=False)
     

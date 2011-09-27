@@ -15,13 +15,8 @@ def per_sqmi(value, square_miles, fail_silently=True):
         2.0
 
     """
-    if not isinstance(value, (int,long,float)):
-        return ValueError('Input values should be a number, your first input is a %s' % type(value))
-    if not isinstance(square_miles, (int,long,float)):
-        return ValueError('Input values should be a number, your second input is a %s' % type(square_miles))
     try:
-        rate = float(value) / square_miles
-        return rate
+        return float(value) / square_miles
     except ZeroDivisionError:
         # If there's a zero involved return null if set to fail silent
         if fail_silently:
