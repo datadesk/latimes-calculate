@@ -319,6 +319,15 @@ class CalculateTest(BaseTest):
         with self.assertRaises(ZeroDivisionError):
             calculate.percentage_change(0, 12, fail_silently=False)
     
+    def test_percentile(self):
+        self.assertEqual(calculate.percentile([1, 2, 3, 4], 3), 75)
+        self.assertEqual(calculate.percentile([1, 2, 3, 3, 4], 3, kind='strict'), 40)
+        self.assertEqual(calculate.percentile([1, 2, 3, 3, 4], 3, kind='weak'), 80)
+        self.assertEqual(calculate.percentile([1, 2, 3, 3, 4], 3, kind='mean'), 60)
+        with self.assertRaises(ValueError):
+            calculate.percentile(['a', 2, 3], 3)
+            calculate.percentile([1,2,3,4], 3, kind='mystery-meat')
+    
 if __name__ == '__main__':
     unittest.main()
     

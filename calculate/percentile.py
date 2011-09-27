@@ -57,18 +57,11 @@ def percentile(data_list, value, kind='weak'):
         the numpy parts out.
 
     """
-    # Test to make sure the input is a list or tuple
-    if not isinstance(data_list, (list, tuple)):
-        raise TypeError('First input must be a list or tuple. You passed in a %s' % type(data_list))
-    
     # Convert all the values to floats and test to make sure there aren't any strings in there
     try:
         data_list = map(float, data_list)
     except ValueError:
         raise ValueError('Input values should contain numbers, your first input contains something else')
-        
-    if not isinstance(value, (int,long,float)):
-        raise ValueError('Input values should contain numbers, your second input is a %s' % type(value))
     
     # Find the number of values in the sample
     n = float(len(data_list))
