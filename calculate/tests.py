@@ -302,14 +302,22 @@ class CalculateTest(BaseTest):
         self.assertEqual(calculate.per_sqmi(12, 60), .20)
         self.assertEqual(calculate.per_sqmi(12, 0), None)
         with self.assertRaises(ZeroDivisionError):
-            calculate.per_capita(12, 0, fail_silently=False)
+            calculate.per_sqmi(12, 0, fail_silently=False)
     
     def test_percentage(self):
         self.assertEqual(calculate.percentage(12, 60), 20)
         self.assertEqual(calculate.percentage(12, 60, multiply=False), .20)
         self.assertEqual(calculate.percentage(12, 0), None)
         with self.assertRaises(ZeroDivisionError):
-            calculate.per_capita(12, 0, fail_silently=False)
+            calculate.percentage(12, 0, fail_silently=False)
+    
+    def test_percentage_change(self):
+        self.assertEqual(calculate.percentage_change(12, 60), 400)
+        self.assertEqual(calculate.percentage_change(12, 60, multiply=False), 4.0)
+        self.assertEqual(calculate.percentage_change(12, 0), -100)
+        self.assertEqual(calculate.percentage_change(0, 12), None)
+        with self.assertRaises(ZeroDivisionError):
+            calculate.percentage_change(0, 12, fail_silently=False)
     
 if __name__ == '__main__':
     unittest.main()

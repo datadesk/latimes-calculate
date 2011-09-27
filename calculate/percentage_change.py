@@ -28,10 +28,6 @@ def percentage_change(old_value, new_value, multiply=True, fail_silently=True):
         * "percentage_change":http://en.wikipedia.org/wiki/Percentage_change
     
     """
-    if not isinstance(old_value, (int,long,float)):
-        return ValueError('Input values should be a number, your first input is a %s' % type(old_value))
-    if not isinstance(new_value, (int,long,float)):
-        return ValueError('Input values should be a number, your second input is a %s' % type(new_value))
     change = new_value - old_value
     try:
         percentage_change = (change / float(old_value))
