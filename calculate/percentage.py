@@ -28,12 +28,6 @@ def percentage(value, total, multiply=True, fail_silently=True):
         * "percentage":http://en.wikipedia.org/wiki/Percentage
     
     """
-    if not isinstance(value, (int,long,float)):
-        return ValueError('Input values should be a number, your first input is a %s' % type(value))
-
-    if not isinstance(total, (int,long,float)):
-        return ValueError('Input values should be a number, your second input is a %s' % type(total))
-    
     try:
         # Divide one into the other
         percent = (value / float(total))

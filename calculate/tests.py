@@ -304,6 +304,13 @@ class CalculateTest(BaseTest):
         with self.assertRaises(ZeroDivisionError):
             calculate.per_capita(12, 0, fail_silently=False)
     
+    def test_percentage(self):
+        self.assertEqual(calculate.percentage(12, 60), 20)
+        self.assertEqual(calculate.percentage(12, 60, multiply=False), .20)
+        self.assertEqual(calculate.percentage(12, 0), None)
+        with self.assertRaises(ZeroDivisionError):
+            calculate.per_capita(12, 0, fail_silently=False)
+    
 if __name__ == '__main__':
     unittest.main()
     
