@@ -328,6 +328,25 @@ class CalculateTest(BaseTest):
             calculate.percentile(['a', 2, 3], 3)
             calculate.percentile([1,2,3,4], 3, kind='mystery-meat')
     
+    def test_random_point(self):
+        pass
+    
+    def test_range(self):
+        pass
+        
+    def test_standard_deviation(self):
+        pass
+        
+    def test_standard_deviation_distance(self):
+        pass
+        
+    def test_standard_deviation_ellipses(self):
+        pass
+        
+    def test_summary_stats(self):
+        pass
+    
+    
 if __name__ == '__main__':
     unittest.main()
     
