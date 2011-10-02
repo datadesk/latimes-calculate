@@ -26,8 +26,9 @@ def random_point(extent):
         * "Code lifted from Joost at DjangoDays":http://djangodays.com/2009/03/04/geodjango-getting-a-random-point-within-a-multipolygon/
     
     """
-    xrange = extent[2] - extent[0]
-    yrange = extent[3] - extent[1]
-    randx = xrange * random.random() + extent[0]
-    randy = yrange * random.random() + extent[1]
+    xmin, ymin, xmax, ymax = extent
+    xrange = xmax - xmin
+    yrange = ymax - ymin
+    randx = xrange * random.random() + xmin
+    randy = yrange * random.random() + ymin
     return Point(randx, randy)

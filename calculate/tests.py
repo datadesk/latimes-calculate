@@ -331,7 +331,13 @@ class CalculateTest(BaseTest):
             calculate.percentile([1,2,3,4], 3, kind='mystery-meat')
     
     def test_random_point(self):
-        pass
+        ymin, xmin = 34.03743993275203, -118.27177047729492
+        ymax, xmax = 34.0525171958097, -118.22404861450195
+        random_point = calculate.random_point((xmin, ymin, xmax, ymax))
+        self.assertEqual(random_point.x < xmax, True)
+        self.assertEqual(random_point.x > xmin, True)
+        self.assertEqual(random_point.y < ymax, True)
+        self.assertEqual(random_point.y > ymin, True)
     
     def test_range(self):
         self.assertEqual(calculate.range([1,2,3]), 2)
