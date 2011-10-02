@@ -129,8 +129,10 @@ class CalculateTest(BaseTest):
             calculate.date_range(date(2011,1,1), date(2010,12,31))
     
     def test_decile(self):
-        # Waiting on the percentile test to do this one
-        pass
+        self.assertEqual(calculate.decile([1, 2, 3, 4], 3), 8)
+        self.assertEqual(calculate.decile([1, 2, 3, 3, 4], 3, kind='strict'), 5)
+        self.assertEqual(calculate.decile([1, 2, 3, 3, 4], 3, kind='weak'), 9)
+        self.assertEqual(calculate.decile([1, 2, 3, 3, 4], 3, kind='mean'), 7)
     
     def test_elfi(self):
         self.assertEqual(
