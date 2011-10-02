@@ -42,5 +42,4 @@ def standard_deviation(data_list):
     mean_deviation = calculate.mean(deviations_squared)
     
     # And then take the square root of the mean to find the standard deviation
-    standard_deviation = math.sqrt(mean_deviation)
-    return standard_deviation
+    return math.sqrt(mean_deviation)

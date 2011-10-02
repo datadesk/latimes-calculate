@@ -345,7 +345,10 @@ class CalculateTest(BaseTest):
             calculate.range(['a', 1, 2])
         
     def test_standard_deviation(self):
-        pass
+        self.assertEqual(calculate.standard_deviation([2,3,3,4]), 0.70710678118654757)
+        self.assertEqual(calculate.standard_deviation([-2,3,3,40]), 16.867127793432999)
+        with self.assertRaises(ValueError):
+            calculate.standard_deviation(['a',2,3,3,4])
         
     def test_standard_deviation_distance(self):
         pass
