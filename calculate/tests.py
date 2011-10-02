@@ -351,7 +351,42 @@ class CalculateTest(BaseTest):
             calculate.standard_deviation(['a',2,3,3,4])
         
     def test_standard_deviation_distance(self):
-        pass
+        dict_list = [
+            {
+                'name': 'The Los Angeles Times',
+                'point': Point(-118.24551701545715, 34.05252608491458, srid=4326)
+            },
+            {
+                'name': 'The Higgins Building',
+                'point': Point(-118.245015, 34.051007, srid=4326)
+            },
+            {
+                'name': 'Los Angeles City Hall',
+                'point': Point(-118.24301719665527, 34.05357499274671, srid=4326)
+            },
+        ]
+        self.assertEqual(
+            calculate.standard_deviation_distance(dict_list),
+            0.0003720200661315796
+        )
+        class DummyObj():
+            def __init__(self, **entries): 
+                self.__dict__.update(entries)
+        
+        obj_list = [DummyObj(**d) for d in dict_list]
+        self.assertEqual(
+            calculate.standard_deviation_distance(obj_list),
+            0.0003720200661315796
+        )
+        class FakePoint(models.Model):
+            fake_id = models.IntegerField(primary_key=True)
+            name = models.TextField()
+            point = models.PointField(srid=4326)
+        obj_list = [FakePoint(fake_id=i+1, **d) for i, d in enumerate(dict_list)]
+        self.assertEqual(
+            calculate.standard_deviation_distance(obj_list),
+            0.0003720200661315796
+        )
         
     def test_standard_deviation_ellipses(self):
         pass

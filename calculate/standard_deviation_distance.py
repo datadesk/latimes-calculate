@@ -1,12 +1,11 @@
 import calculate
-from django.contrib.gis.geos import MultiPoint
-from django.contrib.gis.db.models.query import GeoQuerySet
 
 
-def standard_deviation_distance(geoqueryset, point_attribute_name='point'):
+def standard_deviation_distance(obj_list, point_attribute_name='point'):
     """
-    Accepts a geoqueryset, expected to contain objects with Point properties,
-    and returns a float with the standard deviation distance of the provided points. 
+    Accepts a geoqueryset, list of objects or list of dictionaries, expected 
+    to contain objects with Point properties, and returns a float with the 
+    standard deviation distance of the provided points. 
     
     The standard deviation distance is the average variation in the distance of points 
     from the mean center. 
@@ -28,15 +27,19 @@ def standard_deviation_distance(geoqueryset, point_attribute_name='point'):
     
         * "django":http://www.djangoproject.com/
         * "geodjango":http://www.geodjango.org/
-        * "numpy":http://numpy.scipy.org/
         
     h3. Documentation
     
         * "standard deviation distance":http://www.spatialanalysisonline.com/output/html/Directionalanalysisofpointdatasets.html
     
     """
-    if not isinstance(geoqueryset, GeoQuerySet):
-        raise TypeError('First parameter must be a Django GeoQuerySet. You submitted a %s object' % type(geoqueryset))
-    mean = calculate.mean_center(geoqueryset, point_attribute_name=point_attribute_name)
-    distances = [getattr(p, point_attribute_name).distance(mean) for p in geoqueryset]
+    # Figure out what type of objects we're dealing with
+    if type(obj_list[0]) == type({}):
+        def getkey(obj, key):
+            return obj.get(key)
+        gettr = getkey
+    else:
+        gettr = getattr
+    mean = calculate.mean_center(obj_list, point_attribute_name=point_attribute_name)
+    distances = [gettr(p, point_attribute_name).distance(mean) for p in obj_list]
     return calculate.standard_deviation(distances)
