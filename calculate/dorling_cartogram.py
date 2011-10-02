@@ -22,7 +22,7 @@ class dorling_cartogram(object):
         # Now run the expensive task that creates the cartogram
         >> cartogram.make()
         # Now each shape in the queryset has a new 'circle' attr that is cartogram.
-        >> [i.circle for i in cartogram.queryset]
+        >> [i.circle for i in cartogram.results]
     
     Based on code published by Zachary Forest Johnson
     
@@ -169,6 +169,8 @@ class dorling_cartogram(object):
                     self.x_values[obj.i],
                     self.y_values[obj.i],
                 ).buffer(obj.radius)
+        # Now hand off the results
+        self.results = self.queryset
 
     def add_point(self, pointer, axis, obj):
         if self.tree[pointer]['id'] == 0:
