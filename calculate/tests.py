@@ -332,7 +332,9 @@ class CalculateTest(BaseTest):
         pass
     
     def test_range(self):
-        pass
+        self.assertEqual(calculate.range([1,2,3]), 2)
+        with self.assertRaises(ValueError):
+            calculate.range(['a', 1, 2])
         
     def test_standard_deviation(self):
         pass

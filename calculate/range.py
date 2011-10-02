@@ -21,7 +21,8 @@ def range(data_list):
     try:
         data_list = map(float, data_list)
     except ValueError:
-        raise ValueError('Input values should contain numbers, your first input contains something else')
+        raise ValueError('Input values should contain numbers, your first \
+            input contains something else')
     
     # Make sure the sample has more than one entry
     if len(data_list) < 2:
