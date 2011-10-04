@@ -30,7 +30,7 @@ class dorling_cartogram(object):
     
     """
     def __init__(self, queryset, data_attr, polygon_attr, iterations=500,
-        friction=0.25, ratio=0.4):
+        friction=0.25, ratio=0.4, scale=None):
         self.queryset = queryset
         [setattr(obj, 'i', i) for i, obj in enumerate(self.queryset)]
         self.data_attr = data_attr
@@ -52,7 +52,7 @@ class dorling_cartogram(object):
         self.radius_values = {}
         self.tree = {}
         self.end_pointer = 1
-        self.scale = None
+        self.scale = scale
         self.neigbors_within_distance = 0
         self.neighbor_counts = {}
         # Mysterious name from code I'm rewriting
@@ -81,7 +81,9 @@ class dorling_cartogram(object):
                     self.total_distance += math.sqrt(xd*xd+yd*yd)
                     self.total_radius += math.sqrt(this_data/math.pi) + math.sqrt(other_data/math.pi)
             self.neighbor_counts[obj.i] = len(obj.neighbor_list)
-        self.scale = self.total_distance / self.total_radius
+        # Set the scale
+        if not self.scale:
+            self.scale = self.total_distance / self.total_radius
         
         #
         # Calculate the radii we'll start with
