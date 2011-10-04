@@ -1,48 +1,24 @@
-h1. latimes-calculate
+<pre><code> dP""b8    db    88      dP""b8 88   88 88        db    888888 888888 
+dP   `"   dPYb   88     dP   `" 88   88 88       dPYb     88   88__   
+Yb       dP__Yb  88  .o Yb      Y8   8P 88  .o  dP__Yb    88   88""   
+ YboodP dP""""Yb 88ood8  YboodP `YbodP' 88ood8 dP""""Yb   88   888888</code></pre>
 
-A collection of snippets I use to do a little math. Nothing fancy.
+A collection of simple math functions. Documentation at "http://datadesk.github.com/latimes-calculate/":http://datadesk.github.com/latimes-calculate/.
 
-h3. The mission
+h3. Features
 
-Fill a basket for all the math I use to do journalism and prevent myself from having to install numpy on my production server by boiling things down as much as possible.
-
-h3. Contains functions that calculate:
-
-* Adjusted monthly value
-* Date ranges
-* Decile rankings
-* ELFI (Ethnolinguistic Fractionalization Index)
-* Mean
-* Mean center
-* Median
-* Mode
-* Ordinal rank
-* Pearson correlation coefficient 
-* Per capita rate
-* Per square mile rate
-* Percentage change
-* Percentage
-* Percentile
-* Range
-* Standard competition rank
-* Standard deviation
-* Standard deviation distance
-* Standard deviation ellipses
-
-h3. Other utilities to:
-
-* Print out a set of basic summary statistics
-* Print out how the the data compares to Benford's Law
-* Get a random point
-* Nudge identical points slightly apart
-
-h3. How to install
-
-<pre><code>pip install latimes-calculate</code></pre>
+* Descriptive statistics like mean, median, percentile
+* Comparison statistics like percentage change, per-capita and rankings
+* Geospatial stats like mean center and standard deviation distance
+* A small dab of more complicated hoohah like Pearson’s R.
+* A grabbag of utilities for a diversity index, Benford’s Law, generating random points and other things
 
 h3. Dependencies
 
-* "geodjango":http://www.geodjango.org/
-* "psql ellipse() function":http://postgis.refractions.net/support/wiki/index.php?plpgsqlfunctions
-* "math":http://docs.python.org/library/math.html
-* "random":http://docs.python.org/library/random.html
+For more functions, nothing. "GeoDjango":http://www.geodjango.org/ is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
+
+h3. Getting started
+
+<pre><code>pip install latimes-calculate</code></pre>
+
+
