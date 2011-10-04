@@ -212,7 +212,13 @@ Functions
         >>> calculate.per_capita(12, 100000)
         1.2
 
+.. method:: per_sqmi(value, square_miles, fail_silently=True)
 
+    Accepts two numbers, a value and an area, and returns the per square mile rate. Not much more going on here than a simple bit of division. If you divide into zero -- an illegal operation -- a null value is returned by default. If you prefer for an error to be raised, set the kwarg 'fail_silently' to False. ::
+
+        >>> import calculate
+        >>> calculate.per_sqmi(20, 10)
+        2.0
 
 
 
