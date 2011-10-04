@@ -297,7 +297,9 @@ Functions
 
 .. method:: standard_deviation_ellipses(geoqueryset, point_attribute_name='point', num_of_std=1, fix_points=True)
 
-    Accepts a GeoQuerySet and generates one or more standard deviation ellipses demonstrating the geospatial distribution of where its points occur. Returns a one-to-many list of the ellipses as Polygon objects. The standard deviation ellipse illustrates the average variation in the distance of points from the mean center, as well as their direction. By default, the function expects the Point field on your model to be called ``point``. If the point field is called something else, change the kwarg 'point_attribute_name' to whatever your field might be called. Also by default, the function will nudge slightly apart any identical points and only return the first standard deviation ellipse. If you'd like to change that behavior, change the corresponding kwargs. ::
+    Accepts a GeoQuerySet and generates one or more standard deviation ellipses demonstrating the geospatial distribution of where its points occur. Returns a one-to-many list of the ellipses as Polygon objects. The standard deviation ellipse illustrates the average variation in the distance of points from the mean center, as well as their direction. By default, the function expects the Point field on your model to be called ``point``. If the point field is called something else, change the kwarg 'point_attribute_name' to whatever your field might be called. Also by default, the function will nudge slightly apart any identical points and only return the first standard deviation ellipse. If you'd like to change that behavior, change the corresponding kwargs. 
+
+    Requires not only GeoDjango, but also the `psql ellipse() function <http://postgis.refractions.net/support/wiki/index.php?plpgsqlfunctions>`_. ::
 
         >>> import calculate
         >>> calculate.standard_deviation_ellipses(qs)
