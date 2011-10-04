@@ -53,6 +53,10 @@
 <li>A grabbag of utilities for a Dorling cartogram, diversity index, Benford&#8217;s Law, generating random points and other things</li>
 </ul>
 <hr></div>
+<div class="section" id="dependencies">
+<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h1>
+<p>For more functions, nothing. GeoDjango is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.</p>
+</div>
 <div class="section" id="getting-started">
 <h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <p>Install the latest package from pypi.</p>
@@ -110,10 +114,25 @@
 </div>
 </dd></dl>
 
-<div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
+<dl class="method">
+<dt id="competition_rank">
+<tt class="descname">competition_rank</tt><big>(</big><em>data_list</em>, <em>obj</em>, <em>order_by</em>, <em>direction='desc'</em><big>)</big><a class="headerlink" href="#competition_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts a list, an item plus the value and direction to order by. Then returns the supplied object&#8217;s competition rank as an integer. In competition ranking equal numbers receive the same ranking and a gap is left before the next value (i.e. &#8220;1224&#8221;). You can submit a Django queryset, objects, or just a list of dictionaries.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qs</span> <span class="o">=</span> <span class="n">Player</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">&quot;-career_home_runs&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ernie</span> <span class="o">=</span> <span class="n">Player</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">first_name__iexact</span><span class="o">=</span><span class="s">&#39;Ernie&#39;</span><span class="p">,</span> <span class="n">last_name__iexact</span><span class="o">=</span><span class="s">&#39;Banks&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">eddie</span> <span class="o">=</span> <span class="n">Player</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">first_name__iexact</span><span class="o">=</span><span class="s">&#39;Eddie&#39;</span><span class="p">,</span> <span class="n">last_name__iexact</span><span class="o">=</span><span class="s">&#39;Matthews&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mel</span> <span class="o">=</span> <span class="n">Player</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">first_name__iexact</span><span class="o">=</span><span class="s">&#39;Mel&#39;</span><span class="p">,</span> <span class="n">last_name__iexact</span><span class="o">=</span><span class="s">&#39;Ott&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">competition_rank</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">ernie</span><span class="p">,</span> <span class="n">career_home_runs</span><span class="s">&#39;, direction=&#39;</span><span class="n">desc</span><span class="s">&#39;)</span>
+<span class="go">21</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">competition_rank</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">eddie</span><span class="p">,</span> <span class="s">&#39;career_home_runs&#39;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s">&#39;desc&#39;</span><span class="p">)</span>
+<span class="go">21</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">competition_rank</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">mel</span><span class="p">,</span> <span class="s">&#39;career_home_runs&#39;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s">&#39;desc&#39;</span><span class="p">)</span>
+<span class="go">23</span>
+</pre></div>
 </div>
+</dd></dl>
+
 </div>
 
 
@@ -125,10 +144,9 @@
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Features</a></li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#getting-started">Getting started</a></li>
-<li><a class="reference internal" href="#functions">Functions</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 
   <h3>This Page</h3>

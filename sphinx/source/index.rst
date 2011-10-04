@@ -15,6 +15,11 @@ Features
 
    <hr>
 
+Dependencies
+============
+
+For more functions, nothing. GeoDjango is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
+
 Getting started
 ===============
 
@@ -80,5 +85,18 @@ Functions
         >>> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], verbose=False)
         -0.863801937698704
 
-.. toctree::
-   :maxdepth: 3
+.. method:: competition_rank(data_list, obj, order_by, direction='desc')
+
+    Accepts a list, an item plus the value and direction to order by. Then returns the supplied object's competition rank as an integer. In competition ranking equal numbers receive the same ranking and a gap is left before the next value (i.e. "1224"). You can submit a Django queryset, objects, or just a list of dictionaries. ::
+
+        >>> import calculate
+        >>> qs = Player.objects.all().order_by("-career_home_runs")
+        >>> ernie = Player.objects.get(first_name__iexact='Ernie', last_name__iexact='Banks')
+        >>> eddie = Player.objects.get(first_name__iexact='Eddie', last_name__iexact='Matthews')
+        >>> mel = Player.objects.get(first_name__iexact='Mel', last_name__iexact='Ott')
+        >>> calculate.competition_rank(qs, ernie, career_home_runs', direction='desc')
+        21
+        >>> calculate.competition_rank(qs, eddie, 'career_home_runs', direction='desc')
+        21
+        >>> calculate.competition_rank(qs, mel, 'career_home_runs', direction='desc')
+        23
