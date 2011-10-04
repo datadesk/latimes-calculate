@@ -176,7 +176,13 @@ Functions
         >>> calculate.mode([1,2,3])
         >>> 
 
+.. method:: nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001)
 
+    A utility that accepts a GeoDjango QuerySet and nudges slightly apart any identical points. Nothing is returned. By default, the distance of the move is 0.0001 decimal degrees. I'm not sure if this will go wrong if your data is in a different unit of measurement. This can be useful for running certain geospatial statistics, or even for presentation issues, like spacing out markers on a Google Map for instance. ::
+
+        >>> import calculate
+        >>> calculate.nudge_points(qs)
+        >>>
 
 
 
