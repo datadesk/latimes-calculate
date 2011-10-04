@@ -156,8 +156,15 @@ Functions
         >>> calculate.mean_center(qs)
         <Point object at 0x77a1694>
 
+.. method:: median(data_list)
 
+    Accepts a list of numbers and returns the median value. The median is the number in the middle of a sequence, with 50 percent of the values above, and 50 percent below. In cases where the sequence contains an even number of values -- and therefore no exact middle -- the two values nearest the middle are averaged and the mean returned. ::
 
+        >>> import calculate
+        >>> calculate.median([1,2,3])
+        2.0
+        >> calculate.median((1,4,3,2))
+        2.5
 
 
 
