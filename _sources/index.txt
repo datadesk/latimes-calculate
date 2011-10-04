@@ -305,6 +305,12 @@ Functions
         >>> calculate.standard_deviation_ellipses(qs)
         [<Polygon object at 0x77a1c34>]
 
+.. method:: summary_stats(data_list)
+
+    Accepts a sample of numbers and returns a pretty print out of a variety of descriptive statistics.
+
+    
+
 
 
 
