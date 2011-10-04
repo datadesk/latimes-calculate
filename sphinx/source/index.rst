@@ -55,7 +55,7 @@ Functions
 
     Benford's Law makes statements about the occurance of leading digits in a dataset. It claims that a leading digit of 1 will occur about 30 percent of the time, and each number after it a little bit less, with the number 9 occuring the least. Datasets that greatly vary from the law are sometimes suspected of fraud.
 
-    The function returns the Pearson correlation coefficient, also known as Pearson's r, which reports how closely the two datasets are related. This function also includes a variation on the classic Benford analysis popularized by blogger Nate Silver, who conducted an analysis of the final digits of polling data. To use Silver's variation, provide the keyward argument `method` with the value 'last_digit'. To prevent the function from printing, set the optional keyword argument `verbose` to False.
+    The function returns the Pearson correlation coefficient, also known as Pearson's r, which reports how closely the two datasets are related. This function also includes a variation on the classic Benford analysis popularized by blogger Nate Silver, who conducted an analysis of the final digits of polling data. To use Silver's variation, provide the keyword argument `method` with the value 'last_digit'. To prevent the function from printing, set the optional keyword argument `verbose` to False.
 
     This function is based upon code from a variety of sources around the web, but owes a particular debt to the work of Christian S. Perone. ::
         
