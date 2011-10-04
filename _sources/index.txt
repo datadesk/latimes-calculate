@@ -130,6 +130,13 @@ Functions
         >>> calculate.decile([1, 2, 3, 3, 4], 3)
         9
 
+.. method:: elfi(data_list)
+
+    The ELFI is a simplified method for calculating the Ethnolinguistic Fractionalization Index (ELFI). This is one form of what is commonly called a "diversity index." Accepts a list of decimal percentages, which are used to calculate the index. Returns a decimal value as a floating point number. ::
+
+        >>> import calculate
+        >>> calculate.elfi([0.2, 0.5, 0.05, 0.25])
+        0.64500000000000002
 
 
 
