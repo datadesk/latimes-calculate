@@ -46,18 +46,41 @@
 <div class="section" id="features">
 <h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li>Descriptive statistics like mean, median, percentile.</li>
+<li>Descriptive statistics like mean, median, percentile</li>
 <li>Comparison statistics like percentage change and per capita</li>
 <li>Ordinal, decile and competition rankings</li>
 <li>Geospatial stats like mean center and standard deviation distance</li>
-<li>A grabbag of utilities for a Dorling cartogram, diversity index, Benford&#8217;s Law and generating random points.</li>
+<li>A grabbag of utilities for a Dorling cartogram, diversity index, Benford&#8217;s Law and generating random points</li>
 </ul>
-</div>
+<hr></div>
 <div class="section" id="getting-started">
 <h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <p>Install the latest package from pypi.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install latimes-calculate
 </pre></div>
+</div>
+<hr></div>
+<div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="adjusted_monthly_value">
+<tt class="descname">adjusted_monthly_value</tt><big>(</big><em>value</em>, <em>datetime</em><big>)</big><a class="headerlink" href="#adjusted_monthly_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts a value and a datetime object, and then prorates the value to a 30-day figure depending on how many days are in the month.</p>
+<p>This can be useful for month-to-month comparisons in circumstances where fluctuations in the number of days per month may skew the analysis.</p>
+<p>For instance, February typically has only 28 days, in comparison to March, which has 31.</p>
+<div class="highlight-python"><pre>&gt;&gt; import calculate
+&gt;&gt; calculate.adjusted_monthly_value(10, datetime.datetime(2009, 4, 1))
+10.0
+&gt;&gt; calculate.adjusted_monthly_value(10, datetime.datetime(2009, 2, 17))
+10.714285714285714
+&gt;&gt; calculate.adjusted_monthly_value(10, datetime.datetime(2009, 12, 31))
+9.67741935483871</pre>
+</div>
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
 </div>
 </div>
 
@@ -71,6 +94,9 @@
   <ul>
 <li><a class="reference internal" href="#">Features</a></li>
 <li><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li><a class="reference internal" href="#functions">Functions</a><ul>
+</ul>
+</li>
 </ul>
 
   <h3>This Page</h3>
