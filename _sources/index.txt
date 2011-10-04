@@ -1,20 +1,22 @@
-.. calculate documentation master file, created by
-   sphinx-quickstart on Mon Oct  3 18:00:15 2011.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. epigraph::
 
-Welcome to calculate's documentation!
-=====================================
+    A collection of simple math functions
 
-Contents:
+Features
+========
 
-.. toctree::
-   :maxdepth: 2
+* Descriptive statistics like mean, median, percentile.
+* Comparison statistics like percentage change and per capita
+* Ordinal, decile and competition rankings
+* Geospatial stats like mean center and standard deviation distance
+* A grabbag of utilities for a Dorling cartogram, diversity index, Benford's Law and generating random points.
 
-Indices and tables
-==================
+Getting started
+===============
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search` 
-     
+Install the latest package from pypi.
+
+.. code-block:: bash
+
+    $ pip install latimes-calculate
+
