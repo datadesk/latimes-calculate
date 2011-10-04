@@ -166,7 +166,15 @@ Functions
         >> calculate.median((1,4,3,2))
         2.5
 
+.. method:: mode(data_list)
 
+    Accepts a sample of numbers and returns the mode value. The mode is the most common value in a data set. If there is a tie for the highest count, no value is returned. ::
+
+        >>> import calculate
+        >>> calculate.mode([1,2,2,3])
+        2.0
+        >>> calculate.mode([1,2,3])
+        >>> 
 
 
 
