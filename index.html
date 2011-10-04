@@ -280,6 +280,20 @@ at or below the provided value. For an explanation of alternative methods, refer
 </div>
 </dd></dl>
 
+<dl class="method">
+<dt id="percentage">
+<tt class="descname">percentage</tt><big>(</big><em>value</em>, <em>total</em>, <em>multiply=True</em>, <em>fail_silently=True</em><big>)</big><a class="headerlink" href="#percentage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts two integers, a value and a total. The value is divided into the total and then multiplied by 100, returning its percentage as a float. If you don&#8217;t want the number multiplied by 100, set the &#8216;multiply&#8217; kwarg to False. If you divide into zero &#8211; an illegal operation &#8211; a null value is returned by default. If you prefer for an error to be raised, set the kwarg &#8216;fail_silently&#8217; to False.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">percentage</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">20.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">percentage</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">multiply</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="go">0.20000000000000001</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">percentage</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 

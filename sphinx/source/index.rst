@@ -220,6 +220,31 @@ Functions
         >>> calculate.per_sqmi(20, 10)
         2.0
 
+.. method:: percentage(value, total, multiply=True, fail_silently=True)
+
+    Accepts two integers, a value and a total. The value is divided into the total and then multiplied by 100, returning its percentage as a float. If you don't want the number multiplied by 100, set the 'multiply' kwarg to False. If you divide into zero -- an illegal operation -- a null value is returned by default. If you prefer for an error to be raised, set the kwarg 'fail_silently' to False. ::
+
+        >>> import calculate
+        >>> calculate.percentage(2, 10)
+        20.0
+        >>> calculate.percentage(2,0, multiply=False)
+        0.20000000000000001
+        >>> calculate.percentage(2,0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
