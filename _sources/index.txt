@@ -184,9 +184,15 @@ Functions
         >>> calculate.nudge_points(qs)
         >>>
 
+.. method:: ordinal_rank(sequence, item, order_by=None, direction='desc')
 
+    Accepts a list and an object. Returns the object's ordinal rank as an integer. Does not negiotiate ties. ::
 
-
+        >>> import calculate
+        >>> qs = Player.objects.all().order_by("-career_home_runs")
+        >>> barry = Player.objects.get(first_name__iexact='Barry', last_name__iexact='Bonds')
+        >>> calculate.ordinal_rank(qs, barry)
+        1
 
 
 

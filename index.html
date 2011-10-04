@@ -233,6 +233,19 @@ at or below the provided value. For an explanation of alternative methods, refer
 </div>
 </dd></dl>
 
+<dl class="method">
+<dt id="ordinal_rank">
+<tt class="descname">ordinal_rank</tt><big>(</big><em>sequence</em>, <em>item</em>, <em>order_by=None</em>, <em>direction='desc'</em><big>)</big><a class="headerlink" href="#ordinal_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts a list and an object. Returns the object&#8217;s ordinal rank as an integer. Does not negiotiate ties.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qs</span> <span class="o">=</span> <span class="n">Player</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">&quot;-career_home_runs&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">barry</span> <span class="o">=</span> <span class="n">Player</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">first_name__iexact</span><span class="o">=</span><span class="s">&#39;Barry&#39;</span><span class="p">,</span> <span class="n">last_name__iexact</span><span class="o">=</span><span class="s">&#39;Bonds&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">ordinal_rank</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">barry</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 
