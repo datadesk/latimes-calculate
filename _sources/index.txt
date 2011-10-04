@@ -267,6 +267,29 @@ Functions
         >>> import calculate
         >>> calculate.random_point(polygon.extent)
 
+.. method:: range(data_list)
+
+    Accepts a sample of values and return the range. The range is the difference between the maximum and minimum values of a data set. ::
+
+        >>> import calculate
+        >>> calculate.range([1,2,3])
+        2
+        >>> calculate.range([2,2])
+        0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
