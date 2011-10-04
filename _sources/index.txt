@@ -138,6 +138,16 @@ Functions
         >>> calculate.elfi([0.2, 0.5, 0.05, 0.25])
         0.64500000000000002
 
+.. method:: mean(data_list)
+
+    Accepts a sample of values and returns their mean. The mean is the sum of all values in the sample divided by the number of members. It is also known as the average. Since the value is strongly influenced by outliers, median is generally a better indicator of central tendency. ::
+
+        >>> import calculate
+        >>> calculate.mean([1,2,3])
+        2.0
+        >>> calculate.mean([1, 99])
+        50.0
+
 
 
 
