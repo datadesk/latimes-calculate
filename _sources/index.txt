@@ -18,7 +18,7 @@ Features
 Dependencies
 ============
 
-For more functions, nothing. `GeoDjango <http://www.google.com/search?client=ubuntu&channel=fs&q=geodjango&ie=utf-8&oe=utf-8>`_ is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
+For most functions, nothing. `GeoDjango <http://www.google.com/search?client=ubuntu&channel=fs&q=geodjango&ie=utf-8&oe=utf-8>`_ is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
 
 .. raw:: html
 
