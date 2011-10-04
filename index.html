@@ -185,6 +185,17 @@ at or below the provided value. For an explanation of alternative methods, refer
 </div>
 </dd></dl>
 
+<dl class="method">
+<dt id="mean_center">
+<tt class="descname">mean_center</tt><big>(</big><em>obj_list</em>, <em>point_attribute_name='point'</em><big>)</big><a class="headerlink" href="#mean_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts a geoqueryset, list of objects or list of dictionaries, expected to contain <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/contrib/gis/geos/#point">GeoDjango Point</a> objects as one of their attributes. Returns a Point object with the mean center of the provided points. The mean center is the average x and y of all those points. By default, the function expects the Point field on your model to be called &#8216;point&#8217;. If the point field is called something else, change the kwarg &#8216;point_attribute_name&#8217; to whatever your field might be called.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">mean_center</span><span class="p">(</span><span class="n">qs</span><span class="p">)</span>
+<span class="go">&lt;Point object at 0x77a1694&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 
