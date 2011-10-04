@@ -148,6 +148,19 @@
 </div>
 </dd></dl>
 
+<dl class="method">
+<dt id="decile">
+<tt class="descname">decile</tt><big>(</big><em>data_list</em>, <em>score</em>, <em>kind='weak'</em><big>)</big><a class="headerlink" href="#decile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts a sample of values and a single number to add to it and determine the decile equivilent of its percentile rank.</p>
+<p>By default, the method used to negotiate gaps and ties is &#8220;weak&#8221; because it returns the percentile of all values
+at or below the provided value. For an explanation of alternative methods, refer to the <tt class="docutils literal"><span class="pre">percentile</span></tt> function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">decile</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 

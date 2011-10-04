@@ -119,9 +119,16 @@ Functions
         >>> list(dr)
         [datetime.date(2009, 1, 1), datetime.date(2009, 1, 2), datetime.date(2009, 1, 3)]
 
+.. method:: decile(data_list, score, kind='weak')
 
+    Accepts a sample of values and a single number to add to it and determine the decile equivilent of its percentile rank.
+    
+    By default, the method used to negotiate gaps and ties is "weak" because it returns the percentile of all values
+    at or below the provided value. For an explanation of alternative methods, refer to the ``percentile`` function. ::
 
-
+        >>> import calculate
+        >>> calculate.decile([1, 2, 3, 3, 4], 3)
+        9
 
 
 
