@@ -246,6 +246,18 @@ at or below the provided value. For an explanation of alternative methods, refer
 </div>
 </dd></dl>
 
+<dl class="method">
+<dt id="pearson">
+<tt class="descname">pearson</tt><big>(</big><em>list_one</em>, <em>list_two</em><big>)</big><a class="headerlink" href="#pearson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts paired lists and returns a number between -1 and 1, known as <a class="reference external" href="http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient">Pearson&#8217;s r</a>, that indicates of how closely correlated the two datasets are. A score of close to one indicates a high positive correlation. That means that X tends to be big when Y is big. A score close to negative one indicates a high negative correlation. That means X tends to be small when Y is big. A score close to zero indicates little correlation between the two datasets.</p>
+<p>A warning, though, correlation does not equal causation. Just because the two datasets are closely related doesn&#8217;t not mean that one causes the other to be the way it is.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">pearson</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="go">-0.8461538461538467</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 

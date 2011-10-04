@@ -194,7 +194,15 @@ Functions
         >>> calculate.ordinal_rank(qs, barry)
         1
 
+.. method:: pearson(list_one, list_two)
 
+    Accepts paired lists and returns a number between -1 and 1, known as `Pearson's r <http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient>`_, that indicates of how closely correlated the two datasets are. A score of close to one indicates a high positive correlation. That means that X tends to be big when Y is big. A score close to negative one indicates a high negative correlation. That means X tends to be small when Y is big. A score close to zero indicates little correlation between the two datasets.
+
+    A warning, though, correlation does not equal causation. Just because the two datasets are closely related doesn't not mean that one causes the other to be the way it is. ::
+
+        >>> import calculate
+        >>> calculate.pearson([6,5,2], [2,5,6])
+        -0.8461538461538467
 
 
 
