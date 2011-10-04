@@ -50,6 +50,7 @@
 <li>Comparison statistics like percentage change and per capita</li>
 <li>Ordinal, decile and competition rankings</li>
 <li>Geospatial stats like mean center and standard deviation distance</li>
+<li>A small dab of more complicated hoohah like Pearson&#8217;s R.</li>
 <li>A grabbag of utilities for a Dorling cartogram, diversity index, Benford&#8217;s Law and generating random points</li>
 </ul>
 <hr></div>
@@ -68,13 +69,45 @@
 <dd><p>Accepts a value and a datetime object, and then prorates the value to a 30-day figure depending on how many days are in the month.</p>
 <p>This can be useful for month-to-month comparisons in circumstances where fluctuations in the number of days per month may skew the analysis.</p>
 <p>For instance, February typically has only 28 days, in comparison to March, which has 31.</p>
-<div class="highlight-python"><pre>&gt;&gt; import calculate
-&gt;&gt; calculate.adjusted_monthly_value(10, datetime.datetime(2009, 4, 1))
-10.0
-&gt;&gt; calculate.adjusted_monthly_value(10, datetime.datetime(2009, 2, 17))
-10.714285714285714
-&gt;&gt; calculate.adjusted_monthly_value(10, datetime.datetime(2009, 12, 31))
-9.67741935483871</pre>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">adjusted_monthly_value</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">10.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">adjusted_monthly_value</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">))</span>
+<span class="go">10.714285714285714</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">adjusted_monthly_value</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="go">9.67741935483871</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="benfords_law">
+<tt class="descname">benfords_law</tt><big>(</big><em>number_list</em>, <em>method='first_digit'</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#benfords_law" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts a list of numbers and applies a quick-and-dirty run against Benford&#8217;s Law.</p>
+<p>Benford&#8217;s Law makes statements about the occurance of leading digits in a dataset. It claims that a leading digit of 1 will occur about 30 percent of the time, and each number after it a little bit less, with the number 9 occuring the least. Datasets that greatly vary from the law are sometimes suspected of fraud.</p>
+<p>The function returns the Pearson correlation coefficient, also known as Pearson&#8217;s r, which reports how closely the two datasets are related. This function also includes a variation on the classic Benford analysis popularized by blogger Nate Silver, who conducted an analysis of the final digits of polling data. To use Silver&#8217;s variation, provide the keyward argument <cite>method</cite> with the value &#8216;last_digit&#8217;. To prevent the function from printing, set the optional keyword argument <cite>verbose</cite> to False.</p>
+<p>This function is based upon code from a variety of sources around the web, but owes a particular debt to the work of Christian S. Perone.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">benfords_law</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="go">BENFORD&#39;S LAW: FIRST_DIGIT</span>
+
+<span class="go">Pearson&#39;s R: 0.86412304649</span>
+
+<span class="go">| Number | Count | Expected Percentage | Actual Percentage |</span>
+<span class="go">------------------------------------------------------------</span>
+<span class="go">| 1 | 2 | 30.1029995664 | 20.0 |</span>
+<span class="go">| 2 | 1 | 17.6091259056 | 10.0 |</span>
+<span class="go">| 3 | 1 | 12.4938736608 | 10.0 |</span>
+<span class="go">| 4 | 1 | 9.69100130081 | 10.0 |</span>
+<span class="go">| 5 | 1 | 7.91812460476 | 10.0 |</span>
+<span class="go">| 6 | 1 | 6.69467896306 | 10.0 |</span>
+<span class="go">| 7 | 1 | 5.79919469777 | 10.0 |</span>
+<span class="go">| 8 | 1 | 5.11525224474 | 10.0 |</span>
+<span class="go">| 9 | 1 | 4.57574905607 | 10.0 |</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">benfords_law</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="go">-0.863801937698704</span>
+</pre></div>
 </div>
 </dd></dl>
 

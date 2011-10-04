@@ -232,6 +232,7 @@ a.headerlink:hover {
 div.body p, div.body dd, div.body li {
     line-height: 1.5em;
     padding-bottom:2px;
+    margin-bottom:5px;
 }
  
 div.admonition p.admonition-title + p {
