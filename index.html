@@ -258,6 +258,17 @@ at or below the provided value. For an explanation of alternative methods, refer
 </div>
 </dd></dl>
 
+<dl class="method">
+<dt id="per_capita">
+<tt class="descname">per_capita</tt><big>(</big><em>value</em>, <em>population</em>, <em>per=10000</em>, <em>fail_silently=True</em><big>)</big><a class="headerlink" href="#per_capita" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts two numbers, a value and population total, and returns the per capita rate. By default, the result is returned as a per 10,000 person figure. If you divide into zero &#8211; an illegal operation &#8211; a null value is returned by default. If you prefer for an error to be raised, set the kwarg &#8216;fail_silently&#8217; to False.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">per_capita</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>
+<span class="go">1.2</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 

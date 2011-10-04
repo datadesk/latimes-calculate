@@ -204,5 +204,16 @@ Functions
         >>> calculate.pearson([6,5,2], [2,5,6])
         -0.8461538461538467
 
+.. method:: per_capita(value, population, per=10000, fail_silently=True)
+
+    Accepts two numbers, a value and population total, and returns the per capita rate. By default, the result is returned as a per 10,000 person figure. If you divide into zero -- an illegal operation -- a null value is returned by default. If you prefer for an error to be raised, set the kwarg 'fail_silently' to False. ::
+
+        >>> import calculate
+        >>> calculate.per_capita(12, 100000)
+        1.2
+
+
+
+
 
 
