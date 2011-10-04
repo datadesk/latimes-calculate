@@ -277,9 +277,15 @@ Functions
         >>> calculate.range([2,2])
         0
 
+.. method:: standard_deviation(data_list)
 
+    Accepts a sample of values and returns the standard deviation. Standard deviation measures how widely dispersed the values are from the mean. A lower value means the data tend to be bunched close to the averge. A higher value means they tend to be further away. ::
 
-
+        >>> import calculate
+        >>> calculate.standard_deviation([2,3,3,4])
+        0.70710678118654757
+        >>> calculate.standard_deviation([-2,3,3,40])
+        16.867127793432999
 
 
 
