@@ -259,7 +259,13 @@ Functions
         >>> calculate.percentile([1, 2, 3, 3, 4], 3, kind='mean')
         60.0
 
+.. method:: random_point(extent)
 
+    A utility that accepts the extent of a polygon and returns a random point from within its boundaries. The extent is a four-point tuple with (xmin, ymin, xmax, ymax). ::
+
+        >>> polygon = Model.objects.get(pk=1).polygon
+        >>> import calculate
+        >>> calculate.random_point(polygon.extent)
 
 
 

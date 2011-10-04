@@ -327,6 +327,17 @@ at or below the provided value. For an explanation of alternative methods, refer
 </div>
 </dd></dl>
 
+<dl class="method">
+<dt id="random_point">
+<tt class="descname">random_point</tt><big>(</big><em>extent</em><big>)</big><a class="headerlink" href="#random_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>A utility that accepts the extent of a polygon and returns a random point from within its boundaries. The extent is a four-point tuple with (xmin, ymin, xmax, ymax).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">polygon</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">polygon</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">random_point</span><span class="p">(</span><span class="n">polygon</span><span class="o">.</span><span class="n">extent</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 
