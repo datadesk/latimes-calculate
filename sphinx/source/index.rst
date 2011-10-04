@@ -9,7 +9,7 @@ Features
 * Comparison statistics like percentage change, per-capita and rankings
 * Geospatial stats like mean center and standard deviation distance
 * A small dab of more complicated hoohah like Pearson's R.
-* A grabbag of utilities for a Dorling cartogram, diversity index, Benford's Law, generating random points and other things
+* A grabbag of utilities for a diversity index, Benford's Law, generating random points and other things
 
 .. raw:: html
 
