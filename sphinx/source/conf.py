@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'calculate'
+project = u'latimes-calculate'
 copyright = u'2011, Ben Welsh'
 
 # The version info for the project you're documenting, acts as replacement for
