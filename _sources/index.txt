@@ -42,11 +42,7 @@ Functions
 
 .. method:: adjusted_monthly_value(value, datetime)
 
-    Accepts a value and a datetime object, and then prorates the value to a 30-day figure depending on how many days are in the month.
-
-    This can be useful for month-to-month comparisons in circumstances where fluctuations in the number of days per month may skew the analysis.
-
-    For instance, February typically has only 28 days, in comparison to March, which has 31.
+    Accepts a value and a datetime object, and then prorates the value to a 30-day figure depending on how many days are in the month. This can be useful for month-to-month comparisons in circumstances where fluctuations in the number of days per month may skew the analysis. For instance, February typically has only 28 days, in comparison to March, which has 31.
 
     .. code-block:: python
         
@@ -60,13 +56,9 @@ Functions
 
 .. method:: benfords_law(number_list, method='first_digit', verbose=True)
 
-    Accepts a list of numbers and applies a quick-and-dirty run against Benford's Law. 
+    Accepts a list of numbers and applies a quick-and-dirty run against Benford's Law. Benford's Law makes statements about the occurance of leading digits in a dataset. It claims that a leading digit of 1 will occur about 30 percent of the time, and each number after it a little bit less, with the number 9 occuring the least. Datasets that greatly vary from the law are sometimes suspected of fraud.
 
-    Benford's Law makes statements about the occurance of leading digits in a dataset. It claims that a leading digit of 1 will occur about 30 percent of the time, and each number after it a little bit less, with the number 9 occuring the least. Datasets that greatly vary from the law are sometimes suspected of fraud.
-
-    The function returns the Pearson correlation coefficient, also known as Pearson's r, which reports how closely the two datasets are related. This function also includes a variation on the classic Benford analysis popularized by blogger Nate Silver, who conducted an analysis of the final digits of polling data. To use Silver's variation, provide the keyword argument `method` with the value 'last_digit'. To prevent the function from printing, set the optional keyword argument `verbose` to False.
-
-    This function is based upon code from a variety of sources around the web, but owes a particular debt to the work of Christian S. Perone. ::
+    The function returns the Pearson correlation coefficient, also known as Pearson's r, which reports how closely the two datasets are related. This function also includes a variation on the classic Benford analysis popularized by blogger Nate Silver, who conducted an analysis of the final digits of polling data. To use Silver's variation, provide the keyword argument `method` with the value 'last_digit'. To prevent the function from printing, set the optional keyword argument `verbose` to False. This function is based upon code from a variety of sources around the web, but owes a particular debt to the work of Christian S. Perone. ::
         
         >>> import calculate
         >>> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
