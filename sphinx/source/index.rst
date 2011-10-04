@@ -18,7 +18,11 @@ Features
 Dependencies
 ============
 
-For more functions, nothing. GeoDjango is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
+For more functions, nothing. `GeoDjango <http://www.google.com/search?client=ubuntu&channel=fs&q=geodjango&ie=utf-8&oe=utf-8>`_ is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
+
+.. raw:: html
+
+   <hr>
 
 Getting started
 ===============
@@ -100,3 +104,40 @@ Functions
         21
         >>> calculate.competition_rank(qs, mel, 'career_home_runs', direction='desc')
         23
+
+.. method:: date_range(start_date, end_date)
+
+    Returns a generator of all the days between two date objects. Results include the start and end dates. Arguments can be either datetime.datetime or date type objects.
+    
+    .. code-block:: python
+        
+        >>> import datetime
+        >>> import calculate
+        >>> dr = calculate.date_range(datetime.date(2009,1,1), datetime.date(2009,1,3))
+        >>> dr
+        <generator object at 0x718e90>
+        >>> list(dr)
+        [datetime.date(2009, 1, 1), datetime.date(2009, 1, 2), datetime.date(2009, 1, 3)]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
