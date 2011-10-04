@@ -47,11 +47,10 @@
 <h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li>Descriptive statistics like mean, median, percentile</li>
-<li>Comparison statistics like percentage change and per capita</li>
-<li>Ordinal, decile and competition rankings</li>
+<li>Comparison statistics like percentage change, per-capita and rankings</li>
 <li>Geospatial stats like mean center and standard deviation distance</li>
 <li>A small dab of more complicated hoohah like Pearson&#8217;s R.</li>
-<li>A grabbag of utilities for a Dorling cartogram, diversity index, Benford&#8217;s Law and generating random points</li>
+<li>A grabbag of utilities for a Dorling cartogram, diversity index, Benford&#8217;s Law, generating random points and other things</li>
 </ul>
 <hr></div>
 <div class="section" id="getting-started">
@@ -95,15 +94,15 @@
 
 <span class="go">| Number | Count | Expected Percentage | Actual Percentage |</span>
 <span class="go">------------------------------------------------------------</span>
-<span class="go">| 1 | 2 | 30.1029995664 | 20.0 |</span>
-<span class="go">| 2 | 1 | 17.6091259056 | 10.0 |</span>
-<span class="go">| 3 | 1 | 12.4938736608 | 10.0 |</span>
-<span class="go">| 4 | 1 | 9.69100130081 | 10.0 |</span>
-<span class="go">| 5 | 1 | 7.91812460476 | 10.0 |</span>
-<span class="go">| 6 | 1 | 6.69467896306 | 10.0 |</span>
-<span class="go">| 7 | 1 | 5.79919469777 | 10.0 |</span>
-<span class="go">| 8 | 1 | 5.11525224474 | 10.0 |</span>
-<span class="go">| 9 | 1 | 4.57574905607 | 10.0 |</span>
+<span class="go">| 1      | 2     | 30.1029995664       | 20.0              |</span>
+<span class="go">| 2      | 1     | 17.6091259056       | 10.0              |</span>
+<span class="go">| 3      | 1     | 12.4938736608       | 10.0              |</span>
+<span class="go">| 4      | 1     | 9.69100130081       | 10.0              |</span>
+<span class="go">| 5      | 1     | 7.91812460476       | 10.0              |</span>
+<span class="go">| 6      | 1     | 6.69467896306       | 10.0              |</span>
+<span class="go">| 7      | 1     | 5.79919469777       | 10.0              |</span>
+<span class="go">| 8      | 1     | 5.11525224474       | 10.0              |</span>
+<span class="go">| 9      | 1     | 4.57574905607       | 10.0              |</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">benfords_law</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="go">-0.863801937698704</span>

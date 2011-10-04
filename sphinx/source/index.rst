@@ -6,11 +6,10 @@ Features
 ========
 
 * Descriptive statistics like mean, median, percentile
-* Comparison statistics like percentage change and per capita
-* Ordinal, decile and competition rankings
+* Comparison statistics like percentage change, per-capita and rankings
 * Geospatial stats like mean center and standard deviation distance
 * A small dab of more complicated hoohah like Pearson's R.
-* A grabbag of utilities for a Dorling cartogram, diversity index, Benford's Law and generating random points
+* A grabbag of utilities for a Dorling cartogram, diversity index, Benford's Law, generating random points and other things
 
 .. raw:: html
 
@@ -68,15 +67,15 @@ Functions
         
         | Number | Count | Expected Percentage | Actual Percentage |
         ------------------------------------------------------------
-        | 1 | 2 | 30.1029995664 | 20.0 |
-        | 2 | 1 | 17.6091259056 | 10.0 |
-        | 3 | 1 | 12.4938736608 | 10.0 |
-        | 4 | 1 | 9.69100130081 | 10.0 |
-        | 5 | 1 | 7.91812460476 | 10.0 |
-        | 6 | 1 | 6.69467896306 | 10.0 |
-        | 7 | 1 | 5.79919469777 | 10.0 |
-        | 8 | 1 | 5.11525224474 | 10.0 |
-        | 9 | 1 | 4.57574905607 | 10.0 |
+        | 1      | 2     | 30.1029995664       | 20.0              |
+        | 2      | 1     | 17.6091259056       | 10.0              |
+        | 3      | 1     | 12.4938736608       | 10.0              |
+        | 4      | 1     | 9.69100130081       | 10.0              |
+        | 5      | 1     | 7.91812460476       | 10.0              |
+        | 6      | 1     | 6.69467896306       | 10.0              |
+        | 7      | 1     | 5.79919469777       | 10.0              |
+        | 8      | 1     | 5.11525224474       | 10.0              |
+        | 9      | 1     | 4.57574905607       | 10.0              |
         
         >>> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], verbose=False)
         -0.863801937698704
