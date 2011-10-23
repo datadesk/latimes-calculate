@@ -15,7 +15,7 @@ h3. Features
 
 h3. Dependencies
 
-For more functions, nothing. "GeoDjango":http://www.geodjango.org/ is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
+For most functions, nothing. "GeoDjango":http://www.geodjango.org/ is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
 
 h3. Getting started
 
