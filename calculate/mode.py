@@ -51,6 +51,10 @@ def mode(data_list):
     # ...so that the highest count should appear first
     sortable_list.reverse()
     
+    # If there's only one number, just pass that out
+    if len(sortable_list) == 1:
+        return sortable_list[0][1]
+    
     # Test to make sure the first and second counts aren't the same
     first_count = sortable_list[0][0]
     second_count = sortable_list[1][0]

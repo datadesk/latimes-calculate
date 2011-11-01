@@ -204,6 +204,7 @@ class CalculateTest(BaseTest):
     def test_mode(self):
         self.assertEqual(calculate.mode([1,2,3,2]), 2.0)
         self.assertEqual(calculate.mode([1,2,3]), None)
+        self.assertEqual(calculate.mode([2,2,2]), 2.0)
         with self.assertRaises(TypeError):
             calculate.median([None, 1, 2])
             calculate.median(['a', 1, 2])
