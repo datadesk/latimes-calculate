@@ -9,7 +9,7 @@ Features
 * Comparison statistics like percentage change, per-capita and rankings
 * Geospatial stats like mean center and standard deviation distance
 * A small dab of more complicated hoohah like Pearson's R.
-* A grabbag of utilities for a diversity index, Benford's Law, generating random points and other things
+* A grabbag of utilities for age, a diversity index, Benford's Law, generating random points and other things
 
 .. raw:: html
 
@@ -53,6 +53,30 @@ Functions
         10.714285714285714
         >>> calculate.adjusted_monthly_value(10, datetime.datetime(2009, 12, 31))
         9.67741935483871
+
+.. method:: age(born, as_of=None)
+
+    Returns the current age, in years, of a person born on the provided date.
+    
+    First argument should be the birthdate and can be a datetime.date or 
+    datetime.datetime object, although datetimes will be converted to a date object
+    and hours, minutes and seconds will not be part of the calculation.
+    
+    The second argument is the `as_of` date that the person's age will be calculate at.
+    By default, it is not provided and the age is returned as of the current date.
+    But if you wanted to calculate someone's age at a past or future date, you could
+    do that by providing the `as_of` date as the second argument.
+
+    .. code-block:: python
+
+        >>> import calculate
+        >>> from datetime import date
+        >>> dob = date(1982, 7, 22)
+        >>> calculate.age(dob)
+        29 # As of the writing of this README, of course.
+        >>> as_of = date(1982, 7, 23)
+        >>> calculate.age(dob, as_of)
+        0
 
 .. method:: benfords_law(number_list, method='first_digit', verbose=True)
 

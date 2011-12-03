@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Features &mdash; latimes-calculate v0.1 documentation</title>
+    <title>Features &mdash; latimes-calculate 0.1 documentation</title>
     <link rel="stylesheet" href="_static/latimes.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="latimes-calculate v0.1 documentation" href="#" /> 
+    <link rel="top" title="latimes-calculate 0.1 documentation" href="#" /> 
   </head>
   <body>              
 <a href="http://www.github.com/datadesk/latimes-calculate/">
@@ -50,7 +50,7 @@
 <li>Comparison statistics like percentage change, per-capita and rankings</li>
 <li>Geospatial stats like mean center and standard deviation distance</li>
 <li>A small dab of more complicated hoohah like Pearson&#8217;s R.</li>
-<li>A grabbag of utilities for a diversity index, Benford&#8217;s Law, generating random points and other things</li>
+<li>A grabbag of utilities for age, a diversity index, Benford&#8217;s Law, generating random points and other things</li>
 </ul>
 <hr></div>
 <div class="section" id="dependencies">
@@ -77,6 +77,29 @@
 <span class="go">10.714285714285714</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">adjusted_monthly_value</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
 <span class="go">9.67741935483871</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="age">
+<tt class="descname">age</tt><big>(</big><em>born</em>, <em>as_of=None</em><big>)</big><a class="headerlink" href="#age" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current age, in years, of a person born on the provided date.</p>
+<p>First argument should be the birthdate and can be a datetime.date or
+datetime.datetime object, although datetimes will be converted to a date object
+and hours, minutes and seconds will not be part of the calculation.</p>
+<p>The second argument is the <cite>as_of</cite> date that the person&#8217;s age will be calculate at.
+By default, it is not provided and the age is returned as of the current date.
+But if you wanted to calculate someone&#8217;s age at a past or future date, you could
+do that by providing the <cite>as_of</cite> date as the second argument.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dob</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1982</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">age</span><span class="p">(</span><span class="n">dob</span><span class="p">)</span>
+<span class="go">29 # As of the writing of this README, of course.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">as_of</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1982</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">age</span><span class="p">(</span><span class="n">dob</span><span class="p">,</span> <span class="n">as_of</span><span class="p">)</span>
+<span class="go">0</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -429,7 +452,7 @@ at or below the provided value. For an explanation of alternative methods, refer
         <div class="smalllogo"><a href="http://www.latimes.com"><img src="_static/logo.png" alt="latimes.com"></a></div>
         <div class="credits">
             &copy; Copyright 2011, Ben Welsh.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
         </div>     
     </div>
 <script type="text/javascript">
