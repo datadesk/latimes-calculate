@@ -71,7 +71,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'bdist_wininst':
         file_info[0] = '\\PURELIB\\%s' % file_info[0]
 
 setup(name='latimes-calculate',
-      version='0.1.6',
+      version='0.1.7',
       description='A collection of quickie math functions. Nothing too fancy.',
       author='Ben Welsh',
       author_email='ben.welsh@latimes.com',
