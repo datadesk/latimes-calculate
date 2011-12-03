@@ -14,6 +14,35 @@ class BaseTest(unittest.TestCase):
 
 class CalculateTest(BaseTest):
     
+    def test_age(self):
+        # All the data types
+        self.assertEqual(
+            calculate.age(datetime(1982, 7, 22), date(2011, 12, 3)),
+            29
+        )
+        self.assertEqual(
+            calculate.age(date(1982, 7, 22), date(2011, 12, 3)),
+            29
+        )
+        self.assertEqual(
+            calculate.age(datetime(1982, 7, 22), datetime(2011, 12, 3)),
+            29
+        )
+        self.assertEqual(
+            calculate.age(date(1982, 7, 22), datetime(2011, 12, 3)),
+            29
+        )
+        # Leap Day
+        self.assertEqual(
+            calculate.age(date(1984, 2, 29), date(2011, 12, 3)),
+            27
+        )
+        # Tomorrow bday
+        self.assertEqual(
+            calculate.age(date(2010, 12, 4), date(2011, 12, 3)),
+            0
+        )
+    
     def test_adjusted_monthly_value(self):
         self.assertEqual(
             calculate.adjusted_monthly_value(10, datetime(2009, 4, 1, 0, 10, 10)),
@@ -37,7 +66,7 @@ class CalculateTest(BaseTest):
     def test_benfords_law(self):
         self.assertEqual(
             calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], verbose=False),
-            -0.863801937698704
+            -0.8638019376987044
         )
         self.assertEqual(
             calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], method="last_digit", verbose=False),
