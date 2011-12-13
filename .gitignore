@@ -1,0 +1,5 @@
+setup.py
+README.textile
+calculate/*
+dist/*
+test_project/*
