@@ -48,7 +48,7 @@ copyright = u'2011, Ben Welsh'
 # built documents.
 #
 # The short X.Y version.
-version = '0.1.7'
+version = '0.1.8'
 # The full version, including alpha/beta/rc tags.
 release = '0.1'
 

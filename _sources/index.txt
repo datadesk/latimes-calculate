@@ -154,6 +154,19 @@ Functions
         >>> calculate.elfi([0.2, 0.5, 0.05, 0.25])
         0.64500000000000002
 
+.. method:: margin_of_victory(data_list)
+
+    Accepts a list of numbers and returns the difference between the first place
+    and second place values.
+    
+    This can be useful for covering elections as an easy to way to figure out
+    the margin of victory for a leading candidate. ::
+
+        >>> import calculate
+        >>> # 2008 Iowa caucus results for [Edwards, Clinton, Obama]
+        >>> calculate.margin_of_victory([3285, 2804, 7170])
+        3885
+
 .. method:: mean(data_list)
 
     Accepts a sample of values and returns their mean. The mean is the sum of all values in the sample divided by the number of members. It is also known as the average. Since the value is strongly influenced by outliers, median is generally a better indicator of central tendency. ::
