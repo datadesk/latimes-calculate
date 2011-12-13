@@ -4,6 +4,7 @@ from competition_rank import competition_rank
 from date_range import date_range
 from decile import decile
 from elfi import elfi
+from margin_of_victory import margin_of_victory
 from mean import mean
 from median import median
 from mode import mode
