@@ -175,7 +175,7 @@ class CalculateTest(BaseTest):
         with self.assertRaises(ValueError):
             calculate.elfi(['a', 0.2, 3])
     
-    def margin_of_victory(self):
+    def test_margin_of_victory(self):
         self.assertEqual(
             calculate.margin_of_victory([3285, 2804, 7170]),
             3885
