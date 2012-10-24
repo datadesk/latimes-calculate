@@ -333,6 +333,20 @@ Functions
         >>> calculate.range([2,2])
         0
 
+.. method:: split_at_breakpoints(data_list, breakpoint_list)
+
+    Splits up a list at the provided breakpoints. First argument is a list of data values. Second is a list of the breakpoints you'd like it to be split up with. Returns a list of lists, in order by breakpoint.
+
+    Useful for splitting up a list after you've determined breakpoints using another method like calculate.equal_sized_breakpoints.
+
+        >>> import calculate
+        >>> l = range(1,101)
+        >>> bp = calculate.equal_sized_breakpoints(l, 5)
+        >>> print bp
+        [1.0, 21.0, 41.0, 61.0, 81.0, 100]
+        >>> print calculate.split_at_breakpoints(l, bp)
+        [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], [21, 22, 23, 24, 25...
+
 .. method:: standard_deviation(data_list)
 
     Accepts a sample of values and returns the standard deviation. Standard deviation measures how widely dispersed the values are from the mean. A lower value means the data tend to be bunched close to the averge. A higher value means they tend to be further away. ::

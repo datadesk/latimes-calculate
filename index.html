@@ -418,6 +418,22 @@ the margin of victory for a leading candidate.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="split_at_breakpoints">
+<tt class="descname">split_at_breakpoints</tt><big>(</big><em>data_list</em>, <em>breakpoint_list</em><big>)</big><a class="headerlink" href="#split_at_breakpoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits up a list at the provided breakpoints. First argument is a list of data values. Second is a list of the breakpoints you&#8217;d like it to be split up with. Returns a list of lists, in order by breakpoint.</p>
+<p>Useful for splitting up a list after you&#8217;ve determined breakpoints using another method like calculate.equal_sized_breakpoints.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bp</span> <span class="o">=</span> <span class="n">calculate</span><span class="o">.</span><span class="n">equal_sized_breakpoints</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">bp</span>
+<span class="go">[1.0, 21.0, 41.0, 61.0, 81.0, 100]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">calculate</span><span class="o">.</span><span class="n">split_at_breakpoints</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">bp</span><span class="p">)</span>
+<span class="go">[[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], [21, 22, 23, 24, 25...</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="standard_deviation">
 <tt class="descname">standard_deviation</tt><big>(</big><em>data_list</em><big>)</big><a class="headerlink" href="#standard_deviation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accepts a sample of values and returns the standard deviation. Standard deviation measures how widely dispersed the values are from the mean. A lower value means the data tend to be bunched close to the averge. A higher value means they tend to be further away.</p>
