@@ -9,6 +9,17 @@ def split_at_breakpoints(data_list, breakpoint_list):
     
     Useful for splitting up a list after you've determined breakpoints using
     another method like calculate.equal_sized_breakpoints.
+
+    h3. Example usage
+
+        >>> import calculate
+        >>> l = range(1,101)
+        >>> bp = calculate.equal_sized_breakpoints(l, 5)
+        >>> print bp
+        [1.0, 21.0, 41.0, 61.0, 81.0, 100]
+        >>> print calculate.split_at_breakpoints(l, bp)
+        [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], [21, 22, 23, 24, 25...
+
     """
     # Sort the lists
     data_list.sort()
