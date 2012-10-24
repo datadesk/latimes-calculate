@@ -78,6 +78,25 @@ Functions
         >>> calculate.age(dob, as_of)
         0
 
+.. method:: at_percentile(data_list, value, interpolation='fraction')
+
+    Accepts a list of values and a percentile for which to return the value. A percentile of, for example, 80 means that 80 percent of the scores in the sequence are below the given score. If the requested percentile falls between two values, the result can be interpolated
+    using one of the following methods. The default is "fraction".
+
+    * ``fraction``: The value proportionally between the pair of bordering values.
+    * ``lower``: The lower of the two bordering values.
+    * ``higher``: The higher of the two bordering values.
+
+    .. code-block:: python
+
+        >>> import calculate
+        >>> calculate.at_percentile([1, 2, 3, 4], 75)
+        3.25
+        >>> calculate.at_percentile([1, 2, 3, 4], 75, interpolation='lower')
+        3.0
+        >>> calculate.at_percentile([1, 2, 3, 4], 75, interpolation='higher')
+        4.0
+
 .. method:: benfords_law(number_list, method='first_digit', verbose=True)
 
     Accepts a list of numbers and applies a quick-and-dirty run against Benford's Law. Benford's Law makes statements about the occurance of leading digits in a dataset. It claims that a leading digit of 1 will occur about 30 percent of the time, and each number after it a little bit less, with the number 9 occuring the least. Datasets that greatly vary from the law are sometimes suspected of fraud. 
