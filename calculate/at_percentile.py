@@ -13,7 +13,7 @@ def at_percentile(data_list, value, interpolation='fraction'):
     
         1. "fraction"
     
-            The value halfway between the pair of bordering values.
+            The value proportionally between the pair of bordering values.
     
         2. "lower"
         
