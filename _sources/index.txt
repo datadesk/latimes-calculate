@@ -173,6 +173,14 @@ Functions
         >>> calculate.elfi([0.2, 0.5, 0.05, 0.25])
         0.64500000000000002
 
+.. method:: equal_sized_breakpoints(data_list, classes)
+
+    Returns break points for groups of equal size, known as quartiles, quintiles, etc. Provide a list of data values and the number of classes you'd like the list broken up into. No flashy math, just sorts them in order and makes the cuts.
+
+        >>> import calculate
+        >>> calculate.equal_sized_breakpoints(range(1,101), 5)
+        [1.0, 21.0, 41.0, 61.0, 81.0, 100]
+
 .. method:: margin_of_victory(data_list)
 
     Accepts a list of numbers and returns the difference between the first place
