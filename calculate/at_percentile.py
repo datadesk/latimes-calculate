@@ -33,6 +33,7 @@ def at_percentile(data_list, value, interpolation='fraction'):
     
         * "Percentile rank":http://en.wikipedia.org/wiki/Percentile_rank
     
+    h3. Credits
     
         This function is a modification of scipy.stats.scoreatpercentile. The 
         only major difference is that I eliminated the numpy dependency.
