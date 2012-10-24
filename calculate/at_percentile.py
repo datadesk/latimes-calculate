@@ -27,7 +27,7 @@ def at_percentile(data_list, value, interpolation='fraction'):
     
         >> import calculate
         >> calculate.at_percentile([1, 2, 3, 4], 75)
-        3
+        3.25
     
     h3. Documentation
     
