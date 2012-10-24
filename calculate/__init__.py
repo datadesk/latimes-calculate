@@ -6,6 +6,7 @@ from competition_rank import competition_rank
 from date_range import date_range
 from decile import decile
 from elfi import elfi
+from equal_sized_breakpoints import equal_sized_breakpoints
 from margin_of_victory import margin_of_victory
 from mean import mean
 from median import median
@@ -18,6 +19,7 @@ from percentage_change import percentage_change
 from percentage import percentage
 from percentile import percentile
 from range import range
+from split_at_breakpoints import split_at_breakpoints
 from standard_deviation import standard_deviation
 from summary_stats import summary_stats
 
