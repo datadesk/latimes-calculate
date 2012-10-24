@@ -7,6 +7,13 @@ def equal_sized_breakpoints(data_list, classes):
     broken up into.
     
     No flashy math, just sorts them in order and makes the cuts.
+    
+    h3. Example usage
+    
+        >>> import calculate
+        >>> calculate.equal_sized_breakpoints(range(1,101), 5)
+        [1.0, 21.0, 41.0, 61.0, 81.0, 100]
+        
     """
     # Sort the list
     data_list.sort()
