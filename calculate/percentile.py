@@ -3,10 +3,10 @@ import calculate
 
 def percentile(data_list, value, kind='weak'):
     """
-    Accepts a sample of values and a single number to add to it
+    Accepts a sample of values and a single number to compare to it
     and determine its percentile rank.
     
-    A percentile of, for example, 80 percent means that 80 percent of the
+    A percentile of, for example, 80 means that 80 percent of the
     scores in the sequence are below the given score. 
     
     In the case of gaps or ties, the exact definition depends on the type
