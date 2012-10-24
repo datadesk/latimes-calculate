@@ -17,11 +17,11 @@ def at_percentile(data_list, value, interpolation='fraction'):
     
         2. "lower"
         
-            The lower of the two bordering values
+            The lower of the two bordering values.
             
-        3. "mean"
+        3. "higher"
         
-            The higher of the two bordering values
+            The higher of the two bordering values.
 
     h3. Example usage
     
