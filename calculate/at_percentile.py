@@ -19,7 +19,7 @@ def at_percentile(data_list, value, interpolation='fraction'):
         
             The lower of the two bordering values
             
-        3. "mean"
+        3. "higher"
         
             The higher of the two bordering values
 
