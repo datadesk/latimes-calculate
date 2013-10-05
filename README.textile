@@ -5,6 +5,8 @@ Yb       dP__Yb  88  .o Yb      Y8   8P 88  .o  dP__Yb    88   88""
 
 A collection of simple math functions. Documentation at "http://datadesk.github.com/latimes-calculate/":http://datadesk.github.com/latimes-calculate/
 
+!https://www.travis-ci.org/datadesk/latimes-calculate.png?branch=master!:https://www.travis-ci.org/datadesk/latimes-calculate
+
 h3. Features
 
 * Descriptive statistics like mean, median, percentile
