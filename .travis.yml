@@ -20,7 +20,7 @@ matrix:
 # Tell it the things it will need to install when it boots
 before_install:
  - sudo apt-get update
- - sudo apt-get install -qq libspatialite spatialite binutils libproj-dev gdal-bin libgeos-dev libgdal-dev postgresql-9.1-postgis
+ - sudo apt-get install -qq spatialite-bin binutils libproj-dev gdal-bin libgeos-dev libgdal-dev postgresql-9.1-postgis
 install: 
    # This is a dependency of our Django test script
  - pip install argparse --use-mirrors
