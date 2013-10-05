@@ -1,6 +1,7 @@
 scratch.py
 testproject/*
 MANIFEST
+MANIFEST.in
 dummy/*
 build/*
 dist/*
