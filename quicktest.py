@@ -49,9 +49,10 @@ class QuickDjangoTest(object):
         Fire up the Django test suite from before version 1.2
         """
         settings.configure(DEBUG = True,
-           DATABASE_ENGINE = 'spatialite',
+           DATABASE_ENGINE = 'sqlite3',
            DATABASE_NAME = os.path.join(self.DIRNAME, 'database.db'),
-           INSTALLED_APPS = self.INSTALLED_APPS + self.apps
+           INSTALLED_APPS = self.INSTALLED_APPS + self.apps,
+           TEST_RUNNER = 'django.contrib.gis.tests.run_tests'
         )
         from django.test.simple import run_tests
         failures = run_tests(self.apps, verbosity=1)
