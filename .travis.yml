@@ -19,7 +19,8 @@ matrix:
       env: "DJANGO_VERSION=1.5.3"
 # Tell it the things it will need to install when it boots
 before_install:
- - sudo apt-get install binutils libproj-dev gdal-bin libgeos-dev libgdal-dev
+ - sudo apt-get update
+ - sudo apt-get install -qq binutils libproj-dev gdal-bin libgeos-dev libgdal-dev
 install: 
    # This is a dependency of our Django test script
  - pip install argparse --use-mirrors
