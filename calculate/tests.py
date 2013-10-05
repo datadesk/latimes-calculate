@@ -66,7 +66,7 @@ class CalculateTest(BaseTest):
     def test_benfords_law(self):
         self.assertEqual(
             calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], verbose=False),
-            -0.863801937698704
+            -0.8638019376987044
         )
         self.assertEqual(
             calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], method="last_digit", verbose=False),
