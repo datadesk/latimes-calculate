@@ -49,7 +49,7 @@ class QuickDjangoTest(object):
         Fire up the Django test suite from before version 1.2
         """
         settings.configure(DEBUG = True,
-           DATABASE_ENGINE = 'sqlite3',
+           DATABASE_ENGINE = 'spatialite',
            DATABASE_NAME = os.path.join(self.DIRNAME, 'database.db'),
            INSTALLED_APPS = self.INSTALLED_APPS + self.apps
         )
