@@ -67,7 +67,7 @@ class QuickDjangoTest(object):
             DATABASES = {
                 'default': {
                     'ENGINE': 'django.db.backends.sqlite3',
-                    'NAME': os.path.join(self.DIRNAME, 'database.db'),
+                    'NAME': 'foobar',
                     'USER': '',
                     'PASSWORD': '',
                     'HOST': '',
