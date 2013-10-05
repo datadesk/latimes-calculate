@@ -44,4 +44,3 @@ if HAS_DJANGO and HAS_GEODJANGO:
     from nudge_points import nudge_points
     from standard_deviation_distance import standard_deviation_distance
     from standard_deviation_ellipses import standard_deviation_ellipses
-    from dorling_cartogram import dorling_cartogram

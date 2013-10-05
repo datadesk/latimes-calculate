@@ -1,19 +1,19 @@
 def per_sqmi(value, square_miles, fail_silently=True):
     """
-    Accepts two numbers, a value and an area, and returns the per square mile rate.
-    
+    Accepts two numbers, a value and an area, and returns the
+    per square mile rate.
+
     Not much more going on here than a simple bit of division.
-    
-    If you divide into zero -- an illegal operation -- a null value 
-    is returned by default. If you prefer for an error to be raised, 
+
+    If you divide into zero -- an illegal operation -- a null value
+    is returned by default. If you prefer for an error to be raised,
     set the kwarg 'fail_silently' to False.
-    
+
     h3. Example usage
-    
+
         >> import calculate
         >> calculate.per_sqmi(20, 10)
         2.0
-
     """
     try:
         return float(value) / square_miles

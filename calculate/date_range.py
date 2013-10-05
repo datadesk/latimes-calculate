@@ -4,21 +4,25 @@ import datetime
 def date_range(start_date, end_date):
     """
     Returns a generator of all the days between two date objects.
-    
+
     Results include the start and end dates.
-    
+
     Arguments can be either datetime.datetime or date type objects.
-    
+
     h3. Example usage
-    
+
         >>> import datetime
         >>> import calculate
-        >>> dr = calculate.date_range(datetime.date(2009,1,1), datetime.date(2009,1,3))
+        >>> dr = calculate.date_range(
+            datetime.date(2009,1,1),
+            datetime.date(2009,1,3)
+        )
         >>> dr
         <generator object at 0x718e90>
         >>> list(dr)
-        [datetime.date(2009, 1, 1), datetime.date(2009, 1, 2), datetime.date(2009, 1, 3)]
-        
+        [datetime.date(2009, 1, 1),
+         datetime.date(2009, 1, 2),
+         datetime.date(2009, 1, 3)]
     """
     # If a datetime object gets passed in,
     # change it to a date so we can do comparisons.
@@ -36,10 +40,9 @@ def date_range(start_date, end_date):
             # ... until you reach the end date.
             if start_date > end_date:
                 break
-                
+
     # Verify that the start_date comes after the end_date.
     if start_date > end_date:
-        raise ValueError('You provided a start_date that comes after the end_date.')
+        raise ValueError('Provided start_date must come before end_date.')
     else:
         return _make(start_date, end_date)
-

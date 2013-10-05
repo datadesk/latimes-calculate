@@ -1,32 +1,30 @@
 def percentage_change(old_value, new_value, multiply=True, fail_silently=True):
     """
-    Accepts two integers, an old and a new number, 
+    Accepts two integers, an old and a new number,
     and then measures the percent change between them.
-    
-    The change between the two numbers is determined 
-    and then divided into the original figure. 
-    
-    By default, it is then multiplied by 100, and 
+
+    The change between the two numbers is determined
+    and then divided into the original figure.
+
+    By default, it is then multiplied by 100, and
     returning as a float.
-    
-    If you don't want the number multiplied by 100, 
+
+    If you don't want the number multiplied by 100,
     set the 'multiply' kwarg to False.
-    
-    If you divide into zero -- an illegal operation -- a null value 
-    is returned by default. If you prefer for an error to be raised, 
+
+    If you divide into zero -- an illegal operation -- a null value
+    is returned by default. If you prefer for an error to be raised,
     set the kwarg 'fail_silently' to False.
 
-    
     h3. Example usage
-    
+
         >> import calculate
         >> calculate.percentage_change(2, 10)
         400.0
-        
+
     h3. Documentation
-    
+
         * "percentage_change":http://en.wikipedia.org/wiki/Percentage_change
-    
     """
     change = new_value - old_value
     try:

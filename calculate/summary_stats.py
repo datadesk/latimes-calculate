@@ -1,5 +1,6 @@
 import calculate
 
+
 def summary_stats(data_list):
     """
     Accepts a sample of numbers and returns a pretty
@@ -13,7 +14,7 @@ def summary_stats(data_list):
     min_ = min(data_list)
     range_ = calculate.range(data_list)
     standard_deviation = calculate.standard_deviation(data_list)
-    
+
     print """
 Summary statistics
 ==================
