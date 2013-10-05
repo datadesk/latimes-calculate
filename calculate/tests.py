@@ -1,4 +1,3 @@
-from __future__ import with_statement
 import unittest
 import calculate
 from datetime import datetime, date
@@ -56,12 +55,9 @@ class CalculateTest(BaseTest):
             calculate.adjusted_monthly_value(10, date(2009, 12, 31)),
             9.67741935483871
         )
-        with self.assertRaises(TypeError):
-            calculate.adjusted_monthly_value('a', date(2009, 12, 31))
-        with self.assertRaises(TypeError):
-            calculate.adjusted_monthly_value(10, '2010-01-01')
-        with self.assertRaises(TypeError):
-            calculate.adjusted_monthly_value(10, 2)
+        self.assertRaises(TypeError, calculate.adjusted_monthly_value, 'a', date(2009, 12, 31))
+        self.assertRaises(TypeError, calculate.adjusted_monthly_value, 10, '2010-01-01')
+        self.assertRaises(TypeError, calculate.adjusted_monthly_value, 10, 2)
     
     def test_benfords_law(self):
         self.assertEqual(
@@ -72,11 +68,11 @@ class CalculateTest(BaseTest):
             calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], method="last_digit", verbose=False),
             0
         )
-        with self.assertRaises(ValueError):
-            calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], method='magic')
-        with self.assertRaises(TypeError):
-            calculate.benfords_law(10.0)
-    
+        self.assertRaises(ValueError, calculate.benfords_law,
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            method='magic')
+        self.assertRaises(TypeError, calculate.benfords_law, 10.0)
+
     def test_competition_rank(self):
         dict_list = [
             {'name': 'Joan', 'value': 1},
@@ -156,15 +152,14 @@ class CalculateTest(BaseTest):
         dr = calculate.date_range(datetime(2009,1,1, 12, 31, 00), date(2009,1,3))
         self.assertEqual(list(dr), [date(2009, 1, 1), date(2009, 1, 2),
             date(2009, 1, 3)])
-        with self.assertRaises(ValueError):
-            calculate.date_range(date(2011,1,1), date(2010,12,31))
-    
+        self.assertRaises(ValueError, calculate.date_range, date(2011,1,1), date(2010,12,31))
+
     def test_decile(self):
         self.assertEqual(calculate.decile([1, 2, 3, 4], 3), 8)
         self.assertEqual(calculate.decile([1, 2, 3, 3, 4], 3, kind='strict'), 5)
         self.assertEqual(calculate.decile([1, 2, 3, 3, 4], 3, kind='weak'), 9)
         self.assertEqual(calculate.decile([1, 2, 3, 3, 4], 3, kind='mean'), 7)
-    
+
     def test_elfi(self):
         self.assertEqual(
             calculate.elfi([0.2, 0.5, 0.05, 0.25]),
@@ -172,9 +167,8 @@ class CalculateTest(BaseTest):
         )
         self.assertEqual(calculate.elfi([1]), 0)
         self.assertEqual(calculate.elfi([0.5, 0.5]), 0.5)
-        with self.assertRaises(ValueError):
-            calculate.elfi(['a', 0.2, 3])
-    
+        self.assertRaises(ValueError, calculate.elfi, ['a', 0.2, 3])
+
     def test_margin_of_victory(self):
         self.assertEqual(
             calculate.margin_of_victory([3285, 2804, 7170]),
@@ -184,14 +178,13 @@ class CalculateTest(BaseTest):
             calculate.margin_of_victory([50708, 20639]),
             50708 - 20639
         )
-    
+
     def test_mean(self):
         self.assertEqual(calculate.mean([1,2,3]), 2.0)
         self.assertEqual(calculate.mean([1, 99]), 50.0)
         self.assertEqual(calculate.mean([2,3,3]), 2.6666666666666665)
-        with self.assertRaises(ValueError):
-            calculate.elfi(['a', 0.2, 3])
-    
+        self.assertRaises(ValueError, calculate.mean, ['a', 0.2, 3])
+
     def test_mean_center(self):
         dict_list = [
             {
@@ -236,17 +229,15 @@ class CalculateTest(BaseTest):
     def test_median(self):
         self.assertEqual(calculate.median([1,3,2]), 2.0)
         self.assertEqual(calculate.median([1,2,3,4]), 2.5)
-        with self.assertRaises(TypeError):
-            calculate.median([None, 1, 2])
-            calculate.median(['a', 1, 2])
+        self.assertRaises(TypeError, calculate.median, [None, 1, 2])
+        self.assertRaises(ValueError, calculate.median, ['a', 1, 2])
     
     def test_mode(self):
         self.assertEqual(calculate.mode([1,2,3,2]), 2.0)
         self.assertEqual(calculate.mode([1,2,3]), None)
         self.assertEqual(calculate.mode([2,2,2]), 2.0)
-        with self.assertRaises(TypeError):
-            calculate.median([None, 1, 2])
-            calculate.median(['a', 1, 2])
+        self.assertRaises(TypeError, calculate.mode, [None, 1, 2])
+        self.assertRaises(ValueError, calculate.mode, ['a', 1, 2])
     
     def test_nudge_points(self):
         # Not sure how to test this one yet
@@ -333,45 +324,44 @@ class CalculateTest(BaseTest):
             ),
             -0.9435297685685435
         )
-        with self.assertRaises(ValueError):
-            calculate.pearson([1], [1,2,3])
+        self.assertRaises(TypeError, calculate.pearson, [[1], [1,2,3]])
     
     def test_per_capita(self):
         self.assertEqual(calculate.per_capita(12, 100000), 1.2)
         self.assertEqual(calculate.per_capita(12, 0), None)
-        with self.assertRaises(ZeroDivisionError):
-            calculate.per_capita(12, 0, fail_silently=False)
+        self.assertRaises(ZeroDivisionError, calculate.per_capita, 12, 0,
+            fail_silently=False)
     
     def test_per_sqmi(self):
         self.assertEqual(calculate.per_sqmi(12, 60), .20)
         self.assertEqual(calculate.per_sqmi(12, 0), None)
-        with self.assertRaises(ZeroDivisionError):
-            calculate.per_sqmi(12, 0, fail_silently=False)
+        self.assertRaises(ZeroDivisionError, calculate.per_sqmi, 12, 0,
+            fail_silently=False)
     
     def test_percentage(self):
         self.assertEqual(calculate.percentage(12, 60), 20)
         self.assertEqual(calculate.percentage(12, 60, multiply=False), .20)
         self.assertEqual(calculate.percentage(12, 0), None)
-        with self.assertRaises(ZeroDivisionError):
-            calculate.percentage(12, 0, fail_silently=False)
+        self.assertRaises(ZeroDivisionError, calculate.percentage, 12, 0,
+            fail_silently=False)
     
     def test_percentage_change(self):
         self.assertEqual(calculate.percentage_change(12, 60), 400)
         self.assertEqual(calculate.percentage_change(12, 60, multiply=False), 4.0)
         self.assertEqual(calculate.percentage_change(12, 0), -100)
         self.assertEqual(calculate.percentage_change(0, 12), None)
-        with self.assertRaises(ZeroDivisionError):
-            calculate.percentage_change(0, 12, fail_silently=False)
+        self.assertRaises(ZeroDivisionError, calculate.percentage_change, 0, 12,
+            fail_silently=False)
     
     def test_percentile(self):
         self.assertEqual(calculate.percentile([1, 2, 3, 4], 3), 75)
         self.assertEqual(calculate.percentile([1, 2, 3, 3, 4], 3, kind='strict'), 40)
         self.assertEqual(calculate.percentile([1, 2, 3, 3, 4], 3, kind='weak'), 80)
         self.assertEqual(calculate.percentile([1, 2, 3, 3, 4], 3, kind='mean'), 60)
-        with self.assertRaises(ValueError):
-            calculate.percentile(['a', 2, 3], 3)
-            calculate.percentile([1,2,3,4], 3, kind='mystery-meat')
-    
+        self.assertRaises(ValueError, calculate.percentile, ['a', 2, 3], 3)
+        self.assertRaises(ValueError, calculate.percentile, [1,2,3,4], 3, 
+            kind='mystery-meat')
+
     def test_random_point(self):
         ymin, xmin = 34.03743993275203, -118.27177047729492
         ymax, xmax = 34.0525171958097, -118.22404861450195
@@ -380,18 +370,16 @@ class CalculateTest(BaseTest):
         self.assertEqual(random_point.x > xmin, True)
         self.assertEqual(random_point.y < ymax, True)
         self.assertEqual(random_point.y > ymin, True)
-    
+
     def test_range(self):
         self.assertEqual(calculate.range([1,2,3]), 2)
-        with self.assertRaises(ValueError):
-            calculate.range(['a', 1, 2])
-        
+        self.assertRaises(ValueError, calculate.range, ['a', 1, 2])
+
     def test_standard_deviation(self):
         self.assertEqual(calculate.standard_deviation([2,3,3,4]), 0.70710678118654757)
         self.assertEqual(calculate.standard_deviation([-2,3,3,40]), 16.867127793432999)
-        with self.assertRaises(ValueError):
-            calculate.standard_deviation(['a',2,3,3,4])
-        
+        self.assertRaises(ValueError, calculate.standard_deviation, ['a',2,3,3,4])
+
     def test_standard_deviation_distance(self):
         dict_list = [
             {
