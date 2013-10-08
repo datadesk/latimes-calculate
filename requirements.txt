@@ -1,10 +1,6 @@
 argparse==1.2.1
-distribute==0.6.34
 pep8==1.4.6
-psycopg2==2.5.1
 py==1.4.17
 pyflakes==0.7.3
 six==1.4.1
 tox==1.6.1
-virtualenv==1.10.1
-wsgiref==0.1.2
