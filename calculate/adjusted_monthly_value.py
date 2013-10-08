@@ -1,3 +1,4 @@
+import six
 import calendar
 import datetime
 
@@ -31,7 +32,7 @@ def adjusted_monthly_value(value, dt):
         "calendar module":http://docs.python.org/library/calendar.html
     """
     # Test to make sure the first input is a number
-    if not isinstance(value, (int, float)):
+    if not isinstance(value, six.integer_types):
         raise TypeError('Input values should be a number')
 
     # Test to make sure the second input is a date
