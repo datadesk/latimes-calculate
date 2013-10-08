@@ -41,4 +41,3 @@ install:
  - pip install -q Django==$DJANGO_VERSION --use-mirrors
 # Tell Travis how to run the test script itself
 script: python quicktest.py calculate
-

@@ -160,10 +160,10 @@ exhibit-unusual.html
             'Number', 'Count', 'Expected Percentage', 'Actual Percentage'
         ]
         print("BENFORD'S LAW: %s" % method.upper().replace('_', ' '))
-        print ("")
-        print ("Pearson's r: %s" % (pearsons_r))
-        print ("")
-        print (ptable.indent(
+        print("")
+        print("Pearson's r: %s" % (pearsons_r))
+        print("")
+        print(ptable.indent(
             [labels] + results,
             hasHeader=True,
             separateRows=False,

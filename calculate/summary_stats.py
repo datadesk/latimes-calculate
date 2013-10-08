@@ -1,5 +1,6 @@
 from __future__ import print_function
 import calculate
+from calculate import ptable
 
 
 def summary_stats(data_list):
@@ -16,16 +17,20 @@ def summary_stats(data_list):
     range_ = calculate.range(data_list)
     standard_deviation = calculate.standard_deviation(data_list)
 
-    print("""
-Summary statistics
-==================
-
-n:        %s
-max:        %s
-min:        %s
-range:        %s
-mean:        %s
-median:        %s
-mode:        %s
-std:        %s
-""" % (n, max_, min_, range_, mean, median, mode, standard_deviation))
+    print("")
+    print(ptable.indent(
+        [
+            ['Statistic', 'Value'],
+            ['n', str(n)],
+            ['median', str(median)],
+            ['mode', str(mode)],
+            ['maximum', str(max_)],
+            ['minimum', str(min_)],
+            ['range', str(range_)],
+            ['standard deviation', str(standard_deviation)],
+        ],
+        hasHeader=True,
+        separateRows=False,
+        prefix='| ', postfix=' |',
+    ))
+    print("")
