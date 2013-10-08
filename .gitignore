@@ -1,3 +1,4 @@
+.tox/*
 scratch.py
 testproject/*
 MANIFEST
