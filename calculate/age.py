@@ -20,9 +20,9 @@ def age(born, as_of=None):
 
         >>> import calculate
         >>> from datetime import datetime
-        >>> dob = datetime(1982, 07, 22)
+        >>> dob = datetime(1982, 7, 22)
         >>> calculate.age(dob)
-        29
+        31 # As of this commit!
 
     Based on code released by Mark at http://stackoverflow.com/a/2259711
     """
