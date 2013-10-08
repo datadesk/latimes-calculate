@@ -1,5 +1,4 @@
 import math
-import calculate
 
 
 def at_percentile(data_list, value, interpolation='fraction'):

@@ -14,10 +14,10 @@ def percentage(value, total, multiply=True, fail_silently=True):
 
     h3. Example usage
 
-        >> import calculate
-        >> calculate.percentage(2, 10)
+        >>> import calculate
+        >>> calculate.percentage(2, 10)
         20.0
-        >> calculate.percentage(2,0, multiply=False)
+        >>> calculate.percentage(2,0, multiply=False)
         0.20000000000000001
         >>> calculate.percentage(2,0)
         >>> calculate.percentage(2,0, fail_silently=False)

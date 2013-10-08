@@ -32,16 +32,13 @@ before_install:
  - sudo apt-get update
  - sudo apt-get install -qq spatialite-bin binutils libproj-dev gdal-bin libgeos-dev libgdal-dev postgresql-9.1-postgis
 install: 
-   # This is a dependency of our Django test script
- - pip install argparse --use-mirrors
-   # For PEP8 testing
- - pip install pep8 --use-mirrors
-   # Dependencies of the app
- - pip install six==1.4.1 --use-mirrors
+   # Install dependencies
+ - pip install -r requirements.txt --use-mirrors
    # Install whatever version of Django that's listed above
    # Travis is currently working on
  - pip install -q Django==$DJANGO_VERSION --use-mirrors
 # Tell Travis how to run the test script itself
 script: 
  - pep8 calculate
+ - pyflakes calculate
  - python quicktest.py calculate

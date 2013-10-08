@@ -14,15 +14,14 @@ def date_range(start_date, end_date):
         >>> import datetime
         >>> import calculate
         >>> dr = calculate.date_range(
-            datetime.date(2009,1,1),
-            datetime.date(2009,1,3)
-        )
+        ...   datetime.date(2009, 1, 1),
+        ...   datetime.date(2009, 1, 3),
+        ... )
         >>> dr
-        <generator object at 0x718e90>
+        <generator object _make at 0x7f5a58437d20>
         >>> list(dr)
-        [datetime.date(2009, 1, 1),
-         datetime.date(2009, 1, 2),
-         datetime.date(2009, 1, 3)]
+        [datetime.date(2009, 1, 1), datetime.date(2009, 1, 2),
+            datetime.date(2009, 1, 3)]
     """
     # If a datetime object gets passed in,
     # change it to a date so we can do comparisons.

@@ -1,6 +1,6 @@
+import math
 import calculate
 from django.contrib.gis.geos import fromstr
-from django.contrib.gis.geos import MultiPoint
 from django.contrib.gis.db.models.query import GeoQuerySet
 
 

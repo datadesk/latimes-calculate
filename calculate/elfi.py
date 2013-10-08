@@ -15,7 +15,7 @@ def elfi(data_list):
     h3. Example usage
 
         >>> import calculate
-        >> calculate.elfi([0.2, 0.5, 0.05, 0.25])
+        >>> calculate.elfi([0.2, 0.5, 0.05, 0.25])
         0.64500000000000002
 
     """

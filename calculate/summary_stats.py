@@ -22,6 +22,7 @@ def summary_stats(data_list):
         [
             ['Statistic', 'Value'],
             ['n', str(n)],
+            ['mean', str(mean)],
             ['median', str(median)],
             ['mode', str(mode)],
             ['maximum', str(max_)],
