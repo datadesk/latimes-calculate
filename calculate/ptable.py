@@ -36,7 +36,8 @@ def indent(rows, hasHeader=False, headerChar='-', delim=' | ', justify='left',
     def rowWrapper(row):
         newRows = [wrapfunc(item).split('\n') for item in row]
         return [
-            [substr or '' for substr in item] for item in list(map(lambda *a: a, *newRows))
+            [substr or '' for substr in item]
+            for item in list(map(lambda *a: a, *newRows))
         ]
     # break each logical row into one or more physical ones
     logicalRows = [rowWrapper(row) for row in rows]
@@ -59,12 +60,14 @@ def indent(rows, hasHeader=False, headerChar='-', delim=' | ', justify='left',
         print >> output, rowSeparator
     for physicalRows in logicalRows:
         for row in physicalRows:
-            print(prefix \
-            + delim.join([
-                justify(str(item), width)
-                for (item, width) in zip(row, maxWidths)
-            ]) \
-            + postfix, file=output)
+            print(
+                prefix +
+                + delim.join([
+                    justify(str(item), width)
+                    for (item, width) in zip(row, maxWidths)
+                ])
+                + postfix, file=output
+            )
         if separateRows or hasHeader:
             print(rowSeparator, file=output)
             hasHeader = False

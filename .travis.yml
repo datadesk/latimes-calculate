@@ -34,10 +34,14 @@ before_install:
 install: 
    # This is a dependency of our Django test script
  - pip install argparse --use-mirrors
+   # For PEP8 testing
+ - pip install pep8 --use-mirrors
    # Dependencies of the app
  - pip install six==1.4.1 --use-mirrors
    # Install whatever version of Django that's listed above
    # Travis is currently working on
  - pip install -q Django==$DJANGO_VERSION --use-mirrors
 # Tell Travis how to run the test script itself
-script: python quicktest.py calculate
+script: 
+ - pep8 calculate
+ - python quicktest.py calculate
