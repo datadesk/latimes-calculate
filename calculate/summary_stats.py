@@ -17,8 +17,7 @@ def summary_stats(data_list):
     range_ = calculate.range(data_list)
     standard_deviation = calculate.standard_deviation(data_list)
 
-    print("")
-    print(ptable.indent(
+    table = ptable.indent(
         [
             ['Statistic', 'Value'],
             ['n', str(n)],
@@ -32,6 +31,6 @@ def summary_stats(data_list):
         ],
         hasHeader=True,
         separateRows=False,
-        prefix='| ', postfix=' |',
-    ))
-    print("")
+        prefix="| ", postfix=" |",
+    )
+    print(table)

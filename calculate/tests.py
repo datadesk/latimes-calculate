@@ -1,8 +1,13 @@
+import sys
 import unittest
 import calculate
 from datetime import datetime, date
 from django.contrib.gis.db import models
 from django.contrib.gis.geos import Point
+try:
+    import cStringIO as io
+except:
+    import io
 
 
 class BaseTest(unittest.TestCase):
@@ -624,10 +629,9 @@ class CalculateTest(BaseTest):
         pass
 
     def test_summary_stats(self):
-        import sys, os
         _stdout = sys.stdout
-        sys.stdout = open(os.devnull,'wb')
-        calculate.summary_stats(list(range(1,101)))
+        sys.stdout = io.StringIO()
+        calculate.summary_stats(list(range(1, 101)))
         sys.stdout = _stdout
 
 
