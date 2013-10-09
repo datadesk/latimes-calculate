@@ -239,7 +239,7 @@ class CalculateTest(BaseTest):
 
     def test_equal_sized_breakpoints(self):
         self.assertEqual(
-            calculate.equal_sized_breakpoints(range(1, 101), 5),
+            calculate.equal_sized_breakpoints(list(range(1, 101)), 5),
             [1.0, 21.0, 41.0, 61.0, 81.0, 100.0]
         )
         self.assertEqual(
@@ -259,7 +259,7 @@ class CalculateTest(BaseTest):
         self.assertRaises(
             TypeError,
             calculate.equal_sized_breakpoints,
-            range(1, 101),
+            list(range(1, 101)),
             'a'
         )
 
