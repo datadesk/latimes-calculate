@@ -519,6 +519,33 @@ class CalculateTest(BaseTest):
         self.assertEqual(calculate.range([1, 2, 3]), 2)
         self.assertRaises(ValueError, calculate.range, ['a', 1, 2])
 
+    def test_split_at_breakpoints(self):
+        l = range(1,31)
+        bp = calculate.equal_sized_breakpoints(l, 5)
+        self.assertEqual(bp, [1.0, 7.0, 13.0, 19.0, 25.0, 30.0])
+        self.assertEqual(
+            calculate.split_at_breakpoints(l, bp),
+            [
+                [1, 2, 3, 4, 5, 6],
+                [7, 8, 9, 10, 11, 12],
+                [13, 14, 15, 16, 17, 18],
+                [19, 20, 21, 22, 23, 24],
+                [25, 26, 27, 28, 29, 30]
+            ]
+        )
+        self.assertRaises(
+            IndexError,
+            calculate.split_at_breakpoints,
+            ['foo', 'bar', 'baz'],
+            bp,
+        )
+        self.assertRaises(
+            IndexError,
+            calculate.split_at_breakpoints,
+            l,
+            ['foo', 'bar', 'baz'],
+        )
+
     def test_standard_deviation(self):
         self.assertEqual(
             calculate.standard_deviation([2, 3, 3, 4]),

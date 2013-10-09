@@ -16,7 +16,7 @@ def split_at_breakpoints(data_list, breakpoint_list):
         >>> l = range(1,31)
         >>> bp = calculate.equal_sized_breakpoints(l, 5)
         >>> bp
-        [1.0, 7.0, 13.0, 19.0, 25.0, 30]
+        [1.0, 7.0, 13.0, 19.0, 25.0, 30.0]
         >>> calculate.split_at_breakpoints(l, bp)
         [[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12], [13, 14, 15, 16, 17, 18],
         [19, 20, 21, 22, 23, 24], [25, 26, 27, 28, 29, 30]]
