@@ -440,17 +440,6 @@ class CalculateTest(BaseTest):
             fail_silently=False
         )
 
-    def test_per_sqmi(self):
-        self.assertEqual(calculate.per_sqmi(12, 60), 0.2)
-        self.assertEqual(calculate.per_sqmi(12, 0), None)
-        self.assertRaises(
-            ZeroDivisionError,
-            calculate.per_sqmi,
-            12,
-            0,
-            fail_silently=False
-        )
-
     def test_percentage(self):
         self.assertEqual(calculate.percentage(12, 60), 20)
         self.assertEqual(calculate.percentage(12, 60, multiply=False), 0.2)
@@ -501,6 +490,21 @@ class CalculateTest(BaseTest):
             3,
             kind='mystery-meat'
         )
+
+    def test_per_sqmi(self):
+        self.assertEqual(calculate.per_sqmi(12, 60), 0.2)
+        self.assertEqual(calculate.per_sqmi(12, 0), None)
+        self.assertRaises(
+            ZeroDivisionError,
+            calculate.per_sqmi,
+            12,
+            0,
+            fail_silently=False
+        )
+
+    def test_ptable(self):
+        from calculate import ptable
+        ptable.indent(['foo', 'bar'])
 
     def test_random_point(self):
         ymin, xmin = 34.03743993275203, -118.27177047729492
