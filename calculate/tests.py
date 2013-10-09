@@ -548,13 +548,13 @@ class CalculateTest(BaseTest):
             ]
         )
         self.assertRaises(
-            IndexError,
+            Exception,
             calculate.split_at_breakpoints,
             ['foo', 'bar', 'baz'],
             bp,
         )
         self.assertRaises(
-            IndexError,
+            Exception,
             calculate.split_at_breakpoints,
             l,
             ['foo', 'bar', 'baz'],
