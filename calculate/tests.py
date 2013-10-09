@@ -340,8 +340,22 @@ class CalculateTest(BaseTest):
         self.assertRaises(ValueError, calculate.mode, ['a', 1, 2])
 
     def test_nudge_points(self):
-        # Not sure how to test this one yet
-        pass
+
+        class FakePoint(models.Model):
+            name = models.CharField(max_length=30)
+            point = models.PointField()
+            objects = models.GeoManager()
+
+        c1 = FakePoint(name='One', point=Point(0, 0))
+        c2 = FakePoint(name='Two', point=Point(0, 0))
+        c3 = FakePoint(name='Three', point=Point(1, 1))
+
+        l = [c1, c2, c3]
+        self.assertTrue(l[0].point == l[1].point)
+
+        l2 = calculate.nudge_points(l)
+        self.assertTrue(l2[0].point != l2[1].point)
+        self.assertTrue(l[2].point == l2[2].point)
 
     def test_ordinal_rank(self):
         dict_list = [

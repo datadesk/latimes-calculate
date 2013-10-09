@@ -1,7 +1,7 @@
 import math
 import random
 from operator import attrgetter
-from django.contrib.gis.db.models.query import GeoQuerySet
+from django.contrib.gis.geos import Point
 
 
 def nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001):
@@ -9,7 +9,7 @@ def nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001):
     A utility that accepts a GeoQuerySet and nudges slightly apart any
     identical points.
 
-    Nothing is returned.
+    Returns the modified queryset as a list.
 
     By default, the distance of the move is 0.0001 decimal degrees.
 
@@ -37,28 +37,27 @@ def nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001):
         * "This code is translated from SQL by Francis Dupont":http://postgis.\
 refractions.net/pipermail/postgis-users/2008-June/020354.html
     """
-    if not isinstance(geoqueryset, GeoQuerySet):
-        raise TypeError('First parameter must be a Django GeoQuerySet.')
-
     previous_x = None
     previous_y = None
     r = radius
     pan = point_attribute_name
+    sorted_gqs = sorted(list(geoqueryset), key=attrgetter(pan))
 
-    for point in sorted(list(geoqueryset), key=attrgetter(pan)):
-        if (getattr(point, pan).x == previous_x and
-                getattr(point, pan).y == previous_y and
-                previous_x and previous_y):
+    out_list = []
+    for obj in sorted_gqs:
+        x = getattr(obj, pan).x
+        y = getattr(obj, pan).y
+        if (x == previous_x and y == previous_y
+                and previous_x is not None and previous_y is not None):
             # angle value in radian between 0 and 2pi
             theta = random.random() * 2 * math.pi
-            getattr(point, pan).x = getattr(
-                point,
-                pan
-            ).x + (math.cos(theta) * r)
-            getattr(point, pan).y = getattr(
-                point,
-                pan
-            ).y + (math.sin(theta) * r)
+            new_point = Point(
+                x + (math.cos(theta) * r),
+                y + (math.sin(theta) * r)
+            )
+            setattr(obj, pan, new_point)
         else:
-            previous_x = getattr(point, pan).x
-            previous_y = getattr(point, pan).y
+            previous_x = x
+            previous_y = y
+        out_list.append(obj)
+    return out_list
