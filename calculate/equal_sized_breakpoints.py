@@ -12,7 +12,7 @@ def equal_sized_breakpoints(data_list, classes):
 
         >>> import calculate
         >>> calculate.equal_sized_breakpoints(range(1,101), 5)
-        [1.0, 21.0, 41.0, 61.0, 81.0, 100]
+        [1.0, 21.0, 41.0, 61.0, 81.0, 100.0]
 
     """
     # Sort the list
@@ -40,7 +40,7 @@ def equal_sized_breakpoints(data_list, classes):
         breaks.append(breakpoint)
 
     # Tack the final number to the end of the list
-    breaks.append(data_list[n - 1])
+    breaks.append(float(data_list[n - 1]))
 
     # Pass it all out
     return breaks

@@ -237,6 +237,24 @@ class CalculateTest(BaseTest):
         self.assertEqual(calculate.elfi([0.5, 0.5]), 0.5)
         self.assertRaises(ValueError, calculate.elfi, ['a', 0.2, 3])
 
+    def test_equal_sized_breakpoints(self):
+        self.assertEqual(
+            calculate.equal_sized_breakpoints(range(1,101), 5),
+            [1.0, 21.0, 41.0, 61.0, 81.0, 100.0]
+        )
+        self.assertRaises(
+            TypeError,
+            calculate.equal_sized_breakpoints,
+            ['foo', 'bar', 'baz'],
+            2
+        )
+        self.assertRaises(
+            TypeError,
+            calculate.equal_sized_breakpoints,
+            range(1,101),
+            'a'
+        )
+
     def test_margin_of_victory(self):
         self.assertEqual(
             calculate.margin_of_victory([3285, 2804, 7170]),
