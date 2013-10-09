@@ -6,12 +6,17 @@ from django.contrib.gis.geos import Point
 
 def nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001):
     """
-    A utility that accepts a GeoQuerySet and nudges slightly apart any
-    identical points.
+    A utility that accepts a list of objects with a GeoDjango Point attribute
+    and nudges slightly apart any identical points.
 
-    Returns the modified queryset as a list.
+    Returns the modified input as a list.
 
-    By default, the distance of the move is 0.0001 decimal degrees.
+    By default it looks for the point in an attribute named "point." If
+    your point data attribute has a different name, submit it as a string
+    to the "point_attribute_name" kwarg.
+
+    By default, the distance of the move is 0.0001 decimal degrees. You can
+    mofied it by submitting a "radius" kwarg.
 
     I'm not sure if this will go wrong if your data is in a different unit
     of measurement.
@@ -22,9 +27,10 @@ def nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001):
 
     h3. Example usage
 
-        >> import calculate
-        >> calculate.nudge_points(qs)
-        >>
+        >>> import calculate
+        >>> from models import FakePoint
+        >>> qs = FakePoint.objects.all()
+        >>> qs = calculate.nudge_points(qs)
 
     h3. Dependencies
 
