@@ -59,7 +59,7 @@ postgis.refractions.net/pipermail/postgis-users/2008-June/020354.html
         return [None]
 
     if fix_points:
-        calculate.nudge_points(
+        geoqueryset = calculate.nudge_points(
             geoqueryset,
             point_attribute_name=point_attribute_name
         )
