@@ -623,6 +623,13 @@ class CalculateTest(BaseTest):
     def test_standard_deviation_ellipses(self):
         pass
 
+    def test_summary_stats(self):
+        import sys, os
+        _stdout = sys.stdout
+        sys.stdout = open(os.devnull,'wb')
+        calculate.summary_stats(list(range(1,101)))
+        sys.stdout = _stdout
+
 
 if __name__ == '__main__':
     unittest.main()
