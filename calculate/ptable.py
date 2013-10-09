@@ -62,7 +62,7 @@ def indent(rows, hasHeader=False, headerChar='-', delim=' | ', justify='left',
         for row in physicalRows:
             print(
                 prefix +
-                + delim.join([
+                delim.join([
                     justify(str(item), width)
                     for (item, width) in zip(row, maxWidths)
                 ])
