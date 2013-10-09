@@ -203,9 +203,6 @@ class CalculateTest(BaseTest):
             4
         )
 
-    def test_dorling_cartogram(self):
-        pass
-
     def test_date_range(self):
         dr = calculate.date_range(
             datetime(2009, 1, 1, 12, 31, 00),
