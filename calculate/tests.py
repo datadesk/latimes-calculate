@@ -520,7 +520,7 @@ class CalculateTest(BaseTest):
         self.assertRaises(ValueError, calculate.range, ['a', 1, 2])
 
     def test_split_at_breakpoints(self):
-        l = range(1, 31)
+        l = list(range(1, 31))
         bp = calculate.equal_sized_breakpoints(l, 5)
         self.assertEqual(bp, [1.0, 7.0, 13.0, 19.0, 25.0, 30.0])
         self.assertEqual(
