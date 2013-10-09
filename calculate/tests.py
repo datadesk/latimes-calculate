@@ -13,35 +13,6 @@ class BaseTest(unittest.TestCase):
 
 class CalculateTest(BaseTest):
 
-    def test_age(self):
-        # All the data types
-        self.assertEqual(
-            calculate.age(datetime(1982, 7, 22), date(2011, 12, 3)),
-            29
-        )
-        self.assertEqual(
-            calculate.age(date(1982, 7, 22), date(2011, 12, 3)),
-            29
-        )
-        self.assertEqual(
-            calculate.age(datetime(1982, 7, 22), datetime(2011, 12, 3)),
-            29
-        )
-        self.assertEqual(
-            calculate.age(date(1982, 7, 22), datetime(2011, 12, 3)),
-            29
-        )
-        # Leap Day
-        self.assertEqual(
-            calculate.age(date(1984, 2, 29), date(2011, 12, 3)),
-            27
-        )
-        # Tomorrow bday
-        self.assertEqual(
-            calculate.age(date(2010, 12, 4), date(2011, 12, 3)),
-            0
-        )
-
     def test_adjusted_monthly_value(self):
         self.assertEqual(
             calculate.adjusted_monthly_value(
@@ -75,6 +46,54 @@ class CalculateTest(BaseTest):
             calculate.adjusted_monthly_value,
             10,
             2
+        )
+
+    def test_age(self):
+        # All the data types
+        self.assertEqual(
+            calculate.age(datetime(1982, 7, 22), date(2011, 12, 3)),
+            29
+        )
+        self.assertEqual(
+            calculate.age(date(1982, 7, 22), date(2011, 12, 3)),
+            29
+        )
+        self.assertEqual(
+            calculate.age(datetime(1982, 7, 22), datetime(2011, 12, 3)),
+            29
+        )
+        self.assertEqual(
+            calculate.age(date(1982, 7, 22), datetime(2011, 12, 3)),
+            29
+        )
+        # Leap Day
+        self.assertEqual(
+            calculate.age(date(1984, 2, 29), date(2011, 12, 3)),
+            27
+        )
+        # Tomorrow bday
+        self.assertEqual(
+            calculate.age(date(2010, 12, 4), date(2011, 12, 3)),
+            0
+        )
+
+    def test_at_percentile(self):
+        self.assertEqual(calculate.at_percentile([1, 2, 3, 4], 75), 3.25)
+        self.assertEqual(
+            calculate.at_percentile([1, 2, 3, 4], 75, interpolation='lower'),
+            3.0
+        )
+        self.assertEqual(
+            calculate.at_percentile([1, 2, 3, 4], 75, interpolation='higher'),
+            4.0
+        )
+        self.assertRaises(ValueError, calculate.at_percentile, ['a', 2, 3], 75)
+        self.assertRaises(
+            ValueError,
+            calculate.at_percentile,
+            [1, 2, 3, 4],
+            75,
+            interpolation='mystery-meat'
         )
 
     def test_benfords_law(self):

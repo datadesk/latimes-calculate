@@ -73,3 +73,6 @@ def at_percentile(data_list, value, interpolation='fraction'):
         return l
     elif interpolation == 'higher':
         return h
+    else:
+        raise ValueError("The interpolation kwarg must be 'fraction', 'lower' \
+or 'higher'. You can also opt to leave it out and rely on the default method.")
