@@ -1,3 +1,5 @@
+from types import FunctionType
+
 def competition_rank(obj_list, obj, order_by, direction='desc'):
     """
     Accepts a list, an item plus the value and direction
@@ -41,10 +43,16 @@ Standard_competition_ranking_.28.221224.22_ranking.29
         raise ValueError('Direction kwarg should be either asc or desc.')
 
     # Figure out what type of objects we're dealing with
-    if isinstance(obj_list[0], type({})):
+    if type(obj_list[0]) == type({}):
         def getkey(obj, key):
             return obj.get(key)
         gettr = getkey
+    # If we've passed in a lambda or function as our order_by,
+    # we need to act accordingly.
+    elif type(order_by) == FunctionType:
+        def getval(obj, func):
+            return func(obj)
+        gettr = getval
     else:
         gettr = getattr
 
