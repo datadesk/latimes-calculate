@@ -47,8 +47,8 @@ Standard_competition_ranking_.28.221224.22_ranking.29
         def getkey(obj, key):
             return obj.get(key)
         gettr = getkey
-    # If we've passed in a lambda or function as our order_by,
-    # we need to act accordingly.
+    # If we've passed in a lambda or function as 
+    # our order_by, we need to act accordingly.
     elif isinstance(order_by, FunctionType):
         def getval(obj, func):
             return func(obj)
