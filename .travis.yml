@@ -31,7 +31,7 @@ matrix:
 # Tell it the things it will need to install when it boots
 before_install:
  - sudo apt-get update
- - sudo apt-get install -qq spatialite-bin binutils libproj-dev gdal-bin libgeos-dev libgdal-dev postgresql-9.1-postgis
+ - sudo apt-get install -qq spatialite-bin binutils libproj-dev gdal-bin libgeos-dev libgdal-dev postgresql-9.3-postgis
 install: 
    # Install dependencies
  - pip install -r requirements.txt --use-mirrors
