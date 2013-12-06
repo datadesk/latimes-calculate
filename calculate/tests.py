@@ -151,8 +151,15 @@ class CalculateTest(BaseTest):
             2
         )
         self.assertEqual(
+            calculate.competition_rank(dict_list, dict_list[3], 'value'), 1
+        )
+
+        def sortFunc(obj):
+            return 3
+
+        self.assertEqual(
             calculate.competition_rank(
-                dict_list, dict_list[3], 'value', 'desc'
+                dict_list, dict_list[2], sortFunc, 'desc'
             ),
             1
         )
