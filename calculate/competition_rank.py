@@ -1,3 +1,6 @@
+from types import FunctionType
+
+
 def competition_rank(obj_list, obj, order_by, direction='desc'):
     """
     Accepts a list, an item plus the value and direction
@@ -41,10 +44,20 @@ Standard_competition_ranking_.28.221224.22_ranking.29
         raise ValueError('Direction kwarg should be either asc or desc.')
 
     # Figure out what type of objects we're dealing with
-    if isinstance(obj_list[0], type({})):
+    # and assign the proper way of accessing them.
+
+    # If we've passed in a lambda or function as
+    # our order_by, we need to act accordingly.
+    if isinstance(order_by, FunctionType):
+        def getfunc(obj, func):
+            return func(obj)
+        gettr = getfunc
+    # If the objects are dicts we'll need to pull keys
+    elif isinstance(obj_list[0], type({})):
         def getkey(obj, key):
             return obj.get(key)
         gettr = getkey
+    # ... otherwise just assume the list is full of objects with attributes
     else:
         gettr = getattr
 
@@ -53,9 +66,14 @@ Standard_competition_ranking_.28.221224.22_ranking.29
         obj_list.sort(key=lambda x: gettr(x, order_by), reverse=True)
     elif direction == 'asc':
         obj_list.sort(key=lambda x: gettr(x, order_by))
+
+    # Set up some globals
     rank = 0
     tie_count = 1
+
+    # Loop through the list
     for i, x in enumerate(obj_list):
+        # And keep counting ...
         if (i != 0 and
                 gettr(obj_list[i], order_by) ==
                 gettr(obj_list[i - 1], order_by)):
@@ -63,5 +81,6 @@ Standard_competition_ranking_.28.221224.22_ranking.29
         else:
             rank = rank + tie_count
             tie_count = 1
+        # ... Until we hit the submitted object
         if obj == x:
             return rank
