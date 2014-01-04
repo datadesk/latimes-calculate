@@ -19,10 +19,7 @@ def ordinal_rank(sequence, item, order_by=None, direction='desc'):
         * "ordinal rank":http://en.wikipedia.org/wiki/Ranking#Ordinal_ranking\
 _.28.221234.22_ranking.29
     """
-    try:
-        seq_list = list(sequence)
-    except TypeError:
-        raise TypeError('First parameter must be a sequence.')
+    seq_list = list(sequence)
     if order_by:
         # Figure out what type of objects we're dealing with
         if isinstance(seq_list[0], type({})):

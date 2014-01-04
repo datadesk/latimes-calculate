@@ -3,6 +3,9 @@ include =
     calculate/*
 omit =
     *tests.py
+    calculate/models.py
+    calculate/ptable.py
+    calculate/__init__.py
 
 [report]
 exclude_lines =

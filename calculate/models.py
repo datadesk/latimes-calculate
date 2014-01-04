@@ -1,3 +1,1 @@
-#
-# An empty models file so I can use django's testing library
-#
+# An empty models file so we can use django's testing library

@@ -41,7 +41,7 @@ coefficient
 Applications/dp/0596529325
     """
     if len(list_one) != len(list_two):
-        raise ValueError('The two lists you provided do not have the name \
+        raise ValueError('The two lists you provided do not have the same \
 number of entries. Pearson\'s r can only be calculated with paired data.')
 
     n = len(list_one)

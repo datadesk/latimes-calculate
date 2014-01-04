@@ -49,6 +49,7 @@ def at_percentile(data_list, value, interpolation='fraction'):
     except ValueError:
         raise ValueError('Input values should contain numbers')
 
+    # Sort the list
     data_list.sort()
 
     # Find the number of values in the sample

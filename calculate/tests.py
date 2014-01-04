@@ -60,6 +60,10 @@ class CalculateTest(BaseTest):
             29
         )
         self.assertEqual(
+            calculate.age(datetime(1982, 7, 22)),
+            calculate.age(datetime(1982, 7, 22))
+        )
+        self.assertEqual(
             calculate.age(date(1982, 7, 22), date(2011, 12, 3)),
             29
         )
@@ -84,6 +88,7 @@ class CalculateTest(BaseTest):
 
     def test_at_percentile(self):
         self.assertEqual(calculate.at_percentile([1, 2, 3, 4], 75), 3.25)
+        self.assertEqual(calculate.at_percentile([1, 2, 3, 4], 100), 4)
         self.assertEqual(
             calculate.at_percentile([1, 2, 3, 4], 75, interpolation='lower'),
             3.0
@@ -106,6 +111,13 @@ class CalculateTest(BaseTest):
             calculate.benfords_law(
                 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                 verbose=False
+            ),
+            -0.8638019376987044
+        )
+        self.assertEqual(
+            calculate.benfords_law(
+                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                verbose=True
             ),
             -0.8638019376987044
         )
@@ -215,9 +227,18 @@ class CalculateTest(BaseTest):
             4
         )
 
+        self.assertRaises(
+            ValueError,
+            calculate.competition_rank,
+            obj_list,
+            obj_list[3],
+            'value',
+            'foobar'
+        )
+
     def test_date_range(self):
         dr = calculate.date_range(
-            datetime(2009, 1, 1, 12, 31, 00),
+            datetime(2009, 1, 1, 12, 31, 0),
             date(2009, 1, 3)
         )
         self.assertEqual(
@@ -230,6 +251,14 @@ class CalculateTest(BaseTest):
             date(2011, 1, 1),
             date(2010, 12, 31)
         )
+        dr2 = calculate.date_range(
+            datetime(2009, 1, 1, 12, 31, 0),
+            datetime(2009, 1, 3, 0, 0, 1)
+        )
+        self.assertEqual(
+            list(dr2),
+            [date(2009, 1, 1), date(2009, 1, 2), date(2009, 1, 3)]
+        )
 
     def test_decile(self):
         self.assertEqual(calculate.decile([1, 2, 3, 4], 3), 8)
@@ -239,6 +268,7 @@ class CalculateTest(BaseTest):
         )
         self.assertEqual(calculate.decile([1, 2, 3, 3, 4], 3, kind='weak'), 9)
         self.assertEqual(calculate.decile([1, 2, 3, 3, 4], 3, kind='mean'), 7)
+        self.assertEqual(calculate.decile([1, 2, 3, 4], 4), 10)
 
     def test_elfi(self):
         self.assertEqual(
@@ -380,6 +410,10 @@ class CalculateTest(BaseTest):
         self.assertEqual(calculate.ordinal_rank(dict_list, dict_list[1]), 2)
         self.assertEqual(calculate.ordinal_rank(dict_list, dict_list[2]), 3)
         self.assertEqual(calculate.ordinal_rank(dict_list, dict_list[3]), 4)
+        self.assertEqual(
+            calculate.ordinal_rank(dict_list, dict_list[3], 'value', 'desc'),
+            1
+        )
 
         class DummyObj():
             def __init__(self, **entries):
@@ -432,6 +466,15 @@ class CalculateTest(BaseTest):
             1
         )
 
+        self.assertRaises(
+            ValueError,
+            calculate.ordinal_rank,
+            obj_list,
+            obj_list[3],
+            order_by='value',
+            direction='foobar',
+        )
+
     def test_pearson(self):
         students = [
             dict(sat=1200, gpa=3.6, drinks_per_day=0.3),
@@ -453,7 +496,7 @@ class CalculateTest(BaseTest):
             ),
             -0.9435297685685435
         )
-        self.assertRaises(TypeError, calculate.pearson, [[1], [1, 2, 3]])
+        self.assertRaises(ValueError, calculate.pearson, [1], [1, 2, 3])
 
     def test_per_capita(self):
         self.assertEqual(calculate.per_capita(12, 100000), 1.2)
@@ -544,6 +587,7 @@ class CalculateTest(BaseTest):
     def test_range(self):
         self.assertEqual(calculate.range([1, 2, 3]), 2)
         self.assertRaises(ValueError, calculate.range, ['a', 1, 2])
+        self.assertRaises(ValueError, calculate.range, [1])
 
     def test_split_at_breakpoints(self):
         l = list(range(1, 31))
