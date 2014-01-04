@@ -7,11 +7,13 @@ Some simple math we use to do journalism.
 
 [![Build Status](https://travis-ci.org/datadesk/latimes-calculate.png?branch=master)](https://travis-ci.org/datadesk/latimes-calculate)
 [![PyPI version](https://badge.fury.io/py/latimes-calculate.png)](http://badge.fury.io/py/latimes-calculate)
+[![Coverage Status](https://coveralls.io/repos/datadesk/latimes-calculate/badge.png?branch=master)](https://coveralls.io/r/datadesk/latimes-calculate?branch=master)
 
 * Documentation: [http://datadesk.github.io/latimes-calculate/](http://datadesk.github.io/latimes-calculate/)
 * Issues: [https://github.com/datadesk/latimes-calculate/issues](https://github.com/datadesk/latimes-calculate/issues)
 * Packaging: [https://pypi.python.org/pypi/latimes-calculate](https://pypi.python.org/pypi/latimes-calculate)
 * Testing: [https://travis-ci.org/datadesk/latimes-calculate](https://travis-ci.org/datadesk/latimes-calculate)
+* Coverage: [https://coveralls.io/r/datadesk/latimes-calculate](https://coveralls.io/r/datadesk/latimes-calculate)
 
 Features
 --------

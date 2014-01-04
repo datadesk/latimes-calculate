@@ -1,7 +1,6 @@
 """
 Tricks lifted from Django's own setup.py and django_debug_toolbar.
 """
-
 from distutils.core import setup
 from distutils.command.install_data import install_data
 from distutils.command.install import INSTALL_SCHEMES
@@ -72,7 +71,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'bdist_wininst':
 
 setup(name='latimes-calculate',
       version='0.2.21',
-      description='A collection of quickie math functions. Nothing too fancy.',
+      description='Some simple math we use to do journalism.',
       author='Ben Welsh',
       author_email='ben.welsh@latimes.com',
       url='http://github.com/datadesk/latimes-calculate',
