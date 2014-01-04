@@ -41,7 +41,7 @@ $ pip install latimes-calculate
 Experiment in Python shell
 
 ```python
->> import calculate
->> calculate.percentage_change(100, 150)
+>>> import calculate
+>>> calculate.percentage_change(100, 150)
 50.0
 ```
