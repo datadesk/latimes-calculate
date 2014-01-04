@@ -3,9 +3,16 @@ dP   `"   dPYb   88     dP   `" 88   88 88       dPYb     88   88__
 Yb       dP__Yb  88  .o Yb      Y8   8P 88  .o  dP__Yb    88   88""   
  YboodP dP""""Yb 88ood8  YboodP `YbodP' 88ood8 dP""""Yb   88   888888</code></pre>
 
-Some simple math we use to do journalism. Documentation at [http://datadesk.github.io/latimes-calculate/](http://datadesk.github.io/latimes-calculate/)
+Some simple math we use to do journalism.
 
 [![Build Status](https://travis-ci.org/datadesk/latimes-calculate.png?branch=master)](https://travis-ci.org/datadesk/latimes-calculate)
+[![PyPi version](https://pypip.in/v/latimes-calculate/badge.png)](https://crate.io/packages/latimes-calculate/)
+[![PyPi downloads](https://pypip.in/d/latimes-calculate/badge.png)](https://crate.io/packages/latimes-calculate/)
+
+* Documentation: [http://datadesk.github.io/latimes-calculate/](http://datadesk.github.io/latimes-calculate/)
+* Issues: [https://github.com/datadesk/latimes-calculate/issues](https://github.com/datadesk/latimes-calculate/issues)
+* Packaging: [https://pypi.python.org/pypi/latimes-calculate](https://pypi.python.org/pypi/latimes-calculate)
+* Testing: [https://travis-ci.org/datadesk/latimes-calculate](https://travis-ci.org/datadesk/latimes-calculate)
 
 Features
 --------
