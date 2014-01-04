@@ -27,7 +27,7 @@ Features
 Dependencies
 ------------
 
-For most functions, nothing. "GeoDjango":http://www.geodjango.org/ is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
+For most functions, nothing. [GeoDjango](http://www.geodjango.org/) and its dependencies are required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
 
 Getting started
 ---------------
