@@ -6,8 +6,7 @@ Yb       dP__Yb  88  .o Yb      Y8   8P 88  .o  dP__Yb    88   88""
 Some simple math we use to do journalism.
 
 [![Build Status](https://travis-ci.org/datadesk/latimes-calculate.png?branch=master)](https://travis-ci.org/datadesk/latimes-calculate)
-[![PyPi version](https://pypip.in/v/latimes-calculate/badge.png)](https://crate.io/packages/latimes-calculate/)
-[![PyPi downloads](https://pypip.in/d/latimes-calculate/badge.png)](https://crate.io/packages/latimes-calculate/)
+[![PyPI version](https://badge.fury.io/py/latimes-calculate.png)](http://badge.fury.io/py/latimes-calculate)
 
 * Documentation: [http://datadesk.github.io/latimes-calculate/](http://datadesk.github.io/latimes-calculate/)
 * Issues: [https://github.com/datadesk/latimes-calculate/issues](https://github.com/datadesk/latimes-calculate/issues)
