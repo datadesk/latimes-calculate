@@ -3,11 +3,12 @@ dP   `"   dPYb   88     dP   `" 88   88 88       dPYb     88   88__
 Yb       dP__Yb  88  .o Yb      Y8   8P 88  .o  dP__Yb    88   88""   
  YboodP dP""""Yb 88ood8  YboodP `YbodP' 88ood8 dP""""Yb   88   888888</code></pre>
 
-Some simple math we use to do journalism. Documentation at "http://datadesk.github.io/latimes-calculate/":http://datadesk.github.io/latimes-calculate/
+Some simple math we use to do journalism. Documentation at [http://datadesk.github.io/latimes-calculate/](http://datadesk.github.io/latimes-calculate/)
 
-!https://www.travis-ci.org/datadesk/latimes-calculate.png?branch=master!:https://www.travis-ci.org/datadesk/latimes-calculate
+[![Build Status](https://travis-ci.org/datadesk/latimes-calculate.png?branch=master)](https://travis-ci.org/datadesk/latimes-calculate)
 
-h3. Features
+Features
+--------
 
 * Descriptive statistics like mean, median, percentile
 * Comparison statistics like percentage change, per-capita and rankings
@@ -15,12 +16,24 @@ h3. Features
 * A small dab of more complicated hoohah like Pearson’s R.
 * A grabbag of utilities for a diversity index, Benford’s Law, generating random points and other things
 
-h3. Dependencies
+Dependencies
+------------
 
 For most functions, nothing. "GeoDjango":http://www.geodjango.org/ is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
 
-h3. Getting started
+Getting started
+---------------
 
-<pre><code>pip install latimes-calculate</code></pre>
+Install from PyPI
 
+```bash
+$ pip install latimes-calculate
+```
 
+Experiment in Python shell
+
+```python
+>> import calculate
+>> calculate.percentage_change(100, 150)
+50.0
+```
