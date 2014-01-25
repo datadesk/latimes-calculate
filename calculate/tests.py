@@ -676,9 +676,6 @@ class CalculateTest(BaseTest):
             0.0003720200725858596
         )
 
-    def test_standard_deviation_ellipses(self):
-        pass
-
     def test_summary_stats(self):
         _stdout = sys.stdout
         sys.stdout = io.StringIO()

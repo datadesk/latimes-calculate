@@ -105,10 +105,8 @@ if HAS_DJANGO and HAS_GEODJANGO:
         'mean_center',
         'nudge_points',
         'standard_deviation_distance',
-        'standard_deviation_ellipses',
     ]
     from .random_point import random_point
     from .mean_center import mean_center
     from .nudge_points import nudge_points
     from .standard_deviation_distance import standard_deviation_distance
-    from .standard_deviation_ellipses import standard_deviation_ellipses
