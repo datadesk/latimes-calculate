@@ -18,11 +18,11 @@ Some simple math we use to do journalism.
 Features
 --------
 
-* Descriptive statistics like mean, median, percentile
-* Comparison statistics like percentage change, per-capita and rankings
+* Descriptive statistics like mean, median, percentile, mode, range, standard deviation
+* Comparison statistics like percentage change, per-capita, per square mile, percentiles, deciles and rankings
 * Geospatial stats like mean center and standard deviation distance
-* A small dab of more complicated hoohah like Pearson’s R.
-* A grabbag of utilities for a diversity index, Benford’s Law, generating random points and other things
+* A small dab of more complicated hoohah like Pearson’s R
+* A grabbag of utilities for a diversity index, Benford’s Law, ages, margin of victory, date rates, making break points, generating random points and other things
 
 Dependencies
 ------------
