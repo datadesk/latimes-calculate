@@ -1,6 +1,10 @@
+Jinja2==2.6
 PyYAML==3.10
-argparse==1.2.1
+Pygments==1.4
+Sphinx==1.1.2
+argparse
 coverage==3.7.1
+docutils==0.8.1
 latimes-calculate==0.2.1
 pep8==1.4.6
 py==1.4.17
@@ -10,3 +14,4 @@ requests==2.1.0
 sh==1.09
 six==1.4.1
 tox==1.6.1
+virtualenv==1.10.1
