@@ -1,5 +1,5 @@
-Functions
-=========
+Basic functions
+===============
 
 Adjusted-monthly value
 ----------------------

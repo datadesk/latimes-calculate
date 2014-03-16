@@ -24,7 +24,7 @@ Documentation
 .. toctree::
    :maxdepth: 2
 
-   functions
+   basicfunctions
    geospatialfunctions
 
 Contributing
