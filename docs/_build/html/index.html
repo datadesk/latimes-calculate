@@ -50,16 +50,6 @@
   <div class="section" id="latimes-calculate">
 <h1>latimes-calculate<a class="headerlink" href="#latimes-calculate" title="Permalink to this headline">¶</a></h1>
 <p>Some simple math we use to do journalism</p>
-<div class="section" id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Descriptive statistics like mean, median, percentile, mode, range, standard deviation</li>
-<li>Comparison statistics like percentage change, per-capita, per square mile, percentiles, deciles and rankings</li>
-<li>Geospatial stats like mean center and standard deviation distance</li>
-<li>A small dab of more complicated hoohah like Pearson&#8217;s R.</li>
-<li>A grabbag of utilities for a diversity index, Benford’s Law, ages, margin of victory, date rates, making break points, generating random points and other things</li>
-</ul>
-</div>
 <div class="section" id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Install the latest package from pypi.</p>
@@ -77,9 +67,38 @@ the small number of geospatial functions, which require <a class="reference exte
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="functions.html#adjusted-monthly-value">Adjusted-monthly value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#age">Age</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#at-percentile">At percentile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#benford-s-law">Benford&#8217;s Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#competition-rank">Competition rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#date-range">Date range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#decile">Decile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#ethnolinguistic-fractionalization-index">Ethnolinguistic Fractionalization Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#equal-sized-breakpoints">Equal-sized breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#margin-of-victory">Margin of victory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#mean-average">Mean (Average)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#median">Median</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#mode">Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#ordinal-rank">Ordinal rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#pearson-s-r">Pearson&#8217;s r</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#per-capita">Per capita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#per-square-mile">Per square mile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#percentage">Percentage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#percentage-change">Percentage change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#percentile">Percentile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#range">Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#split-at-breakpoints">Split at breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#standard-deviation">Standard deviation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#summary-statistics">Summary statistics</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="geospatialfunctions.html">Geospatial functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geospatialfunctions.html">Geospatial functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geospatialfunctions.html#mean-center">Mean center</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geospatialfunctions.html#nudge-points">Nudge points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geospatialfunctions.html#random-point">Random point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geospatialfunctions.html#standard-deviation-distance">Standard-deviation distance</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -105,7 +124,6 @@ the small number of geospatial functions, which require <a class="reference exte
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">latimes-calculate</a><ul>
-<li><a class="reference internal" href="#features">Features</a></li>
 <li><a class="reference internal" href="#getting-started">Getting started</a><ul>
 <li><a class="reference internal" href="#documentation">Documentation</a><ul>
 </ul>

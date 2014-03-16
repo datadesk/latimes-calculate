@@ -1,6 +1,9 @@
 Geospatial functions
 ====================
 
+Mean center
+-----------
+
 .. method:: mean_center(obj_list, point_attribute_name='point')
 
     Accepts a geoqueryset, list of objects or list of dictionaries, expected to contain `GeoDjango Point <https://docs.djangoproject.com/en/dev/ref/contrib/gis/geos/#point>`_ objects as one of their attributes. Returns a Point object with the mean center of the provided points. The mean center is the average x and y of all those points. By default, the function expects the Point field on your model to be called 'point'. If the point field is called something else, change the kwarg 'point_attribute_name' to whatever your field might be called. ::
@@ -8,6 +11,9 @@ Geospatial functions
         >>> import calculate
         >>> calculate.mean_center(qs)
         <Point object at 0x77a1694>
+
+Nudge points
+------------
 
 .. method:: nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001)
 
@@ -17,6 +23,9 @@ Geospatial functions
         >>> calculate.nudge_points(qs)
         >>>
 
+Random point
+------------
+
 .. method:: random_point(extent)
 
     A utility that accepts the extent of a polygon and returns a random point from within its boundaries. The extent is a four-point tuple with (xmin, ymin, xmax, ymax). ::
@@ -24,6 +33,9 @@ Geospatial functions
         >>> polygon = Model.objects.get(pk=1).polygon
         >>> import calculate
         >>> calculate.random_point(polygon.extent)
+
+Standard-deviation distance
+---------------------------
 
 .. method:: standard_deviation_distance(obj_list, point_attribute_name='point')
 

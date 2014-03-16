@@ -18,6 +18,9 @@ Adjusted-monthly value
         >>> calculate.adjusted_monthly_value(10, datetime.datetime(2009, 12, 31))
         9.67741935483871
 
+Age
+---
+
 .. method:: age(born, as_of=None)
 
     Returns the current age, in years, of a person born on the provided date.
@@ -42,6 +45,9 @@ Adjusted-monthly value
         >>> calculate.age(dob, as_of)
         0
 
+At percentile
+-------------
+
 .. method:: at_percentile(data_list, value, interpolation='fraction')
 
     Accepts a list of values and a percentile for which to return the value. A percentile of, for example, 80 means that 80 percent of the scores in the sequence are below the given score. If the requested percentile falls between two values, the result can be interpolated
@@ -60,6 +66,9 @@ Adjusted-monthly value
         3.0
         >>> calculate.at_percentile([1, 2, 3, 4], 75, interpolation='higher')
         4.0
+
+Benford's Law
+-------------
 
 .. method:: benfords_law(number_list, method='first_digit', verbose=True)
 
@@ -88,6 +97,9 @@ Adjusted-monthly value
         >>> calculate.benfords_law([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], verbose=False)
         -0.863801937698704
 
+Competition rank
+----------------
+
 .. method:: competition_rank(data_list, obj, order_by, direction='desc')
 
     Accepts a list, an item plus the value and direction to order by. Then returns the supplied object's competition rank as an integer. In competition ranking equal numbers receive the same ranking and a gap is left before the next value (i.e. "1224"). You can submit a Django queryset, objects, or just a list of dictionaries. ::
@@ -104,6 +116,9 @@ Adjusted-monthly value
         >>> calculate.competition_rank(qs, mel, 'career_home_runs', direction='desc')
         23
 
+Date range
+----------
+
 .. method:: date_range(start_date, end_date)
 
     Returns a generator of all the days between two date objects. Results include the start and end dates. Arguments can be either datetime.datetime or date type objects.
@@ -118,6 +133,9 @@ Adjusted-monthly value
         >>> list(dr)
         [datetime.date(2009, 1, 1), datetime.date(2009, 1, 2), datetime.date(2009, 1, 3)]
 
+Decile
+------
+
 .. method:: decile(data_list, score, kind='weak')
 
     Accepts a sample of values and a single number to add to it and determine the decile equivilent of its percentile rank.
@@ -129,6 +147,9 @@ Adjusted-monthly value
         >>> calculate.decile([1, 2, 3, 3, 4], 3)
         9
 
+Ethnolinguistic Fractionalization Index
+---------------------------------------
+
 .. method:: elfi(data_list)
 
     The ELFI is a simplified method for calculating the Ethnolinguistic Fractionalization Index (ELFI). This is one form of what is commonly called a "diversity index." Accepts a list of decimal percentages, which are used to calculate the index. Returns a decimal value as a floating point number. ::
@@ -137,6 +158,9 @@ Adjusted-monthly value
         >>> calculate.elfi([0.2, 0.5, 0.05, 0.25])
         0.64500000000000002
 
+Equal-sized breakpoints
+-----------------------
+
 .. method:: equal_sized_breakpoints(data_list, classes)
 
     Returns break points for groups of equal size, known as quartiles, quintiles, etc. Provide a list of data values and the number of classes you'd like the list broken up into. No flashy math, just sorts them in order and makes the cuts.
@@ -144,6 +168,9 @@ Adjusted-monthly value
         >>> import calculate
         >>> calculate.equal_sized_breakpoints(range(1,101), 5)
         [1.0, 21.0, 41.0, 61.0, 81.0, 100]
+
+Margin of victory
+-----------------
 
 .. method:: margin_of_victory(data_list)
 
@@ -158,6 +185,9 @@ Adjusted-monthly value
         >>> calculate.margin_of_victory([3285, 2804, 7170])
         3885
 
+Mean (Average)
+--------------
+
 .. method:: mean(data_list)
 
     Accepts a sample of values and returns their mean. The mean is the sum of all values in the sample divided by the number of members. It is also known as the average. Since the value is strongly influenced by outliers, median is generally a better indicator of central tendency. ::
@@ -167,6 +197,9 @@ Adjusted-monthly value
         2.0
         >>> calculate.mean([1, 99])
         50.0
+
+Median
+------
 
 .. method:: median(data_list)
 
@@ -178,6 +211,9 @@ Adjusted-monthly value
         >> calculate.median((1,4,3,2))
         2.5
 
+Mode
+----
+
 .. method:: mode(data_list)
 
     Accepts a sample of numbers and returns the mode value. The mode is the most common value in a data set. If there is a tie for the highest count, no value is returned. ::
@@ -186,7 +222,10 @@ Adjusted-monthly value
         >>> calculate.mode([1,2,2,3])
         2.0
         >>> calculate.mode([1,2,3])
-        >>> 
+        >>>
+
+Ordinal rank
+------------
 
 .. method:: ordinal_rank(sequence, item, order_by=None, direction='desc')
 
@@ -198,6 +237,9 @@ Adjusted-monthly value
         >>> calculate.ordinal_rank(qs, barry)
         1
 
+Pearson's r
+-----------
+
 .. method:: pearson(list_one, list_two)
 
     Accepts paired lists and returns a number between -1 and 1, known as `Pearson's r <http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient>`_, that indicates of how closely correlated the two datasets are. A score of close to one indicates a high positive correlation. That means that X tends to be big when Y is big. A score close to negative one indicates a high negative correlation. That means X tends to be small when Y is big. A score close to zero indicates little correlation between the two datasets.
@@ -208,6 +250,9 @@ Adjusted-monthly value
         >>> calculate.pearson([6,5,2], [2,5,6])
         -0.8461538461538467
 
+Per capita
+----------
+
 .. method:: per_capita(value, population, per=10000, fail_silently=True)
 
     Accepts two numbers, a value and population total, and returns the per capita rate. By default, the result is returned as a per 10,000 person figure. If you divide into zero -- an illegal operation -- a null value is returned by default. If you prefer for an error to be raised, set the kwarg 'fail_silently' to False. ::
@@ -216,6 +261,9 @@ Adjusted-monthly value
         >>> calculate.per_capita(12, 100000)
         1.2
 
+Per square mile
+---------------
+
 .. method:: per_sqmi(value, square_miles, fail_silently=True)
 
     Accepts two numbers, a value and an area, and returns the per square mile rate. Not much more going on here than a simple bit of division. If you divide into zero -- an illegal operation -- a null value is returned by default. If you prefer for an error to be raised, set the kwarg 'fail_silently' to False. ::
@@ -223,6 +271,9 @@ Adjusted-monthly value
         >>> import calculate
         >>> calculate.per_sqmi(20, 10)
         2.0
+
+Percentage
+----------
 
 .. method:: percentage(value, total, multiply=True, fail_silently=True)
 
@@ -235,6 +286,9 @@ Adjusted-monthly value
         0.20000000000000001
         >>> calculate.percentage(2,0)
 
+Percentage change
+-----------------
+
 .. method:: percentage_change(old_value, new_value, multiply=True, fail_silently=True)
 
     Accepts two integers, an old and a new number, and then measures the percent change between them. The change between the two numbers is determined and then divided into the original figure. By default, it is then multiplied by 100, and returning as a float. If you don't want the number multiplied by 100, set the 'multiply' kwarg to False. If you divide into zero -- an illegal operation -- a null value is returned by default. If you prefer for an error to be raised, set the kwarg 'fail_silently' to False. ::
@@ -242,6 +296,9 @@ Adjusted-monthly value
         >>> import calculate
         >>> calculate.percentage_change(2, 10)
         400.0
+
+Percentile
+----------
 
 .. method:: percentile(data_list, value, kind='weak')
 
@@ -263,6 +320,9 @@ Adjusted-monthly value
         >>> calculate.percentile([1, 2, 3, 3, 4], 3, kind='mean')
         60.0
 
+Range
+-----
+
 .. method:: range(data_list)
 
     Accepts a sample of values and return the range. The range is the difference between the maximum and minimum values of a data set. ::
@@ -272,6 +332,9 @@ Adjusted-monthly value
         2
         >>> calculate.range([2,2])
         0
+
+Split at breakpoints
+--------------------
 
 .. method:: split_at_breakpoints(data_list, breakpoint_list)
 
@@ -287,6 +350,9 @@ Adjusted-monthly value
         >>> print calculate.split_at_breakpoints(l, bp)
         [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], [21, 22, 23, 24, 25...
 
+Standard deviation
+------------------
+
 .. method:: standard_deviation(data_list)
 
     Accepts a sample of values and returns the standard deviation. Standard deviation measures how widely dispersed the values are from the mean. A lower value means the data tend to be bunched close to the averge. A higher value means they tend to be further away. ::
@@ -296,6 +362,9 @@ Adjusted-monthly value
         0.70710678118654757
         >>> calculate.standard_deviation([-2,3,3,40])
         16.867127793432999
+
+Summary statistics
+------------------
 
 .. method:: summary_stats(data_list)
 
