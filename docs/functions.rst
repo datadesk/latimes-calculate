@@ -1,6 +1,9 @@
 Functions
 =========
 
+Adjusted-monthly value
+----------------------
+
 .. method:: adjusted_monthly_value(value, datetime)
 
     Accepts a value and a datetime object, and then prorates the value to a 30-day figure depending on how many days are in the month. This can be useful for month-to-month comparisons in circumstances where fluctuations in the number of days per month may skew the analysis. For instance, February typically has only 28 days, in comparison to March, which has 31.
