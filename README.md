@@ -9,7 +9,7 @@ Some simple math we use to do journalism.
 [![PyPI version](https://badge.fury.io/py/latimes-calculate.png)](http://badge.fury.io/py/latimes-calculate)
 [![Coverage Status](https://coveralls.io/repos/datadesk/latimes-calculate/badge.png?branch=master)](https://coveralls.io/r/datadesk/latimes-calculate?branch=master)
 
-* Documentation: [http://datadesk.github.io/latimes-calculate/](http://datadesk.github.io/latimes-calculate/)
+* Documentation: [http://latimes-calculate.rtfd.org](http://latimes-calculate.rtfd.org)
 * Issues: [https://github.com/datadesk/latimes-calculate/issues](https://github.com/datadesk/latimes-calculate/issues)
 * Packaging: [https://pypi.python.org/pypi/latimes-calculate](https://pypi.python.org/pypi/latimes-calculate)
 * Testing: [https://travis-ci.org/datadesk/latimes-calculate](https://travis-ci.org/datadesk/latimes-calculate)
