@@ -49,22 +49,23 @@
 <div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Descriptive statistics like mean, median, percentile</li>
-<li>Comparison statistics like percentage change, per-capita and rankings</li>
+<li>Descriptive statistics like mean, median, percentile, mode, range, standard deviation</li>
+<li>Comparison statistics like percentage change, per-capita, per square mile, percentiles, deciles and rankings</li>
 <li>Geospatial stats like mean center and standard deviation distance</li>
 <li>A small dab of more complicated hoohah like Pearson&#8217;s R.</li>
-<li>A grabbag of utilities for age, a diversity index, Benford&#8217;s Law, generating random points and other things</li>
+<li>A grabbag of utilities for a diversity index, Benford’s Law, ages, margin of victory, date rates, making break points, generating random points and other things</li>
 </ul>
-</div>
-<div class="section" id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<p>For most functions, nothing. <a class="reference external" href="http://www.google.com/search?client=ubuntu&amp;channel=fs&amp;q=geodjango&amp;ie=utf-8&amp;oe=utf-8">GeoDjango</a> is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.</p>
 </div>
 <div class="section" id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Install the latest package from pypi.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install latimes-calculate
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For most functions, there are no additional requirements. The exception is
+the small number of geospatial functions, which require <a class="reference external" href="http://geodjango.org/">GeoDjango</a>.</p>
 </div>
 </div>
 <div class="section" id="functions">
@@ -464,6 +465,20 @@ the margin of victory for a leading candidate.</p>
 <dt id="summary_stats">
 <tt class="descname">summary_stats</tt><big>(</big><em>data_list</em><big>)</big><a class="headerlink" href="#summary_stats" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accepts a sample of numbers and returns a pretty print out of a variety of descriptive statistics.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">summary_stats</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">))</span>
+<span class="go">| Statistic          | Value         |</span>
+<span class="go">--------------------------------------</span>
+<span class="go">| n                  | 100           |</span>
+<span class="go">| mean               | 50.5          |</span>
+<span class="go">| median             | 50.5          |</span>
+<span class="go">| mode               | None          |</span>
+<span class="go">| maximum            | 100           |</span>
+<span class="go">| minimum            | 1             |</span>
+<span class="go">| range              | 99.0          |</span>
+<span class="go">| standard deviation | 28.8660700477 |</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -479,7 +494,6 @@ the margin of victory for a leading candidate.</p>
   <ul>
 <li><a class="reference internal" href="#">latimes-calculate</a><ul>
 <li><a class="reference internal" href="#features">Features</a></li>
-<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#getting-started">Getting started</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>

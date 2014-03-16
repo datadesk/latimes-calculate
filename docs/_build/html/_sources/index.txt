@@ -1,3 +1,5 @@
+:tocdepth: 3
+
 =================
 latimes-calculate
 =================
@@ -7,17 +9,11 @@ Some simple math we use to do journalism
 Features
 ========
 
-* Descriptive statistics like mean, median, percentile
-* Comparison statistics like percentage change, per-capita and rankings
+* Descriptive statistics like mean, median, percentile, mode, range, standard deviation
+* Comparison statistics like percentage change, per-capita, per square mile, percentiles, deciles and rankings
 * Geospatial stats like mean center and standard deviation distance
 * A small dab of more complicated hoohah like Pearson's R.
-* A grabbag of utilities for age, a diversity index, Benford's Law, generating random points and other things
-
-
-Dependencies
-============
-
-For most functions, nothing. `GeoDjango <http://www.google.com/search?client=ubuntu&channel=fs&q=geodjango&ie=utf-8&oe=utf-8>`_ is required for a small number of the geospatial functions, though the rest of the module will work if it is not installed.
+* A grabbag of utilities for a diversity index, Benford’s Law, ages, margin of victory, date rates, making break points, generating random points and other things
 
 Getting started
 ===============
@@ -27,6 +23,11 @@ Install the latest package from pypi.
 .. code-block:: bash
 
     $ pip install latimes-calculate
+
+.. note::
+
+    For most functions, there are no additional requirements. The exception is
+    the small number of geospatial functions, which require `GeoDjango <http://geodjango.org/>`_.
 
 Functions
 =========
@@ -359,4 +360,18 @@ Functions
 .. method:: summary_stats(data_list)
 
     Accepts a sample of numbers and returns a pretty print out of a variety of descriptive statistics.
+
+        >>> import calculate
+        >>> calculate.summary_stats(range(1,101))
+        | Statistic          | Value         |
+        --------------------------------------
+        | n                  | 100           |
+        | mean               | 50.5          |
+        | median             | 50.5          |
+        | mode               | None          |
+        | maximum            | 100           |
+        | minimum            | 1             |
+        | range              | 99.0          |
+        | standard deviation | 28.8660700477 |
+
 
