@@ -5,7 +5,7 @@ latimes-calculate
 Some simple math we use to do journalism
 
 Getting started
-===============
+---------------
 
 Install the latest package from pypi.
 
