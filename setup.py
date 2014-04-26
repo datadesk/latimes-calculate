@@ -2,6 +2,7 @@
 Tricks lifted from Django's own setup.py and django_debug_toolbar.
 """
 from distutils.core import setup
+from setuptools import setup, find_packages
 from distutils.command.install_data import install_data
 from distutils.command.install import INSTALL_SCHEMES
 import os
@@ -69,7 +70,8 @@ if len(sys.argv) > 1 and sys.argv[1] == 'bdist_wininst':
     for file_info in data_files:
         file_info[0] = '\\PURELIB\\%s' % file_info[0]
 
-setup(name='latimes-calculate',
+setup(
+      name='latimes-calculate',
       version='0.2.4',
       description='Some simple math we use to do journalism.',
       author='Ben Welsh',
@@ -78,16 +80,15 @@ setup(name='latimes-calculate',
       download_url='http://github.com/datadesk/latimes-calculate.git',
       packages=packages,
       cmdclass = cmdclasses,
-      include_package_data=True,
       install_requires=['six==1.4.1'],
-      zip_safe=False,
       license='MIT',
       keywords='math statistics gis geospatial numbers',
-      classifiers=["Intended Audience :: Developers",
-                   "Intended Audience :: Science/Research",
-                   "License :: OSI Approved :: MIT License",
-                   "Operating System :: OS Independent",
-                   "Programming Language :: Python",
-                   "Topic :: Software Development :: Libraries :: Python Modules"
-                   ],
-     )
+      classifiers=[
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Topic :: Software Development :: Libraries :: Python Modules"
+      ],
+)
