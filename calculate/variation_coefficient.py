@@ -1,9 +1,10 @@
 import calculate
 
+
 def variation_coefficient(data_list):
     """
     Accepts a list of values and returns the variation coefficient,
-    which is a normalized measure of the distribution. 
+    which is a normalized measure of the distribution.
 
     This is the sort of thing you can use to compare the standard deviation
     of sets that are measured in different units.
@@ -19,7 +20,8 @@ def variation_coefficient(data_list):
 
     h3. Documentation
 
-        * "coefficient of variation":http://en.wikipedia.org/wiki/Coefficient_of_variation
+        * "coefficient of variation":http://en.wikipedia.org/wiki/\
+Coefficient_of_variation
     """
     # Convert all the values to floats and test to make sure
     # there aren't any strings in there

@@ -682,7 +682,7 @@ class CalculateTest(BaseTest):
             6.442049363362563
         )
         self.assertEqual(
-            calculate.variation_coefficient(range(1,100000)),
+            calculate.variation_coefficient(range(1, 100000)),
             0.5773444956580661
         )
         self.assertRaises(
