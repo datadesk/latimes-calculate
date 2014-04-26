@@ -404,4 +404,4 @@ Variation coefficient
 
         >>> import calculate
         >>> calculate.variation_coefficient(range(1, 1000))
-        5767726299562651
+        0.5767726299562651
