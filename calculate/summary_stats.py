@@ -16,6 +16,7 @@ def summary_stats(data_list):
     min_ = min(data_list)
     range_ = calculate.range(data_list)
     standard_deviation = calculate.standard_deviation(data_list)
+    variation_coefficient = calculate.variation_coefficient(data_list)
 
     table = ptable.indent(
         [
@@ -28,6 +29,7 @@ def summary_stats(data_list):
             ['minimum', str(min_)],
             ['range', str(range_)],
             ['standard deviation', str(standard_deviation)],
+            ['variation coefficient', str(variation_coefficient)],
         ],
         hasHeader=True,
         separateRows=False,

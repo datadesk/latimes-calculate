@@ -355,7 +355,11 @@ Standard deviation
 
 .. method:: standard_deviation(data_list)
 
-    Accepts a sample of values and returns the standard deviation. Standard deviation measures how widely dispersed the values are from the mean. A lower value means the data tend to be bunched close to the averge. A higher value means they tend to be further away. ::
+    Accepts a sample of values and returns the standard deviation. 
+    Standard deviation measures how widely dispersed the values are from the mean.
+    A lower value means the data tend to be bunched close to the average. A 
+    higher value means they tend to be further away.  This is a "population"
+    calculation that assumes that you are submitting all of the values, not a sample.
 
         >>> import calculate
         >>> calculate.standard_deviation([2,3,3,4])
@@ -372,13 +376,32 @@ Summary statistics
 
         >>> import calculate
         >>> calculate.summary_stats(range(1,101))
-        | Statistic          | Value         |
-        --------------------------------------
-        | n                  | 100           |
-        | mean               | 50.5          |
-        | median             | 50.5          |
-        | mode               | None          |
-        | maximum            | 100           |
-        | minimum            | 1             |
-        | range              | 99.0          |
-        | standard deviation | 28.8660700477 |
+        | Statistic             | Value         |
+        ----------------------------------------|
+        | n                     | 100           |
+        | mean                  | 50.5          |
+        | median                | 50.5          |
+        | mode                  | None          |
+        | maximum               | 100           |
+        | minimum               | 1             |
+        | range                 | 99.0          |
+        | standard deviation    | 28.8660700477 |
+        | variation coefficient | 0.57160534748 |
+
+Variation coefficient
+---------------------
+
+.. method:: variation_coefficient(data_list)
+
+    Accepts a list of values and returns the variation coefficient,
+    which is a normalized measure of the distribution. 
+
+    This is the sort of thing you can use to compare the standard deviation
+    of sets that are measured in different units.
+
+    Note that it uses our "population" standard deviation as part of the
+    calculation, not a "sample" standard deviation.
+
+        >>> import calculate
+        >>> calculate.variation_coefficient(range(1, 1000))
+        5767726299562651

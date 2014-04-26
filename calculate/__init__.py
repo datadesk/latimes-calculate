@@ -25,6 +25,7 @@ DJANGO_MODULES = [
     'split_at_breakpoints',
     'standard_deviation',
     'summary_stats',
+    'variation_coefficient',
 ]
 __all__ = DJANGO_MODULES
 
@@ -52,6 +53,7 @@ from .range import range
 from .split_at_breakpoints import split_at_breakpoints
 from .standard_deviation import standard_deviation
 from .summary_stats import summary_stats
+from .variation_coefficient import variation_coefficient
 
 # Test whether Django is installed
 try:
@@ -105,6 +107,7 @@ if HAS_DJANGO and HAS_GEODJANGO:
         'mean_center',
         'nudge_points',
         'standard_deviation_distance',
+        'variation_coefficient',
     ]
     from .random_point import random_point
     from .mean_center import mean_center

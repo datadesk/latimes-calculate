@@ -4,12 +4,15 @@ import calculate
 
 def standard_deviation(data_list):
     """
-    Accepts a sample of values and returns the standard deviation.
+    Accepts a list of values and returns the standard deviation.
 
     Standard deviation measures how widely dispersed the values are
     from the mean. A lower value means the data tend to be bunched
     close to the averge. A higher value means they tend to be further
     away.
+
+    This is a "population" calculation that assumes that you are submitting
+    all of the values, not a sample.
 
     h3. Example usage
 

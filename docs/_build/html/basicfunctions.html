@@ -458,7 +458,11 @@ the margin of victory for a leading candidate.</p>
 <dl class="method">
 <dt id="standard_deviation">
 <tt class="descname">standard_deviation</tt><big>(</big><em>data_list</em><big>)</big><a class="headerlink" href="#standard_deviation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accepts a sample of values and returns the standard deviation. Standard deviation measures how widely dispersed the values are from the mean. A lower value means the data tend to be bunched close to the averge. A higher value means they tend to be further away.</p>
+<dd><p>Accepts a sample of values and returns the standard deviation.
+Standard deviation measures how widely dispersed the values are from the mean.
+A lower value means the data tend to be bunched close to the average. A
+higher value means they tend to be further away.  This is a &#8220;population&#8221;
+calculation that assumes that you are submitting all of the values, not a sample.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">standard_deviation</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 <span class="go">0.70710678118654757</span>
@@ -477,16 +481,36 @@ the margin of victory for a leading candidate.</p>
 <dd><p>Accepts a sample of numbers and returns a pretty print out of a variety of descriptive statistics.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">summary_stats</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">))</span>
-<span class="go">| Statistic          | Value         |</span>
-<span class="go">--------------------------------------</span>
-<span class="go">| n                  | 100           |</span>
-<span class="go">| mean               | 50.5          |</span>
-<span class="go">| median             | 50.5          |</span>
-<span class="go">| mode               | None          |</span>
-<span class="go">| maximum            | 100           |</span>
-<span class="go">| minimum            | 1             |</span>
-<span class="go">| range              | 99.0          |</span>
-<span class="go">| standard deviation | 28.8660700477 |</span>
+<span class="go">| Statistic             | Value         |</span>
+<span class="go">----------------------------------------|</span>
+<span class="go">| n                     | 100           |</span>
+<span class="go">| mean                  | 50.5          |</span>
+<span class="go">| median                | 50.5          |</span>
+<span class="go">| mode                  | None          |</span>
+<span class="go">| maximum               | 100           |</span>
+<span class="go">| minimum               | 1             |</span>
+<span class="go">| range                 | 99.0          |</span>
+<span class="go">| standard deviation    | 28.8660700477 |</span>
+<span class="go">| variation_coefficient | 0.57160534748 |</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="variation-coefficient">
+<h2>Variation coefficient<a class="headerlink" href="#variation-coefficient" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="variation_coefficient">
+<tt class="descname">variation_coefficient</tt><big>(</big><em>data_list</em><big>)</big><a class="headerlink" href="#variation_coefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts a list of values and returns the variation coefficient,
+which is a normalized measure of the distribution.</p>
+<p>This is the sort of thing you can use to compare the standard deviation
+of sets that are measured in different units.</p>
+<p>Note that it uses our &#8220;population&#8221; standard deviation as part of the
+calculation, not a &#8220;sample&#8221; standard deviation.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">calculate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate</span><span class="o">.</span><span class="n">variation_coefficient</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="go">5767726299562651</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -527,6 +551,7 @@ the margin of victory for a leading candidate.</p>
 <li><a class="reference internal" href="#split-at-breakpoints">Split at breakpoints</a></li>
 <li><a class="reference internal" href="#standard-deviation">Standard deviation</a></li>
 <li><a class="reference internal" href="#summary-statistics">Summary statistics</a></li>
+<li><a class="reference internal" href="#variation-coefficient">Variation coefficient</a></li>
 </ul>
 </li>
 </ul>

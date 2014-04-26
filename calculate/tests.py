@@ -676,6 +676,21 @@ class CalculateTest(BaseTest):
             0.0003720200725858596
         )
 
+    def test_variation_coefficient(self):
+        self.assertEqual(
+            calculate.variation_coefficient([1, 2, -2, 4, -3]),
+            6.442049363362563
+        )
+        self.assertEqual(
+            calculate.variation_coefficient(range(1,100000)),
+            0.5773444956580661
+        )
+        self.assertRaises(
+            ValueError,
+            calculate.variation_coefficient,
+            ['a', 2, 3, 3, 4]
+        )
+
     def test_summary_stats(self):
         _stdout = sys.stdout
         sys.stdout = io.StringIO()
