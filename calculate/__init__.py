@@ -15,6 +15,7 @@ DJANGO_MODULES = [
     'median',
     'mode',
     'ordinal_rank',
+    'pareto',
     'pearson',
     'per_capita',
     'per_sqmi',
@@ -43,6 +44,7 @@ from .mean import mean
 from .median import median
 from .mode import mode
 from .ordinal_rank import ordinal_rank
+from .pareto import pareto_median
 from .pearson import pearson
 from .per_capita import per_capita
 from .per_sqmi import per_sqmi
@@ -93,6 +95,7 @@ if HAS_DJANGO and HAS_GEODJANGO:
         'median',
         'mode',
         'ordinal_rank',
+        'pareto',
         'pearson',
         'per_capita',
         'per_sqmi',

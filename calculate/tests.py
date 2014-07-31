@@ -475,6 +475,15 @@ class CalculateTest(BaseTest):
             direction='foobar',
         )
 
+    def test_pareto_median(self):
+        age_data = [[216350, 0], [201692, 5], [211151, 10], [204986, 15],
+                    [200257, 20], [439047, 25], [459664, 35], [424775, 45],
+                    [163492, 55], [127511, 60], [169552, 65], [113693, 75],
+                    [44661, 85]]
+        self.assertEqual(calculate.pareto_median(age_data), 35.324856851961435)
+        self.assertEqual(calculate.pareto_median([]), 0)
+        self.assertEqual(calculate.pareto_median([[0, 0], [0, 0]]), 0)
+
     def test_pearson(self):
         students = [
             dict(sat=1200, gpa=3.6, drinks_per_day=0.3),
