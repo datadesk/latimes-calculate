@@ -32,6 +32,18 @@ def pareto_median(data_list):
     >>> ]
     >>> pareto_median(ages)
     35.3
+
+    And, finally, an explanation from Steve Doig on how this all
+    works, using the above sample data:
+
+    "The total population is 2,976,831, so the midpoint of the
+    population is 2,976,831/2=1,488,416. That value falls into
+    the 35 to 44 years range, which begins with 1,473,483 counted
+    in ages 0-34. There are 459,664 people in the 35-44 range.
+    The midpoint is 1,488,416-1,473,483 = 14,933 people into the
+    range. As a decimal, it is 14,933/459,664 = 0.032 into the range.
+    The 35-44 range is 10 years wide. 35+(0.032*10) = 35.3 years"
+
     """
     # First make sure our list is in ascending order
     data_list = sorted(data_list, key=lambda lst: lst[1])
