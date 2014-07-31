@@ -15,24 +15,23 @@ def pareto_median(data_list):
 
     Here's a full example using age data from the census:
 
-    ages = [
-    # count (# of people)  base (lower bound of group)
-        [216350,            0],            # Under 5 years
-        [201692,            5],            # 5 to 9 years
-        [211151,            10],           # 10 to 14 years
-        [204986,            15],           # 15 to 19 years
-        [200257,            20],           # 20 to 24 years
-        [439047,            25],           # 25 to 34 years
-        [459664,            35],           # 35 to 44 years
-        [424775,            45],           # 45 to 54 years
-        [163492,            55],           # 55 to 59 years
-        [127511,            60],           # 60 to 64 years
-        [169552,            65],           # 65 to 74 years
-        [113693,            75],           # 75 to 84 years
-        [44661,             85],           # 85 years and over
-    ]
-    pareto_median(ages)
-    >>> 35.3
+    >>> ages = [
+    >>>     [216350, 0],  # Under 5 years
+    >>>     [201692, 5],  # 5 to 9 years
+    >>>     [211151, 10], # 10 to 14 years
+    >>>     [204986, 15], # 15 to 19 years
+    >>>     [200257, 20], # 20 to 24 years
+    >>>     [439047, 25], # 25 to 34 years
+    >>>     [459664, 35], # 35 to 44 years
+    >>>     [424775, 45], # 45 to 54 years
+    >>>     [163492, 55], # 55 to 59 years
+    >>>     [127511, 60], # 60 to 64 years
+    >>>     [169552, 65], # 65 to 74 years
+    >>>     [113693, 75], # 75 to 84 years
+    >>>     [44661, 85],  # 85 years and over
+    >>> ]
+    >>> pareto_median(ages)
+    35.3
     """
     # First make sure our list is in ascending order
     data_list = sorted(data_list, key=lambda lst: lst[1])
