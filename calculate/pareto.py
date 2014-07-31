@@ -1,7 +1,7 @@
 def pareto_median(data_list):
     """
     This is a python port of a formula by Steve Doig,
-    Bob Hoyer and Meghan Hoyer
+    Bob Hoyer and Meghan Hoyer.
     
     It estimates the median of grouped/range data, like we get
     from census age and income distributions (n number of
@@ -34,7 +34,7 @@ def pareto_median(data_list):
     pareto_median(ages)
     >>> 35.3
     """
-    # First make sure out list is in ascending order
+    # First make sure our list is in ascending order
     data_list = sorted(data_list, key=lambda lst: lst[1])
     
     # Pull out our elements into separate lists to make
