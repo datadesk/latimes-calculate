@@ -72,7 +72,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'bdist_wininst':
 
 setup(
       name='latimes-calculate',
-      version='0.2.4',
+      version='0.2.5',
       description='Some simple math we use to do journalism.',
       author='Ben Welsh',
       author_email='ben.welsh@latimes.com',
@@ -80,7 +80,7 @@ setup(
       download_url='http://github.com/datadesk/latimes-calculate.git',
       packages=packages,
       cmdclass = cmdclasses,
-      install_requires=['six==1.4.1'],
+      install_requires=['six>=1.4.1'],
       license='MIT',
       keywords='math statistics gis geospatial numbers',
       classifiers=[
