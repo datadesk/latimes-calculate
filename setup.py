@@ -72,7 +72,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'bdist_wininst':
 
 setup(
       name='latimes-calculate',
-      version='0.2.5',
+      version='0.3.0',
       description='Some simple math we use to do journalism.',
       author='Ben Welsh',
       author_email='ben.welsh@latimes.com',

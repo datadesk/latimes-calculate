@@ -5,7 +5,7 @@ Sphinx==1.1.2
 argparse
 coverage==3.7.1
 docutils==0.8.1
-latimes-calculate==0.2.1
+latimes-calculate==0.2.5
 pep8==1.4.6
 py==1.4.17
 pyflakes==0.7.3
