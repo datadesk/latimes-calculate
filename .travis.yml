@@ -29,6 +29,7 @@ matrix:
     - python: "3.3"
       env: "DJANGO_VERSION=1.2.7"
 # Tell it the things it will need to install when it boots
+sudo: true
 before_install:
  - sudo apt-get update
  - sudo apt-get install -qq spatialite-bin binutils libproj-dev gdal-bin libgeos-dev libgdal-dev postgresql-9.3-postgis
