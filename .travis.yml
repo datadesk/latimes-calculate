@@ -32,15 +32,21 @@ matrix:
 sudo: true
 before_install:
  - sudo apt-get update
- - sudo apt-get install -qq spatialite-bin binutils libproj-dev gdal-bin libgeos-dev libgdal-dev postgresql-9.3-postgis
-install: 
+ - sudo apt-get install -qq spatialite-bin
+ - sudo apt-get install -qq binutils
+ - sudo apt-get install -qq libproj-dev
+ - sudo apt-get install -qq gdal-bin
+ - sudo apt-get install -qq libgeos-dev
+ - sudo apt-get install -qq libgdal-dev
+ - sudo apt-get install -qq postgresql-9.3-postgis
+install:
    # Install dependencies
  - pip install -r requirements.txt
    # Install whatever version of Django that's listed above
    # Travis is currently working on
  - pip install -q Django==$DJANGO_VERSION
 # Tell Travis how to run the test script itself
-script: 
+script:
  - pep8 calculate
  - pyflakes calculate
  - coverage run quicktest.py calculate
