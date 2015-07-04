@@ -32,13 +32,7 @@ matrix:
 sudo: true
 before_install:
  - sudo apt-get update
- - sudo apt-get install -qq spatialite-bin
- - sudo apt-get install -qq binutils
- - sudo apt-get install -qq libproj-dev
- - sudo apt-get install -qq gdal-bin
- - sudo apt-get install -qq libgeos-dev
- - sudo apt-get install -qq libgdal-dev
- - sudo apt-get install -qq postgresql-9.3-postgis-2.1
+ - sudo apt-get install -qq postgis binutils
 install:
    # Install dependencies
  - pip install -r requirements.txt
