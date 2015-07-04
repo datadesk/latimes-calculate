@@ -66,10 +66,8 @@ try:
     try:
         from django.contrib.gis.geos.libgeos import geos_version
         from django.contrib.gis.geos.libgeos import geos_version_info
-        from django.contrib.gis.geos.libgeos import GEOS_PREPARE
         assert geos_version
         assert geos_version_info
-        assert GEOS_PREPARE
         HAS_GEODJANGO = True
     except ImportError:
         HAS_GEODJANGO = False
