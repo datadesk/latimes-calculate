@@ -1,26 +1,20 @@
-# Tell Travis you want a Python environment to test in
 language: python
-# List the versions of Python you'd like to test against
 python:
   - "2.7"
   - "3.2"
   - "3.3"
-# List the versions of Django you'd like to test against
+  - "3.4"
 env:
-  - DJANGO_VERSION=1.5.5
-  - DJANGO_VERSION=1.6.2
-# Tell it the things it will need to install when it boots
+  - DJANGO_VERSION=1.6.11
+  - DJANGO_VERSION=1.7.8
+  - DJANGO_VERSION=1.8.2
 sudo: true
 before_install:
  - sudo apt-get update
  - sudo apt-get install -qq postgis binutils
 install:
-   # Install dependencies
  - pip install -r requirements.txt
-   # Install whatever version of Django that's listed above
-   # Travis is currently working on
  - pip install -q Django==$DJANGO_VERSION
-# Tell Travis how to run the test script itself
 script:
  - pep8 calculate
  - pyflakes calculate
