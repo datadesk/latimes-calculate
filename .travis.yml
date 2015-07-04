@@ -17,7 +17,7 @@ install:
 script:
  - pep8 calculate
  - pyflakes calculate
- - cd docs && make docs && cd ..
+ - cd docs && make html && cd ..
  - coverage run setup.py test
 after_success:
   - coveralls
