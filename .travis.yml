@@ -38,7 +38,7 @@ before_install:
  - sudo apt-get install -qq gdal-bin
  - sudo apt-get install -qq libgeos-dev
  - sudo apt-get install -qq libgdal-dev
- - sudo apt-get install -qq postgresql-9.3-postgis
+ - sudo apt-get install -qq postgresql-9.3-postgis-2.1
 install:
    # Install dependencies
  - pip install -r requirements.txt
