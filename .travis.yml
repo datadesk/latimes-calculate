@@ -17,6 +17,6 @@ install:
 script:
  - pep8 calculate
  - pyflakes calculate
- - coverage run quicktest.py calculate
+ - coverage run setup.py test
 after_success:
   - coveralls
