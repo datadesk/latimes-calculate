@@ -13,7 +13,7 @@ class osx_install_data(install_data):
     # which is wrong. Python 2.5 supplied with MacOS 10.5 has an Apple-specific fix
     # for this in distutils.command.install_data#306. It fixes install_lib but not
     # install_data, which is why we roll our own install_data class.
-    
+
     def finalize_options(self):
         # By the time finalize_options is called, install.install_lib is set to the
         # fixed directory, so we set the installdir to install_lib. The
@@ -21,10 +21,10 @@ class osx_install_data(install_data):
         self.set_undefined_options('install', ('install_lib', 'install_dir'))
         install_data.finalize_options(self)
 
-if sys.platform == "darwin": 
-    cmdclasses = {'install_data': osx_install_data} 
-else: 
-    cmdclasses = {'install_data': install_data} 
+if sys.platform == "darwin":
+    cmdclasses = {'install_data': osx_install_data}
+else:
+    cmdclasses = {'install_data': install_data}
 
 def fullsplit(path, result=None):
     """
@@ -84,11 +84,9 @@ setup(
       license='MIT',
       keywords='math statistics gis geospatial numbers',
       classifiers=[
-        "Intended Audience :: Developers",
-        "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules"
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
       ],
 )
