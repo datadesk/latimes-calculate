@@ -53,8 +53,8 @@ refractions.net/pipermail/postgis-users/2008-June/020354.html
     for obj in sorted_gqs:
         x = getattr(obj, pan).x
         y = getattr(obj, pan).y
-        if (x == previous_x and y == previous_y
-                and previous_x is not None and previous_y is not None):
+        if (x == previous_x and y == previous_y and
+                previous_x is not None and previous_y is not None):
             # angle value in radian between 0 and 2pi
             theta = random.random() * 2 * math.pi
             new_point = Point(

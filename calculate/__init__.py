@@ -1,4 +1,29 @@
 from __future__ import absolute_import
+from .age import age
+from .adjusted_monthly_value import adjusted_monthly_value
+from .at_percentile import at_percentile
+from .benfords_law import benfords_law
+from .competition_rank import competition_rank
+from .date_range import date_range
+from .decile import decile
+from .elfi import elfi
+from .equal_sized_breakpoints import equal_sized_breakpoints
+from .margin_of_victory import margin_of_victory
+from .mean import mean
+from .median import median
+from .mode import mode
+from .ordinal_rank import ordinal_rank
+from .pearson import pearson
+from .per_capita import per_capita
+from .per_sqmi import per_sqmi
+from .percentage_change import percentage_change
+from .percentage import percentage
+from .percentile import percentile
+from .range import range
+from .split_at_breakpoints import split_at_breakpoints
+from .standard_deviation import standard_deviation
+from .summary_stats import summary_stats
+from .variation_coefficient import variation_coefficient
 
 DJANGO_MODULES = [
     'age',
@@ -28,32 +53,6 @@ DJANGO_MODULES = [
     'variation_coefficient',
 ]
 __all__ = DJANGO_MODULES
-
-from .age import age
-from .adjusted_monthly_value import adjusted_monthly_value
-from .at_percentile import at_percentile
-from .benfords_law import benfords_law
-from .competition_rank import competition_rank
-from .date_range import date_range
-from .decile import decile
-from .elfi import elfi
-from .equal_sized_breakpoints import equal_sized_breakpoints
-from .margin_of_victory import margin_of_victory
-from .mean import mean
-from .median import median
-from .mode import mode
-from .ordinal_rank import ordinal_rank
-from .pearson import pearson
-from .per_capita import per_capita
-from .per_sqmi import per_sqmi
-from .percentage_change import percentage_change
-from .percentage import percentage
-from .percentile import percentile
-from .range import range
-from .split_at_breakpoints import split_at_breakpoints
-from .standard_deviation import standard_deviation
-from .summary_stats import summary_stats
-from .variation_coefficient import variation_coefficient
 
 # Test whether Django is installed
 try:

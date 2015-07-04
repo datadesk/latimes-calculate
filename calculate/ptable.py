@@ -65,8 +65,7 @@ def indent(rows, hasHeader=False, headerChar='-', delim=' | ', justify='left',
                 delim.join([
                     justify(str(item), width)
                     for (item, width) in zip(row, maxWidths)
-                ])
-                + postfix, file=output
+                ]) + postfix, file=output
             )
         if separateRows or hasHeader:
             print(rowSeparator, file=output)
