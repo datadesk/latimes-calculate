@@ -34,24 +34,10 @@ class CalculateTest(BaseTest):
             calculate.adjusted_monthly_value(10, date(2009, 12, 31)),
             9.67741935483871
         )
-        self.assertRaises(
-            TypeError,
-            calculate.adjusted_monthly_value,
-            'a',
-            date(2009, 12, 31)
-        )
-        self.assertRaises(
-            TypeError,
-            calculate.adjusted_monthly_value,
-            10,
-            '2010-01-01'
-        )
-        self.assertRaises(
-            TypeError,
-            calculate.adjusted_monthly_value,
-            10,
-            2
-        )
+        with self.assertRaises(TypeError):
+            calculate.adjusted_monthly_value('a', date(2009, 12, 31))
+            calculate.adjusted_monthly_value(10, '2010-01-01')
+            calculate.adjusted_monthly_value(10, 2)
 
     def test_age(self):
         # All the data types
