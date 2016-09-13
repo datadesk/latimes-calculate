@@ -16,7 +16,7 @@ def nudge_points(geoqueryset, point_attribute_name='point', radius=0.0001):
     to the "point_attribute_name" kwarg.
 
     By default, the distance of the move is 0.0001 decimal degrees. You can
-    mofied it by submitting a "radius" kwarg.
+    modify it by submitting a "radius" kwarg.
 
     I'm not sure if this will go wrong if your data is in a different unit
     of measurement.
